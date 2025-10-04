@@ -2,16 +2,24 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Trophy, Users, Target, Calendar, Award, Heart } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import heroImage from "@/assets/hero-table-tennis.jpg";
 import teamImage from "@/assets/team-spirit.jpg";
+import actionPlayer from "@/assets/action-player.jpg";
+import ballPaddle from "@/assets/ball-paddle.jpg";
+import trainingHall from "@/assets/training-hall.jpg";
 
 const Home = () => {
+  const presentationAnim = useScrollAnimation();
+  const teamsAnim = useScrollAnimation();
+  const newsAnim = useScrollAnimation();
+
   return (
     <div className="flex flex-col">
       {/* Hero Section */}
       <section className="relative h-[600px] flex items-center justify-center overflow-hidden">
         <div
-          className="absolute inset-0 bg-cover bg-center"
+          className="absolute inset-0 bg-cover bg-center transition-transform duration-700 hover:scale-105"
           style={{ backgroundImage: `url(${heroImage})` }}
         >
           <div className="absolute inset-0 bg-gradient-hero"></div>
@@ -43,7 +51,12 @@ const Home = () => {
       {/* Presentation Section */}
       <section className="py-20 bg-gradient-subtle">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
+          <div 
+            ref={presentationAnim.ref}
+            className={`text-center mb-12 transition-all duration-700 ${
+              presentationAnim.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+            }`}
+          >
             <h2 className="text-4xl font-bold text-primary mb-4">Bienvenue à l'USTH Tennis de Table</h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
               Notre club fait partie de l'Union Sportive Thionville Hayange et incarne les valeurs de convivialité, 
@@ -52,8 +65,8 @@ const Home = () => {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8 mt-12">
-            <Card className="p-6 text-center hover:shadow-lg transition-shadow">
-              <div className="w-16 h-16 mx-auto mb-4 bg-primary/10 rounded-full flex items-center justify-center">
+            <Card className="p-6 text-center hover:shadow-lg hover:-translate-y-2 transition-all duration-300 group">
+              <div className="w-16 h-16 mx-auto mb-4 bg-primary/10 rounded-full flex items-center justify-center group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-300">
                 <Users className="h-8 w-8 text-primary" />
               </div>
               <h3 className="text-xl font-semibold mb-2">Esprit d'Équipe</h3>
@@ -62,8 +75,8 @@ const Home = () => {
               </p>
             </Card>
 
-            <Card className="p-6 text-center hover:shadow-lg transition-shadow">
-              <div className="w-16 h-16 mx-auto mb-4 bg-primary/10 rounded-full flex items-center justify-center">
+            <Card className="p-6 text-center hover:shadow-lg hover:-translate-y-2 transition-all duration-300 group">
+              <div className="w-16 h-16 mx-auto mb-4 bg-primary/10 rounded-full flex items-center justify-center group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-300">
                 <Target className="h-8 w-8 text-primary" />
               </div>
               <h3 className="text-xl font-semibold mb-2">Progression</h3>
@@ -72,8 +85,8 @@ const Home = () => {
               </p>
             </Card>
 
-            <Card className="p-6 text-center hover:shadow-lg transition-shadow">
-              <div className="w-16 h-16 mx-auto mb-4 bg-primary/10 rounded-full flex items-center justify-center">
+            <Card className="p-6 text-center hover:shadow-lg hover:-translate-y-2 transition-all duration-300 group">
+              <div className="w-16 h-16 mx-auto mb-4 bg-primary/10 rounded-full flex items-center justify-center group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-300">
                 <Trophy className="h-8 w-8 text-primary" />
               </div>
               <h3 className="text-xl font-semibold mb-2">Ambition</h3>
@@ -86,9 +99,18 @@ const Home = () => {
       </section>
 
       {/* Teams Section */}
-      <section className="py-20 bg-background">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
+      <section className="py-20 bg-background relative overflow-hidden">
+        <div 
+          className="absolute right-0 top-1/4 w-1/3 h-96 opacity-10 bg-cover bg-center"
+          style={{ backgroundImage: `url(${actionPlayer})` }}
+        ></div>
+        <div className="container mx-auto px-4 relative z-10">
+          <div 
+            ref={teamsAnim.ref}
+            className={`text-center mb-12 transition-all duration-700 ${
+              teamsAnim.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+            }`}
+          >
             <h2 className="text-4xl font-bold text-primary mb-4">Nos Équipes</h2>
             <p className="text-lg text-muted-foreground">
               Découvrez nos différentes équipes et trouvez celle qui vous correspond
@@ -96,8 +118,8 @@ const Home = () => {
           </div>
 
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            <Card className="p-8 hover:shadow-lg transition-all hover:scale-105">
-              <Award className="h-12 w-12 text-primary mb-4" />
+            <Card className="p-8 hover:shadow-xl transition-all duration-300 hover:scale-105 hover:border-primary/50 group">
+              <Award className="h-12 w-12 text-primary mb-4 group-hover:scale-110 transition-transform" />
               <h3 className="text-2xl font-bold mb-2">Équipe Compétition</h3>
               <p className="text-muted-foreground mb-4">
                 Championnat régional et départemental
@@ -118,8 +140,8 @@ const Home = () => {
               </ul>
             </Card>
 
-            <Card className="p-8 hover:shadow-lg transition-all hover:scale-105">
-              <Heart className="h-12 w-12 text-primary mb-4" />
+            <Card className="p-8 hover:shadow-xl transition-all duration-300 hover:scale-105 hover:border-primary/50 group">
+              <Heart className="h-12 w-12 text-primary mb-4 group-hover:scale-110 transition-transform" />
               <h3 className="text-2xl font-bold mb-2">Équipe Loisir</h3>
               <p className="text-muted-foreground mb-4">
                 Pour le plaisir et la convivialité
@@ -154,7 +176,12 @@ const Home = () => {
       {/* News/Results Section */}
       <section className="py-20 bg-secondary/30">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
+          <div 
+            ref={newsAnim.ref}
+            className={`text-center mb-12 transition-all duration-700 ${
+              newsAnim.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+            }`}
+          >
             <h2 className="text-4xl font-bold text-primary mb-4">Actualités & Résultats</h2>
             <p className="text-lg text-muted-foreground">
               Suivez les dernières nouvelles du club
@@ -162,8 +189,11 @@ const Home = () => {
           </div>
 
           <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-            <Card className="overflow-hidden hover:shadow-lg transition-shadow">
-              <div className="h-48 bg-gradient-primary"></div>
+            <Card className="overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group">
+              <div 
+                className="h-48 bg-cover bg-center group-hover:scale-110 transition-transform duration-300"
+                style={{ backgroundImage: `url(${ballPaddle})` }}
+              ></div>
               <div className="p-6">
                 <div className="flex items-center gap-2 text-sm text-muted-foreground mb-2">
                   <Calendar className="h-4 w-4" />
@@ -176,8 +206,11 @@ const Home = () => {
               </div>
             </Card>
 
-            <Card className="overflow-hidden hover:shadow-lg transition-shadow">
-              <div className="h-48 bg-gradient-primary"></div>
+            <Card className="overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group">
+              <div 
+                className="h-48 bg-cover bg-center group-hover:scale-110 transition-transform duration-300"
+                style={{ backgroundImage: `url(${trainingHall})` }}
+              ></div>
               <div className="p-6">
                 <div className="flex items-center gap-2 text-sm text-muted-foreground mb-2">
                   <Calendar className="h-4 w-4" />
@@ -190,8 +223,11 @@ const Home = () => {
               </div>
             </Card>
 
-            <Card className="overflow-hidden hover:shadow-lg transition-shadow">
-              <div className="h-48 bg-gradient-primary"></div>
+            <Card className="overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group">
+              <div 
+                className="h-48 bg-cover bg-center group-hover:scale-110 transition-transform duration-300"
+                style={{ backgroundImage: `url(${actionPlayer})` }}
+              ></div>
               <div className="p-6">
                 <div className="flex items-center gap-2 text-sm text-muted-foreground mb-2">
                   <Calendar className="h-4 w-4" />

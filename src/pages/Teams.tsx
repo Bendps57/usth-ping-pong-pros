@@ -1,8 +1,13 @@
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Trophy, Users, Clock, MapPin } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
+import actionPlayer from "@/assets/action-player.jpg";
 
 const Teams = () => {
+  const teamsAnim = useScrollAnimation();
+  const calendarAnim = useScrollAnimation();
+
   const teams = [
     {
       name: "Équipe 1 - Régionale",
@@ -55,15 +60,24 @@ const Teams = () => {
       </section>
 
       {/* Teams List */}
-      <section className="py-20 bg-background">
+      <section className="py-20 bg-background relative overflow-hidden">
+        <div 
+          className="absolute right-0 top-20 w-1/4 h-80 opacity-10 bg-cover bg-center"
+          style={{ backgroundImage: `url(${actionPlayer})` }}
+        ></div>
         <div className="container mx-auto px-4">
-          <div className="space-y-8 max-w-5xl mx-auto">
+          <div 
+            ref={teamsAnim.ref}
+            className={`space-y-8 max-w-5xl mx-auto transition-all duration-700 ${
+              teamsAnim.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+            }`}
+          >
             {teams.map((team, index) => (
-              <Card key={index} className="p-8 hover:shadow-lg transition-shadow">
+              <Card key={index} className="p-8 hover:shadow-xl hover:-translate-x-2 transition-all duration-300 group">
                 <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-6">
                   <div>
                     <div className="flex items-center gap-3 mb-2">
-                      <Trophy className="h-6 w-6 text-primary" />
+                      <Trophy className="h-6 w-6 text-primary group-hover:scale-110 transition-transform" />
                       <h2 className="text-2xl font-bold text-primary">{team.name}</h2>
                     </div>
                     <Badge variant="secondary" className="mb-3">
@@ -117,12 +131,17 @@ const Teams = () => {
       {/* Calendar Section */}
       <section className="py-20 bg-secondary/30">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
+          <div 
+            ref={calendarAnim.ref}
+            className={`max-w-4xl mx-auto transition-all duration-700 ${
+              calendarAnim.isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
+            }`}
+          >
             <h2 className="text-4xl font-bold text-primary mb-8 text-center">Calendrier des Rencontres</h2>
             
             <Card className="p-8">
               <div className="space-y-4">
-                <div className="flex items-center justify-between py-4 border-b">
+                <div className="flex items-center justify-between py-4 border-b hover:bg-primary/5 hover:px-4 transition-all duration-300 rounded-lg">
                   <div>
                     <h3 className="font-semibold">Équipe 1 vs Nancy TT</h3>
                     <p className="text-sm text-muted-foreground">Championnat Régional</p>
@@ -133,7 +152,7 @@ const Teams = () => {
                   </div>
                 </div>
 
-                <div className="flex items-center justify-between py-4 border-b">
+                <div className="flex items-center justify-between py-4 border-b hover:bg-primary/5 hover:px-4 transition-all duration-300 rounded-lg">
                   <div>
                     <h3 className="font-semibold">Équipe 2 vs Metz Sud</h3>
                     <p className="text-sm text-muted-foreground">Championnat Départemental</p>
@@ -144,7 +163,7 @@ const Teams = () => {
                   </div>
                 </div>
 
-                <div className="flex items-center justify-between py-4 border-b">
+                <div className="flex items-center justify-between py-4 border-b hover:bg-primary/5 hover:px-4 transition-all duration-300 rounded-lg">
                   <div>
                     <h3 className="font-semibold">Équipe 1 vs Strasbourg TT</h3>
                     <p className="text-sm text-muted-foreground">Championnat Régional</p>
@@ -155,7 +174,7 @@ const Teams = () => {
                   </div>
                 </div>
 
-                <div className="flex items-center justify-between py-4">
+                <div className="flex items-center justify-between py-4 hover:bg-primary/5 hover:px-4 transition-all duration-300 rounded-lg">
                   <div>
                     <h3 className="font-semibold">Équipe 3 vs Forbach TT</h3>
                     <p className="text-sm text-muted-foreground">Championnat Départemental</p>

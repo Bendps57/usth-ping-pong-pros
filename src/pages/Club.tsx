@@ -1,7 +1,14 @@
 import { Card } from "@/components/ui/card";
 import { History, Target, Users2, Award } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
+import trainingHall from "@/assets/training-hall.jpg";
+import equipment from "@/assets/equipment.jpg";
 
 const Club = () => {
+  const historyAnim = useScrollAnimation();
+  const valuesAnim = useScrollAnimation();
+  const objectivesAnim = useScrollAnimation();
+
   return (
     <div className="flex flex-col">
       {/* Header */}
@@ -15,9 +22,18 @@ const Club = () => {
       </section>
 
       {/* Histoire */}
-      <section className="py-20 bg-background">
+      <section className="py-20 bg-background relative overflow-hidden">
+        <div 
+          className="absolute left-0 top-1/4 w-1/2 h-96 opacity-5 bg-cover bg-center"
+          style={{ backgroundImage: `url(${trainingHall})` }}
+        ></div>
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
+          <div 
+            ref={historyAnim.ref}
+            className={`max-w-4xl mx-auto transition-all duration-700 ${
+              historyAnim.isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'
+            }`}
+          >
             <div className="flex items-center gap-4 mb-8">
               <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center">
                 <History className="h-8 w-8 text-primary" />
@@ -48,7 +64,12 @@ const Club = () => {
       {/* Valeurs */}
       <section className="py-20 bg-secondary/30">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
+          <div 
+            ref={valuesAnim.ref}
+            className={`text-center mb-12 transition-all duration-700 ${
+              valuesAnim.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+            }`}
+          >
             <h2 className="text-4xl font-bold text-primary mb-4">Nos Valeurs</h2>
             <p className="text-lg text-muted-foreground">
               Ce qui nous anime au quotidien
@@ -56,8 +77,8 @@ const Club = () => {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            <Card className="p-8 text-center hover:shadow-lg transition-shadow">
-              <Target className="h-12 w-12 text-primary mx-auto mb-4" />
+            <Card className="p-8 text-center hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group">
+              <Target className="h-12 w-12 text-primary mx-auto mb-4 group-hover:scale-110 transition-transform" />
               <h3 className="text-xl font-bold mb-3">Excellence Sportive</h3>
               <p className="text-muted-foreground">
                 Nous encourageons le dépassement de soi et la progression constante, 
@@ -65,16 +86,16 @@ const Club = () => {
               </p>
             </Card>
 
-            <Card className="p-8 text-center hover:shadow-lg transition-shadow">
-              <Users2 className="h-12 w-12 text-primary mx-auto mb-4" />
+            <Card className="p-8 text-center hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group">
+              <Users2 className="h-12 w-12 text-primary mx-auto mb-4 group-hover:scale-110 transition-transform" />
               <h3 className="text-xl font-bold mb-3">Esprit d'Équipe</h3>
               <p className="text-muted-foreground">
                 La solidarité et l'entraide sont au cœur de notre club. Nous gagnons et apprenons ensemble.
               </p>
             </Card>
 
-            <Card className="p-8 text-center hover:shadow-lg transition-shadow">
-              <Award className="h-12 w-12 text-primary mx-auto mb-4" />
+            <Card className="p-8 text-center hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group">
+              <Award className="h-12 w-12 text-primary mx-auto mb-4 group-hover:scale-110 transition-transform" />
               <h3 className="text-xl font-bold mb-3">Fair-Play</h3>
               <p className="text-muted-foreground">
                 Le respect de l'adversaire, des règles et des décisions arbitrales est fondamental.
@@ -85,13 +106,22 @@ const Club = () => {
       </section>
 
       {/* Objectifs */}
-      <section className="py-20 bg-background">
+      <section className="py-20 bg-background relative overflow-hidden">
+        <div 
+          className="absolute right-0 top-1/3 w-1/3 h-80 opacity-5 bg-cover bg-center"
+          style={{ backgroundImage: `url(${equipment})` }}
+        ></div>
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
+          <div 
+            ref={objectivesAnim.ref}
+            className={`max-w-4xl mx-auto transition-all duration-700 ${
+              objectivesAnim.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+            }`}
+          >
             <h2 className="text-4xl font-bold text-primary mb-8 text-center">Nos Objectifs</h2>
             
             <div className="space-y-6">
-              <Card className="p-6">
+              <Card className="p-6 hover:shadow-lg hover:-translate-x-2 transition-all duration-300">
                 <h3 className="text-xl font-semibold mb-2 text-primary">Développer la pratique du tennis de table</h3>
                 <p className="text-muted-foreground">
                   Rendre notre sport accessible au plus grand nombre en proposant des créneaux variés 
@@ -99,7 +129,7 @@ const Club = () => {
                 </p>
               </Card>
 
-              <Card className="p-6">
+              <Card className="p-6 hover:shadow-lg hover:-translate-x-2 transition-all duration-300">
                 <h3 className="text-xl font-semibold mb-2 text-primary">Former les jeunes talents</h3>
                 <p className="text-muted-foreground">
                   Mettre en place une école de tennis de table performante avec un encadrement diplômé 
@@ -107,7 +137,7 @@ const Club = () => {
                 </p>
               </Card>
 
-              <Card className="p-6">
+              <Card className="p-6 hover:shadow-lg hover:-translate-x-2 transition-all duration-300">
                 <h3 className="text-xl font-semibold mb-2 text-primary">Rayonner en compétition</h3>
                 <p className="text-muted-foreground">
                   Faire progresser nos équipes dans les championnats et viser l'accession aux niveaux supérieurs 
@@ -115,7 +145,7 @@ const Club = () => {
                 </p>
               </Card>
 
-              <Card className="p-6">
+              <Card className="p-6 hover:shadow-lg hover:-translate-x-2 transition-all duration-300">
                 <h3 className="text-xl font-semibold mb-2 text-primary">Créer du lien social</h3>
                 <p className="text-muted-foreground">
                   Organiser des événements conviviaux (tournois loisirs, soirées club, stages) pour renforcer 
