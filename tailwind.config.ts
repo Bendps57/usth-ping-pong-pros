@@ -83,10 +83,81 @@ export default {
             height: "0",
           },
         },
+        "bounce-slow": {
+          "0%, 100%": {
+            transform: "translateY(0)",
+          },
+          "50%": {
+            transform: "translateY(-20px)",
+          },
+        },
+        "float": {
+          "0%, 100%": {
+            transform: "translateY(0px)",
+          },
+          "50%": {
+            transform: "translateY(-15px)",
+          },
+        },
+        "paddle-swing": {
+          "0%, 100%": {
+            transform: "rotate(0deg) translateX(0)",
+          },
+          "25%": {
+            transform: "rotate(-15deg) translateX(-10px)",
+          },
+          "50%": {
+            transform: "rotate(15deg) translateX(10px)",
+          },
+          "75%": {
+            transform: "rotate(-10deg) translateX(-5px)",
+          },
+        },
+        "ball-bounce": {
+          "0%": {
+            transform: "translateY(0) translateX(0)",
+          },
+          "25%": {
+            transform: "translateY(-60px) translateX(30px)",
+          },
+          "50%": {
+            transform: "translateY(0) translateX(60px)",
+          },
+          "75%": {
+            transform: "translateY(-40px) translateX(90px)",
+          },
+          "100%": {
+            transform: "translateY(0) translateX(120px)",
+          },
+        },
+        "spin-slow": {
+          "0%": {
+            transform: "rotate(0deg)",
+          },
+          "100%": {
+            transform: "rotate(360deg)",
+          },
+        },
+        "pulse-glow": {
+          "0%, 100%": {
+            opacity: "1",
+            boxShadow: "0 0 20px hsl(var(--primary) / 0.5)",
+          },
+          "50%": {
+            opacity: "0.8",
+            boxShadow: "0 0 40px hsl(var(--primary) / 0.8)",
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "bounce-slow": "bounce-slow 3s ease-in-out infinite",
+        "float": "float 4s ease-in-out infinite",
+        "paddle-swing": "paddle-swing 2s ease-in-out infinite",
+        "ball-bounce": "ball-bounce 3s ease-in-out infinite",
+        "spin-slow": "spin-slow 8s linear infinite",
+        "pulse-glow": "pulse-glow 2s ease-in-out infinite",
       },
     },
   },

@@ -12,10 +12,25 @@ const Club = () => {
   return (
     <div className="flex flex-col">
       {/* Header */}
-      <section className="bg-gradient-primary py-20 text-primary-foreground">
-        <div className="container mx-auto px-4 text-center">
-          <h1 className="text-5xl font-bold mb-4 animate-fade-in">Le Club USTH TT</h1>
-          <p className="text-xl opacity-95 max-w-2xl mx-auto">
+      <section className="relative py-20 text-primary-foreground overflow-hidden">
+        {/* Image de fond avec opacité réduite */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ 
+            backgroundImage: `url(${trainingHall})`,
+            opacity: 0.3
+          }}
+        ></div>
+        <div className="absolute inset-0 bg-gradient-primary opacity-85"></div>
+        
+        {/* Animations flottantes */}
+        <div className="absolute top-10 left-10 text-6xl animate-paddle-swing opacity-30">🏓</div>
+        <div className="absolute top-20 right-20 text-4xl animate-ball-bounce opacity-40">🏓</div>
+        <div className="absolute bottom-10 left-1/4 text-5xl animate-float opacity-25">🏓</div>
+        
+        <div className="container mx-auto px-4 text-center relative z-10">
+          <h1 className="text-5xl font-bold mb-4 animate-fade-in drop-shadow-lg">Le Club USTH TT</h1>
+          <p className="text-xl opacity-95 max-w-2xl mx-auto drop-shadow-md">
             Découvrez l'histoire, les valeurs et l'organisation de notre club
           </p>
         </div>

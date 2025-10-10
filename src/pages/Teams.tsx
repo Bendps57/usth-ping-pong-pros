@@ -50,10 +50,15 @@ const Teams = () => {
   return (
     <div className="flex flex-col">
       {/* Header */}
-      <section className="bg-gradient-primary py-20 text-primary-foreground">
-        <div className="container mx-auto px-4 text-center">
-          <h1 className="text-5xl font-bold mb-4 animate-fade-in">Nos Équipes</h1>
-          <p className="text-xl opacity-95 max-w-2xl mx-auto">
+      <section className="relative bg-gradient-primary py-20 text-primary-foreground overflow-hidden">
+        {/* Animations */}
+        <div className="absolute top-5 right-10 text-6xl animate-ball-bounce opacity-20">🏓</div>
+        <div className="absolute bottom-10 left-10 text-5xl animate-paddle-swing opacity-25">🏓</div>
+        <div className="absolute top-1/2 left-1/4 text-4xl animate-float opacity-15">🏆</div>
+        
+        <div className="container mx-auto px-4 text-center relative z-10">
+          <h1 className="text-5xl font-bold mb-4 animate-fade-in drop-shadow-lg">Nos Équipes</h1>
+          <p className="text-xl opacity-95 max-w-2xl mx-auto drop-shadow-md">
             Du loisir à la compétition régionale, trouvez l'équipe qui vous correspond
           </p>
         </div>

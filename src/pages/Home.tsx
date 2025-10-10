@@ -13,29 +13,40 @@ const Home = () => {
   const presentationAnim = useScrollAnimation();
   const teamsAnim = useScrollAnimation();
   const newsAnim = useScrollAnimation();
+  const heroAnim = useScrollAnimation();
 
   return (
     <div className="flex flex-col">
       {/* Hero Section */}
       <section className="relative h-[600px] flex items-center justify-center overflow-hidden">
         <div
-          className="absolute inset-0 bg-cover bg-center transition-transform duration-700 hover:scale-105"
+          className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url(${heroImage})` }}
-        >
-          <div className="absolute inset-0 bg-gradient-hero"></div>
-        </div>
+        ></div>
+        <div className="absolute inset-0 bg-gradient-hero opacity-80"></div>
         
-        <div className="relative z-10 container mx-auto px-4 text-center text-primary-foreground">
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 animate-fade-in">
+        {/* Éléments animés */}
+        <div className="absolute top-20 left-10 text-7xl animate-spin-slow opacity-20">🏓</div>
+        <div className="absolute bottom-20 right-20 text-6xl animate-bounce-slow opacity-25">🏓</div>
+        <div className="absolute top-1/3 right-10 text-5xl animate-float opacity-20">⚡</div>
+        <div className="absolute bottom-1/3 left-20 text-8xl animate-paddle-swing opacity-15">🏓</div>
+        
+        <div 
+          ref={heroAnim.ref}
+          className={`relative z-10 container mx-auto px-4 text-center text-primary-foreground transition-all duration-1000 ${
+            heroAnim.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}
+        >
+          <h1 className="text-5xl md:text-7xl font-bold mb-6 animate-fade-in drop-shadow-2xl">
             Rejoignez l'aventure<br />
             <span className="text-white drop-shadow-lg">USTH Tennis de Table</span>
           </h1>
-          <p className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto animate-fade-in opacity-95">
+          <p className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto animate-fade-in opacity-95 drop-shadow-lg">
             Un club passionné, dynamique et ouvert à tous les niveaux
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in">
             <Link to="/contact">
-              <Button variant="hero" size="xl" className="bg-primary-foreground text-primary hover:bg-primary-foreground/90">
+              <Button variant="hero" size="xl" className="bg-primary-foreground text-primary hover:bg-primary-foreground/90 animate-pulse-glow">
                 Nous Rejoindre
               </Button>
             </Link>
@@ -245,19 +256,24 @@ const Home = () => {
 
       {/* CTA Section */}
       <section
-        className="py-24 bg-cover bg-center relative"
+        className="py-24 bg-cover bg-center relative overflow-hidden"
         style={{ backgroundImage: `url(${teamImage})` }}
       >
-        <div className="absolute inset-0 bg-gradient-hero"></div>
+        <div className="absolute inset-0 bg-gradient-hero opacity-85"></div>
+        
+        {/* Animations */}
+        <div className="absolute top-10 right-10 text-6xl animate-float opacity-20">🏓</div>
+        <div className="absolute bottom-10 left-10 text-5xl animate-bounce-slow opacity-25">🏆</div>
+        
         <div className="relative z-10 container mx-auto px-4 text-center text-primary-foreground">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 drop-shadow-lg">
             Prêt à Rejoindre l'Aventure ?
           </h2>
-          <p className="text-xl mb-8 max-w-2xl mx-auto opacity-95">
+          <p className="text-xl mb-8 max-w-2xl mx-auto opacity-95 drop-shadow-md">
             Que vous soyez débutant ou confirmé, notre club vous accueille à bras ouverts
           </p>
           <Link to="/contact">
-            <Button variant="hero" size="xl" className="bg-primary-foreground text-primary hover:bg-primary-foreground/90">
+            <Button variant="hero" size="xl" className="bg-primary-foreground text-primary hover:bg-primary-foreground/90 animate-pulse-glow">
               Devenir Membre
             </Button>
           </Link>
