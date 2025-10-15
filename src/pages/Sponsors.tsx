@@ -7,10 +7,11 @@ const Sponsors = () => {
   return (
     <div className="flex flex-col">
       {/* Header */}
-      <section className="bg-gradient-primary py-20 text-primary-foreground">
+      <section className="relative py-20 bg-primary text-white">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="text-5xl font-bold mb-4 animate-fade-in">Nos Sponsors & Partenaires</h1>
-          <p className="text-xl opacity-95 max-w-2xl mx-auto">
+          <h1 className="text-5xl md:text-6xl font-black mb-4 uppercase">Nos Partenaires</h1>
+          <div className="w-20 h-1 bg-white mx-auto mb-6"></div>
+          <p className="text-xl max-w-2xl mx-auto">
             Ils nous font confiance et nous soutiennent dans notre développement
           </p>
         </div>
@@ -20,10 +21,8 @@ const Sponsors = () => {
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-primary mb-4">Nos Partenaires Actuels</h2>
-            <p className="text-lg text-muted-foreground">
-              Un grand merci à nos sponsors qui permettent au club de se développer
-            </p>
+            <h2 className="text-4xl md:text-5xl font-black text-foreground mb-4 uppercase">Nos Partenaires Actuels</h2>
+            <div className="w-20 h-1 bg-primary mx-auto"></div>
           </div>
 
           {/* Sponsor Tiers */}
@@ -95,10 +94,8 @@ const Sponsors = () => {
       <section className="py-20 bg-secondary/30">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-primary mb-4">Pourquoi Devenir Sponsor ?</h2>
-            <p className="text-lg text-muted-foreground">
-              Les avantages d'un partenariat avec l'USTH Tennis de Table
-            </p>
+            <h2 className="text-4xl md:text-5xl font-black text-foreground mb-4 uppercase">Pourquoi Devenir Sponsor ?</h2>
+            <div className="w-20 h-1 bg-primary mx-auto"></div>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
@@ -139,7 +136,8 @@ const Sponsors = () => {
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-primary mb-4">Nos Formules de Partenariat</h2>
+            <h2 className="text-4xl md:text-5xl font-black text-foreground mb-4 uppercase">Nos Formules de Partenariat</h2>
+            <div className="w-20 h-1 bg-primary mx-auto"></div>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
@@ -224,14 +222,14 @@ const Sponsors = () => {
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-gradient-primary text-primary-foreground">
+      <section className="py-20 bg-primary text-white">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold mb-6">Intéressé par un Partenariat ?</h2>
-          <p className="text-xl mb-8 max-w-2xl mx-auto opacity-95">
+          <h2 className="text-4xl md:text-5xl font-black mb-6 uppercase">Intéressé par un Partenariat ?</h2>
+          <p className="text-xl mb-8 max-w-2xl mx-auto">
             Contactez-nous pour discuter d'une collaboration qui valorisera votre entreprise
           </p>
           <Link to="/contact">
-            <Button variant="hero" size="xl" className="bg-primary-foreground text-primary hover:bg-primary-foreground/90">
+            <Button size="lg" className="bg-white text-primary hover:bg-white/90 font-bold uppercase px-8">
               Nous Contacter
             </Button>
           </Link>

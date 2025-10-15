@@ -15,11 +15,12 @@ const Contact = () => {
   return (
     <div className="flex flex-col">
       {/* Header */}
-      <section className="bg-gradient-primary py-20 text-primary-foreground">
+      <section className="relative py-20 bg-primary text-white">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="text-5xl font-bold mb-4 animate-fade-in">Nous Contacter</h1>
-          <p className="text-xl opacity-95 max-w-2xl mx-auto">
-            Une question ? Envie de nous rejoindre ? N'hésitez pas à nous écrire
+          <h1 className="text-5xl md:text-6xl font-black mb-4 uppercase">Contactez-nous</h1>
+          <div className="w-20 h-1 bg-white mx-auto mb-6"></div>
+          <p className="text-xl max-w-2xl mx-auto">
+            Laissez-nous un message ou venez nous rencontrer directement
           </p>
         </div>
       </section>
@@ -30,8 +31,9 @@ const Contact = () => {
           <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
             {/* Contact Form */}
             <div>
-              <h2 className="text-3xl font-bold text-primary mb-6">Envoyez-nous un Message</h2>
-              <Card className="p-8">
+              <h2 className="text-3xl font-black text-foreground mb-2 uppercase">Contactez-nous</h2>
+              <div className="w-16 h-1 bg-primary mb-6"></div>
+              <Card className="p-8 border-2">
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="space-y-2">
                     <Label htmlFor="name">Nom complet *</Label>
@@ -85,8 +87,8 @@ const Contact = () => {
                     />
                   </div>
 
-                  <Button type="submit" variant="hero" size="lg" className="w-full">
-                    Envoyer le Message
+                  <Button type="submit" className="w-full bg-primary hover:bg-primary-dark text-white font-bold uppercase">
+                    Envoyer
                   </Button>
                 </form>
               </Card>
@@ -94,7 +96,8 @@ const Contact = () => {
 
             {/* Contact Info */}
             <div>
-              <h2 className="text-3xl font-bold text-primary mb-6">Informations de Contact</h2>
+              <h2 className="text-3xl font-black text-foreground mb-2 uppercase">Informations</h2>
+              <div className="w-16 h-1 bg-primary mb-6"></div>
               
               <div className="space-y-6">
                 <Card className="p-6">
