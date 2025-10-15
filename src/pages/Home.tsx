@@ -17,44 +17,59 @@ const Home = () => {
 
   return (
     <div className="flex flex-col">
-      {/* Hero Section */}
-      <section className="relative h-[600px] flex items-center justify-center overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url(${heroImage})` }}
-        ></div>
-        <div className="absolute inset-0 bg-gradient-hero opacity-80"></div>
-        
-        {/* Éléments animés */}
-        <div className="absolute top-20 left-10 text-7xl animate-spin-slow opacity-20">🏓</div>
-        <div className="absolute bottom-20 right-20 text-6xl animate-bounce-slow opacity-25">🏓</div>
-        <div className="absolute top-1/3 right-10 text-5xl animate-float opacity-20">⚡</div>
-        <div className="absolute bottom-1/3 left-20 text-8xl animate-paddle-swing opacity-15">🏓</div>
-        
-        <div 
-          ref={heroAnim.ref}
-          className={`relative z-10 container mx-auto px-4 text-center text-primary-foreground transition-all duration-1000 ${
-            heroAnim.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-          }`}
-        >
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 animate-fade-in drop-shadow-2xl">
-            Rejoignez l'aventure<br />
-            <span className="text-white drop-shadow-lg">USTH Tennis de Table</span>
-          </h1>
-          <p className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto animate-fade-in opacity-95 drop-shadow-lg">
-            Un club passionné, dynamique et ouvert à tous les niveaux
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in">
-            <Link to="/contact">
-              <Button variant="hero" size="xl" className="bg-primary-foreground text-primary hover:bg-primary-foreground/90 animate-pulse-glow">
-                Nous Rejoindre
-              </Button>
-            </Link>
-            <Link to="/club">
-              <Button variant="outline" size="xl" className="border-primary-foreground/30 bg-primary-foreground/10 text-primary-foreground hover:bg-primary-foreground/20">
-                Découvrir le Club
-              </Button>
-            </Link>
+      {/* Hero Section - Style SLUC Nancy */}
+      <section className="relative min-h-[calc(100vh-5rem)] flex items-center bg-background overflow-hidden">
+        <div className="container mx-auto px-6">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left Content */}
+            <div className="space-y-8">
+              <h1 className="text-6xl lg:text-7xl xl:text-8xl font-black leading-tight">
+                <span className="block text-outline-primary">USTH</span>
+                <span className="block text-outline-primary">TENNIS DE</span>
+                <span className="block text-outline-primary">TABLE</span>
+              </h1>
+              
+              <h2 className="text-3xl lg:text-4xl font-bold text-foreground">
+                Un club familial et compétitif
+              </h2>
+              
+              <p className="text-lg text-muted-foreground max-w-xl leading-relaxed">
+                Avec ses nombreux licenciés, l'USTH Tennis de Table est un des clubs incontournables de la région. 
+                Que vous soyez débutant ou joueur confirmé, jeune ou adulte, le club vous accueille dans un environnement 
+                adapté à votre niveau, où le plaisir de jouer est au cœur de la pratique.
+              </p>
+              
+              <div className="flex flex-wrap gap-4">
+                <Link to="/contact">
+                  <Button 
+                    variant="default" 
+                    size="xl"
+                    className="bg-primary hover:bg-primary/90 text-primary-foreground font-bold uppercase tracking-wide px-8"
+                  >
+                    ACTUALITÉS
+                  </Button>
+                </Link>
+                <Link to="/contact">
+                  <Button 
+                    variant="outline" 
+                    size="xl"
+                    className="border-2 border-foreground text-foreground hover:bg-foreground/5 font-bold uppercase tracking-wide px-8"
+                  >
+                    CONTACT
+                  </Button>
+                </Link>
+              </div>
+            </div>
+            
+            {/* Right Content - Action Image */}
+            <div className="relative h-[500px] lg:h-[600px] hidden lg:block">
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent rounded-2xl"></div>
+              <img 
+                src={actionPlayer} 
+                alt="Joueur en action" 
+                className="w-full h-full object-cover rounded-2xl shadow-2xl"
+              />
+            </div>
           </div>
         </div>
       </section>
