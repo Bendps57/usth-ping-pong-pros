@@ -7,8 +7,8 @@ import logo from "@/assets/logo-usth.png";
 const navItems = [
   { path: "/club", label: "LE CLUB" },
   { path: "/equipes", label: "CHAMPIONNAT" },
-  { path: "/sponsors", label: "GALERIE PHOTOS" },
-  { path: "/contact", label: "ACTUALITÉS" },
+  { path: "/sponsors", label: "SPONSORS" },
+  { path: "/articles", label: "ACTUALITÉS" },
 ];
 
 const Header = () => {
