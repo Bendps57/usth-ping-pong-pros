@@ -40,7 +40,7 @@ const Home = () => {
               </p>
               
               <div className="flex flex-wrap gap-4">
-                <Link to="/contact">
+                <Link to="/articles">
                   <Button 
                     variant="default" 
                     size="xl"
@@ -153,15 +153,11 @@ const Home = () => {
               <ul className="space-y-2 text-sm">
                 <li className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-primary rounded-full"></div>
-                  Entraînements 3 fois par semaine
+                  Entraînements 2 fois par semaine (mardi soir 20h-22h30 et vendredi soir 20h30-22h30)
                 </li>
                 <li className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-primary rounded-full"></div>
-                  Matches le week-end
-                </li>
-                <li className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-primary rounded-full"></div>
-                  Encadrement professionnel
+                  Match le week-end
                 </li>
               </ul>
             </Card>
@@ -175,7 +171,7 @@ const Home = () => {
               <ul className="space-y-2 text-sm">
                 <li className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-primary rounded-full"></div>
-                  Créneaux flexibles
+                  Même créneaux que l'équipe compétition avec des sessions fun le jeudi après midi et le samedi après midi
                 </li>
                 <li className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-primary rounded-full"></div>
