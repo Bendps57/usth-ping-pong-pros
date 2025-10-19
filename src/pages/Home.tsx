@@ -154,7 +154,7 @@ const Home = () => {
               <ul className="space-y-2 text-sm">
                 <li className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-primary rounded-full"></div>
-                  Entraînements 2 fois par semaine (mardi soir 20h-22h30 et vendredi soir 20h30-22h30)
+                  Entraînements mardi et vendredi soir
                 </li>
                 <li className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-primary rounded-full"></div>
@@ -172,11 +172,11 @@ const Home = () => {
               <ul className="space-y-2 text-sm">
                 <li className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-primary rounded-full"></div>
-                  Même créneaux que l'équipe compétition avec des sessions fun le jeudi après midi et le samedi après midi
+                  Mardi et vendredi soir
                 </li>
                 <li className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-primary rounded-full"></div>
-                  Ambiance détendue
+                  Sessions fun jeudi et samedi après-midi
                 </li>
                 <li className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-primary rounded-full"></div>
