@@ -6,6 +6,7 @@ import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import heroImage from "@/assets/hero-table-tennis.jpg";
 import teamImage from "@/assets/team-spirit.jpg";
 import actionPlayer from "@/assets/action-player.jpg";
+import teamPhoto from "@/assets/team-photo.jpg";
 import ballPaddle from "@/assets/ball-paddle.jpg";
 import trainingHall from "@/assets/training-hall.jpg";
 
@@ -61,12 +62,12 @@ const Home = () => {
               </div>
             </div>
             
-            {/* Right Content - Action Image */}
+            {/* Right Content - Team Photo */}
             <div className="relative h-[500px] lg:h-[600px] hidden lg:block">
               <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent rounded-2xl"></div>
               <img 
-                src={actionPlayer} 
-                alt="Joueur en action" 
+                src={teamPhoto} 
+                alt="Équipe USTH Tennis de Table" 
                 className="w-full h-full object-cover rounded-2xl shadow-2xl"
               />
             </div>
