@@ -31,11 +31,11 @@ const Home = () => {
               </h1>
               
               <h2 className="text-3xl lg:text-4xl font-bold text-foreground">
-                Un club familial et compétitif
+                Là où le ping devient une passion.
               </h2>
               
               <p className="text-lg text-muted-foreground max-w-xl leading-relaxed">
-                Avec ses nombreux licenciés, l'USTH Tennis de Table est un des clubs incontournables de la région. 
+                L'USTH Tennis de Table est un des clubs incontournables de la région. 
                 Que vous soyez débutant ou joueur confirmé, jeune ou adulte, le club vous accueille dans un environnement 
                 adapté à votre niveau, où le plaisir de jouer est au cœur de la pratique.
               </p>
