@@ -6,7 +6,7 @@ import logo from "@/assets/logo-usth.png";
 
 const navItems = [
   { path: "/club", label: "LE CLUB" },
-  { path: "/equipes", label: "CHAMPIONNAT" },
+  { path: "https://www.pingpocket.fr/#page-3", label: "CLASSEMENT", external: true },
   { path: "/sponsors", label: "SPONSORS" },
   { path: "/articles", label: "ACTUALITÉS" },
 ];
@@ -33,17 +33,29 @@ const Header = () => {
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-6">
             {navItems.map((item) => (
-              <Link
-                key={item.path}
-                to={item.path}
-                className={`text-sm font-bold uppercase tracking-wide transition-colors hover:text-primary ${
-                  isActive(item.path)
-                    ? "text-primary"
-                    : "text-foreground/80"
-                }`}
-              >
-                {item.label}
-              </Link>
+              item.external ? (
+                <a
+                  key={item.path}
+                  href={item.path}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm font-bold uppercase tracking-wide transition-colors hover:text-primary text-foreground/80"
+                >
+                  {item.label}
+                </a>
+              ) : (
+                <Link
+                  key={item.path}
+                  to={item.path}
+                  className={`text-sm font-bold uppercase tracking-wide transition-colors hover:text-primary ${
+                    isActive(item.path)
+                      ? "text-primary"
+                      : "text-foreground/80"
+                  }`}
+                >
+                  {item.label}
+                </Link>
+              )
             ))}
             <Link
               to="/contact"
@@ -103,18 +115,31 @@ const Header = () => {
           <div className="lg:hidden py-4 border-t animate-fade-in">
             <nav className="flex flex-col gap-2">
               {navItems.map((item) => (
-                <Link
-                  key={item.path}
-                  to={item.path}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className={`px-4 py-3 text-sm font-bold uppercase tracking-wide transition-colors ${
-                    isActive(item.path)
-                      ? "text-primary"
-                      : "text-foreground/80 hover:text-primary"
-                  }`}
-                >
-                  {item.label}
-                </Link>
+                item.external ? (
+                  <a
+                    key={item.path}
+                    href={item.path}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="px-4 py-3 text-sm font-bold uppercase tracking-wide transition-colors text-foreground/80 hover:text-primary"
+                  >
+                    {item.label}
+                  </a>
+                ) : (
+                  <Link
+                    key={item.path}
+                    to={item.path}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className={`px-4 py-3 text-sm font-bold uppercase tracking-wide transition-colors ${
+                      isActive(item.path)
+                        ? "text-primary"
+                        : "text-foreground/80 hover:text-primary"
+                    }`}
+                  >
+                    {item.label}
+                  </Link>
+                )
               ))}
               <Link 
                 to="/contact" 
