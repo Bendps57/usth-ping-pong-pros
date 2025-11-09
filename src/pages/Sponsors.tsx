@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Handshake, Star, TrendingUp, Users, Target, Award, Heart } from "lucide-react";
+import { Handshake, TrendingUp, Users, Target, Award, Heart } from "lucide-react";
 
 const Sponsors = () => {
   return (
@@ -17,74 +17,29 @@ const Sponsors = () => {
         </div>
       </section>
 
-      {/* Current Sponsors */}
+      {/* Nos Sponsors */}
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-black text-foreground mb-4 uppercase">Nos Sponsors Actuels</h2>
+            <h2 className="text-4xl md:text-5xl font-black text-foreground mb-4 uppercase">Nos Sponsors</h2>
             <div className="w-20 h-1 bg-primary mx-auto"></div>
           </div>
 
-          {/* Sponsor Tiers */}
-          <div className="max-w-5xl mx-auto space-y-12">
-            {/* Premium Partners */}
-            <div>
-              <div className="flex items-center justify-center gap-2 mb-6">
-                <Star className="h-6 w-6 text-primary" />
-                <h3 className="text-2xl font-bold text-primary">Partenaires Premium</h3>
-                <Star className="h-6 w-6 text-primary" />
-              </div>
-              <div className="grid md:grid-cols-2 gap-6">
-                <Card className="p-12 hover:shadow-lg transition-shadow">
-                  <div className="flex items-center justify-center h-32 bg-muted rounded-lg mb-4">
-                    <span className="text-xl font-bold text-muted-foreground">Logo Sponsor 1</span>
-                  </div>
-                  <h4 className="font-semibold text-center text-lg">Entreprise Premium 1</h4>
-                  <p className="text-center text-sm text-muted-foreground mt-2">
-                    Partenaire principal du club depuis 2020
-                  </p>
-                </Card>
-
-                <Card className="p-12 hover:shadow-lg transition-shadow">
-                  <div className="flex items-center justify-center h-32 bg-muted rounded-lg mb-4">
-                    <span className="text-xl font-bold text-muted-foreground">Logo Sponsor 2</span>
-                  </div>
-                  <h4 className="font-semibold text-center text-lg">Entreprise Premium 2</h4>
-                  <p className="text-center text-sm text-muted-foreground mt-2">
-                    Sponsor maillot depuis 2021
-                  </p>
-                </Card>
-              </div>
-            </div>
-
-            {/* Gold Partners */}
-            <div>
-              <h3 className="text-xl font-bold text-primary text-center mb-6">Partenaires Gold</h3>
-              <div className="grid md:grid-cols-3 gap-6">
-                {[1, 2, 3].map((i) => (
-                  <Card key={i} className="p-8 hover:shadow-lg transition-shadow">
-                    <div className="flex items-center justify-center h-24 bg-muted rounded-lg mb-3">
-                      <span className="text-lg font-bold text-muted-foreground">Logo {i}</span>
+          <div className="max-w-6xl mx-auto">
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {[1, 2, 3, 4].map((i) => (
+                <Card key={i} className="p-6 hover:shadow-lg transition-all hover:scale-105 cursor-pointer">
+                  <a href="#" target="_blank" rel="noopener noreferrer" className="block">
+                    <div className="flex items-center justify-center h-32 bg-muted rounded-lg mb-4">
+                      <span className="text-lg font-bold text-muted-foreground">Logo Sponsor {i}</span>
                     </div>
-                    <h4 className="font-semibold text-center">Partenaire Gold {i}</h4>
-                  </Card>
-                ))}
-              </div>
-            </div>
-
-            {/* Silver Partners */}
-            <div>
-              <h3 className="text-xl font-bold text-primary text-center mb-6">Partenaires Silver</h3>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                {[1, 2, 3, 4].map((i) => (
-                  <Card key={i} className="p-6 hover:shadow-lg transition-shadow">
-                    <div className="flex items-center justify-center h-16 bg-muted rounded-lg mb-2">
-                      <span className="text-sm font-bold text-muted-foreground">Logo</span>
-                    </div>
-                    <p className="text-center text-sm font-medium">Partenaire {i}</p>
-                  </Card>
-                ))}
-              </div>
+                    <h4 className="font-semibold text-center text-lg">Entreprise {i}</h4>
+                    <p className="text-center text-sm text-muted-foreground mt-2">
+                      Partenaire du club
+                    </p>
+                  </a>
+                </Card>
+              ))}
             </div>
           </div>
         </div>
@@ -249,94 +204,6 @@ const Sponsors = () => {
         </div>
       </section>
 
-      {/* Partnership Packages */}
-      <section className="py-20 bg-secondary/10">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-black text-foreground mb-4 uppercase">Nos Formules de Partenariat</h2>
-            <div className="w-20 h-1 bg-primary mx-auto"></div>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            <Card className="p-8 hover:shadow-lg transition-all hover:scale-105">
-              <div className="text-center mb-6">
-                <h3 className="text-2xl font-bold mb-2">Silver</h3>
-                <p className="text-4xl font-bold text-primary mb-2">500€</p>
-                <p className="text-muted-foreground text-sm">par an</p>
-              </div>
-              <ul className="space-y-3">
-                <li className="flex items-start gap-2">
-                  <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2"></div>
-                  <span className="text-sm">Logo sur le site internet</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2"></div>
-                  <span className="text-sm">Mention réseaux sociaux</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2"></div>
-                  <span className="text-sm">Affichage en salle</span>
-                </li>
-              </ul>
-            </Card>
-
-            <Card className="p-8 hover:shadow-lg transition-all hover:scale-105 border-primary border-2">
-              <div className="text-center mb-6">
-                <div className="inline-block px-3 py-1 bg-primary text-primary-foreground rounded-full text-xs font-semibold mb-2">
-                  POPULAIRE
-                </div>
-                <h3 className="text-2xl font-bold mb-2">Gold</h3>
-                <p className="text-4xl font-bold text-primary mb-2">1500€</p>
-                <p className="text-muted-foreground text-sm">par an</p>
-              </div>
-              <ul className="space-y-3">
-                <li className="flex items-start gap-2">
-                  <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2"></div>
-                  <span className="text-sm">Tous les avantages Silver</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2"></div>
-                  <span className="text-sm">Logo sur les survêtements</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2"></div>
-                  <span className="text-sm">Communication dédiée</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2"></div>
-                  <span className="text-sm">Invitations événements</span>
-                </li>
-              </ul>
-            </Card>
-
-            <Card className="p-8 hover:shadow-lg transition-all hover:scale-105">
-              <div className="text-center mb-6">
-                <h3 className="text-2xl font-bold mb-2">Premium</h3>
-                <p className="text-4xl font-bold text-primary mb-2">3000€</p>
-                <p className="text-muted-foreground text-sm">par an</p>
-              </div>
-              <ul className="space-y-3">
-                <li className="flex items-start gap-2">
-                  <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2"></div>
-                  <span className="text-sm">Tous les avantages Gold</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2"></div>
-                  <span className="text-sm">Logo principal sur maillots</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2"></div>
-                  <span className="text-sm">Bannière personnalisée</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2"></div>
-                  <span className="text-sm">Partenariat sur-mesure</span>
-                </li>
-              </ul>
-            </Card>
-          </div>
-        </div>
-      </section>
 
       {/* CTA */}
       <section className="py-20 bg-primary text-white">
