@@ -23,7 +23,7 @@ const Header = () => {
         <div className="flex h-20 items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3 transition-transform hover:scale-105">
-            <img src={logo} alt="USTH Tennis de Table" className="h-14 w-auto" />
+            <img src={logo} alt="USTH Tennis de Table" className="h-28 w-auto" />
             <div className="hidden sm:block">
               <div className="text-xl font-bold text-foreground tracking-tight">USTH</div>
               <div className="text-xs text-muted-foreground uppercase tracking-wider">Tennis de Table</div>
