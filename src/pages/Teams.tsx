@@ -60,9 +60,21 @@ const teams = [
 ];
 
 const upcomingMatches = [
-  { opponent: "YUTZ US 4", competition: "Championnat GE6", date: "23/11/2025", time: "20h00", team: "HAYANGE USTH 1" },
-  { opponent: "TERVILLE TT 9", competition: "Championnat GE7", date: "23/11/2025", time: "20h30", team: "HAYANGE USTH 2" },
-  { opponent: "UCKANGE ASPTT 7", competition: "Championnat GE7", date: "23/11/2025", time: "21h00", team: "HAYANGE USTH 3" },
+  // HAYANGE USTH 1
+  { tour: 4, match: "ILLANGE USTT 5 vs HAYANGE USTH 1", date: "16/11/2025", team: "HAYANGE USTH 1", championship: "GE6" },
+  { tour: 5, match: "HAYANGE USTH 1 vs AUDUN LE ROMAN 8", date: "30/11/2025", team: "HAYANGE USTH 1", championship: "GE6" },
+  { tour: 6, match: "ROUSSY TT 2 vs HAYANGE USTH 1", date: "14/12/2025", team: "HAYANGE USTH 1", championship: "GE6" },
+  { tour: 7, match: "HAYANGE USTH 1 vs MANOM J.S 6", date: "11/01/2026", team: "HAYANGE USTH 1", championship: "GE6" },
+  // HAYANGE USTH 2
+  { tour: 4, match: "KNUT-NILV TT 8 vs HAYANGE USTH 2", date: "16/11/2025", team: "HAYANGE USTH 2", championship: "GE7" },
+  { tour: 5, match: "HAYANGE USTH 2 vs THIONVILLE TT 10", date: "30/11/2025", team: "HAYANGE USTH 2", championship: "GE7" },
+  { tour: 6, match: "HAYANGE USTH 2 vs TERVILLE TT 9", date: "14/12/2025", team: "HAYANGE USTH 2", championship: "GE7" },
+  { tour: 7, match: "PAYS SIERCKOIS 3 vs HAYANGE USTH 2", date: "11/01/2026", team: "HAYANGE USTH 2", championship: "GE7" },
+  // HAYANGE USTH 3
+  { tour: 4, match: "HAYANGE USTH 3 vs MAIZIERES 13", date: "16/11/2025", team: "HAYANGE USTH 3", championship: "GE7" },
+  { tour: 5, match: "T.T Amneville 7 vs HAYANGE USTH 3", date: "30/11/2025", team: "HAYANGE USTH 3", championship: "GE7" },
+  { tour: 6, match: "HAYANGE USTH 3 vs MAIZIERES 12", date: "14/12/2025", team: "HAYANGE USTH 3", championship: "GE7" },
+  { tour: 7, match: "CLOUANGE T.T 4 vs HAYANGE USTH 3", date: "11/01/2026", team: "HAYANGE USTH 3", championship: "GE7" },
 ];
 
 const Teams = () => {
@@ -229,25 +241,29 @@ const Teams = () => {
             </p>
           </div>
 
-          <div className={`grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto transition-all duration-1000 delay-200 ${
+          <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 transition-all duration-1000 delay-200 ${
             calendarAnim.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}>
             {upcomingMatches.map((match, index) => (
               <Card key={index} className="hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-primary/20 bg-gradient-to-br from-card to-primary/5">
                 <CardHeader className="border-b border-border/50">
-                  <Badge className="w-fit mb-2 bg-primary/90 hover:bg-primary">{match.team}</Badge>
-                  <CardTitle className="text-xl text-foreground">{match.opponent}</CardTitle>
-                  <CardDescription className="text-muted-foreground">{match.competition}</CardDescription>
+                  <div className="flex items-center justify-between mb-2">
+                    <Badge className="bg-primary/90 hover:bg-primary">{match.team}</Badge>
+                    <Badge variant="outline" className="font-semibold">Tour n°{match.tour}</Badge>
+                  </div>
+                  <CardDescription className="text-muted-foreground text-sm">
+                    Championnat {match.championship}
+                  </CardDescription>
                 </CardHeader>
                 <CardContent className="pt-6">
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-2">
-                      <Calendar className="h-5 w-5 text-primary" />
-                      <p className="font-semibold text-foreground">{match.date}</p>
+                  <div className="space-y-3">
+                    <p className="text-sm font-semibold text-foreground leading-relaxed">
+                      {match.match}
+                    </p>
+                    <div className="flex items-center gap-2 pt-2 border-t border-border/50">
+                      <Calendar className="h-4 w-4 text-primary" />
+                      <p className="text-sm font-semibold text-foreground">{match.date}</p>
                     </div>
-                    <Badge variant="secondary" className="bg-primary/10 text-primary font-bold">
-                      {match.time}
-                    </Badge>
                   </div>
                 </CardContent>
               </Card>
