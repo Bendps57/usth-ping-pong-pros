@@ -1,197 +1,257 @@
-import { Card } from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Trophy, Users, Clock, MapPin } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
-import actionPlayer from "@/assets/action-player.jpg";
+import { Users, Trophy, Calendar } from "lucide-react";
+
+const players = [
+  "Lucas NOGA",
+  "Thierry HEINTZ",
+  "Laurent MICHAUX",
+  "Noel DEHARCHIES",
+  "Benjamin DUVERGER",
+  "Gilbert NADALIN",
+  "Julien BENEDETTI",
+  "Jean-Pierre COSSIN",
+  "Joseph NAPOLITANO",
+  "Manuel DOMINGUEZ",
+  "Paul PIZZIMENTI",
+  "Gregory ARGENTA",
+  "Didier OTT",
+  "Guy LAROCHE",
+  "Andrea PEGORARO",
+  "Daniel BENOIT",
+  "Jean-Luc BACK",
+  "Jeanne LAROCHE",
+  "Ludovic GUILLEMOT",
+  "Jeanne GUILLEMOT",
+  "Lorrain DIDIER",
+  "Adrien OTT",
+  "Benoit WEMMERT"
+];
+
+const teams = [
+  {
+    name: "HAYANGE USTH 1",
+    championship: "GE6",
+    results: [
+      { tour: 1, date: "28/09/2025", match: "BASSE HAM BHTT(2) 4 - 10 HAYANGE USTH 1", isHome: false },
+      { tour: 2, date: "12/10/2025", match: "HAYANGE USTH 1 14 - 0 SIERCK SLPTT 1", isHome: true },
+      { tour: 3, date: "09/11/2025", match: "TERVILLE TT 8 9 - 5 HAYANGE USTH 1", isHome: false }
+    ]
+  },
+  {
+    name: "HAYANGE USTH 2",
+    championship: "GE7",
+    results: [
+      { tour: 1, date: "28/09/2025", match: "HAYANGE USTH 2 7 - 3 CLOUANGE T.T 3", isHome: true },
+      { tour: 2, date: "12/10/2025", match: "ILLANGE USTT 6 4 - 6 HAYANGE USTH 2", isHome: false },
+      { tour: 3, date: "09/11/2025", match: "HAYANGE USTH 2 9 - 1 BASSE HAM BHTT 3", isHome: true }
+    ]
+  },
+  {
+    name: "HAYANGE USTH 3",
+    championship: "GE7",
+    results: [
+      { tour: 1, date: "28/09/2025", match: "HAYANGE USTH 3 0 - 10 HAGONDANGE E.S 4", isHome: true },
+      { tour: 2, date: "12/10/2025", match: "TERVILLE TT 11 4 - 6 HAYANGE USTH 3", isHome: false },
+      { tour: 3, date: "09/11/2025", match: "HAYANGE USTH 3 9 - 1 KNUT-NILV TT 7", isHome: true }
+    ]
+  }
+];
+
+const upcomingMatches = [
+  { opponent: "YUTZ US 4", competition: "Championnat GE6", date: "23/11/2025", time: "20h00", team: "HAYANGE USTH 1" },
+  { opponent: "TERVILLE TT 9", competition: "Championnat GE7", date: "23/11/2025", time: "20h30", team: "HAYANGE USTH 2" },
+  { opponent: "UCKANGE ASPTT 7", competition: "Championnat GE7", date: "23/11/2025", time: "21h00", team: "HAYANGE USTH 3" },
+];
 
 const Teams = () => {
+  const playersAnim = useScrollAnimation();
   const teamsAnim = useScrollAnimation();
+  const resultsAnim = useScrollAnimation();
   const calendarAnim = useScrollAnimation();
 
-  const teams = [
-    {
-      name: "Équipe 1 - Régionale",
-      level: "Régionale 2",
-      description: "Notre équipe phare qui évolue en championnat régional",
-      schedule: "Mardi et Jeudi 19h-21h",
-      location: "Gymnase Principal",
-      players: 8,
-      achievements: ["2ème place saison 2023-2024", "Montée en Régionale 2"],
-    },
-    {
-      name: "Équipe 2 - Départementale",
-      level: "Départementale 1",
-      description: "Une équipe compétitive en pleine progression",
-      schedule: "Mardi et Vendredi 19h-21h",
-      location: "Gymnase Principal",
-      players: 8,
-      achievements: ["3ème place saison 2023-2024"],
-    },
-    {
-      name: "Équipe 3 - Départementale",
-      level: "Départementale 2",
-      description: "Formation et développement des jeunes talents",
-      schedule: "Lundi et Jeudi 18h-20h",
-      location: "Gymnase Principal",
-      players: 10,
-      achievements: ["Formation de 3 joueurs montés en équipe 2"],
-    },
-    {
-      name: "Équipe Loisir",
-      level: "Loisir",
-      description: "Pour le plaisir de jouer dans une ambiance conviviale",
-      schedule: "Mercredi 20h-22h, Samedi 14h-17h",
-      location: "Gymnase Principal",
-      players: 25,
-      achievements: ["Meilleure ambiance garantie !"],
-    },
-  ];
-
   return (
-    <div className="flex flex-col">
-      {/* Header */}
-      <section className="relative py-20 bg-primary text-white">
-        <div 
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ 
-            backgroundImage: `url(${actionPlayer})`,
-            filter: 'brightness(0.3)'
-          }}
-        ></div>
-        
-        <div className="container mx-auto px-4 text-center relative z-10">
-          <h1 className="text-5xl md:text-6xl font-black mb-4 uppercase">Nos Équipes</h1>
-          <div className="w-20 h-1 bg-white mx-auto"></div>
+    <div className="min-h-screen bg-gradient-to-b from-background to-secondary/10">
+      {/* Hero Section */}
+      <section className="relative py-20 bg-gradient-to-r from-primary/10 via-primary/5 to-background">
+        <div className="container mx-auto px-6">
+          <div className="text-center">
+            <h1 className="text-5xl md:text-6xl font-bold text-foreground mb-6 tracking-tight">
+              Nos Joueurs
+            </h1>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Découvrez notre équipe de passionnés qui représentent l'USTH Tennis de Table
+            </p>
+          </div>
         </div>
       </section>
 
-      {/* Teams List */}
-      <section className="py-20 bg-background relative overflow-hidden">
-        <div 
-          className="absolute right-0 top-20 w-1/4 h-80 opacity-10 bg-cover bg-center"
-          style={{ backgroundImage: `url(${actionPlayer})` }}
-        ></div>
-        <div className="container mx-auto px-4">
-          <div 
-            ref={teamsAnim.ref}
-            className={`space-y-8 max-w-5xl mx-auto transition-all duration-700 ${
-              teamsAnim.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-            }`}
-          >
-            {teams.map((team, index) => (
-              <Card key={index} className="p-8 hover:shadow-xl hover:-translate-x-2 transition-all duration-300 group">
-                <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-6">
+      {/* Players Section */}
+      <section className="py-20 bg-background" ref={playersAnim.ref}>
+        <div className="container mx-auto px-6">
+          <div className={`mb-12 text-center transition-all duration-1000 ${
+            playersAnim.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}>
+            <div className="inline-flex items-center gap-3 mb-4">
+              <Users className="h-8 w-8 text-primary" />
+              <h2 className="text-4xl font-bold text-foreground">Nos Licenciés</h2>
+            </div>
+            <p className="text-lg text-muted-foreground">
+              {players.length} joueurs passionnés représentent notre club
+            </p>
+          </div>
+
+          <div className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 transition-all duration-1000 delay-200 ${
+            playersAnim.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}>
+            {players.map((player, index) => (
+              <Card key={index} className="hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border-border/50 bg-card">
+                <CardContent className="p-6 flex items-center gap-3">
+                  <div className="h-12 w-12 rounded-full bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center flex-shrink-0">
+                    <span className="text-primary-foreground font-bold text-lg">
+                      {player.split(' ')[0].charAt(0)}{player.split(' ')[player.split(' ').length - 1].charAt(0)}
+                    </span>
+                  </div>
                   <div>
-                    <div className="flex items-center gap-3 mb-2">
-                      <Trophy className="h-6 w-6 text-primary group-hover:scale-110 transition-transform" />
-                      <h2 className="text-2xl font-bold text-primary">{team.name}</h2>
-                    </div>
-                    <Badge variant="secondary" className="mb-3">
-                      {team.level}
-                    </Badge>
-                    <p className="text-muted-foreground">{team.description}</p>
+                    <p className="font-semibold text-foreground text-sm leading-tight">{player}</p>
                   </div>
-                  <div className="flex items-center gap-2 text-muted-foreground">
-                    <Users className="h-5 w-5" />
-                    <span className="font-semibold">{team.players} joueurs</span>
-                  </div>
-                </div>
-
-                <div className="grid md:grid-cols-2 gap-6 mb-6">
-                  <div className="flex items-start gap-3">
-                    <Clock className="h-5 w-5 text-primary mt-0.5" />
-                    <div>
-                      <h3 className="font-semibold mb-1">Horaires d'entraînement</h3>
-                      <p className="text-sm text-muted-foreground">{team.schedule}</p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-3">
-                    <MapPin className="h-5 w-5 text-primary mt-0.5" />
-                    <div>
-                      <h3 className="font-semibold mb-1">Lieu</h3>
-                      <p className="text-sm text-muted-foreground">{team.location}</p>
-                    </div>
-                  </div>
-                </div>
-
-                <div>
-                  <h3 className="font-semibold mb-2 text-sm text-muted-foreground uppercase">
-                    Faits marquants
-                  </h3>
-                  <ul className="space-y-1">
-                    {team.achievements.map((achievement, i) => (
-                      <li key={i} className="flex items-center gap-2 text-sm">
-                        <div className="w-1.5 h-1.5 bg-primary rounded-full"></div>
-                        {achievement}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                </CardContent>
               </Card>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Calendar Section */}
-      <section className="py-20 bg-secondary/30">
-        <div className="container mx-auto px-4">
-          <div 
-            ref={calendarAnim.ref}
-            className={`max-w-4xl mx-auto transition-all duration-700 ${
-              calendarAnim.isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
-            }`}
-          >
-            <h2 className="text-4xl font-bold text-primary mb-8 text-center">Calendrier des Rencontres</h2>
-            
-            <Card className="p-8">
-              <div className="space-y-4">
-                <div className="flex items-center justify-between py-4 border-b hover:bg-primary/5 hover:px-4 transition-all duration-300 rounded-lg">
-                  <div>
-                    <h3 className="font-semibold">Équipe 1 vs Nancy TT</h3>
-                    <p className="text-sm text-muted-foreground">Championnat Régional</p>
-                  </div>
-                  <div className="text-right">
-                    <p className="font-semibold text-primary">20 Avril 2025</p>
-                    <p className="text-sm text-muted-foreground">14h00 - Domicile</p>
-                  </div>
-                </div>
+      {/* Teams Section */}
+      <section className="py-20 bg-secondary/5" ref={teamsAnim.ref}>
+        <div className="container mx-auto px-6">
+          <div className={`mb-12 text-center transition-all duration-1000 ${
+            teamsAnim.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}>
+            <div className="inline-flex items-center gap-3 mb-4">
+              <Trophy className="h-8 w-8 text-primary" />
+              <h2 className="text-4xl font-bold text-foreground">Nos Équipes</h2>
+            </div>
+            <p className="text-lg text-muted-foreground">
+              3 équipes en compétition cette saison
+            </p>
+          </div>
 
-                <div className="flex items-center justify-between py-4 border-b hover:bg-primary/5 hover:px-4 transition-all duration-300 rounded-lg">
-                  <div>
-                    <h3 className="font-semibold">Équipe 2 vs Metz Sud</h3>
-                    <p className="text-sm text-muted-foreground">Championnat Départemental</p>
-                  </div>
-                  <div className="text-right">
-                    <p className="font-semibold text-primary">21 Avril 2025</p>
-                    <p className="text-sm text-muted-foreground">15h00 - Extérieur</p>
-                  </div>
-                </div>
+          <div className={`grid grid-cols-1 lg:grid-cols-3 gap-8 transition-all duration-1000 delay-200 ${
+            teamsAnim.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}>
+            {teams.map((team, index) => (
+              <Card key={index} className="hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-primary/20 bg-gradient-to-br from-card to-card/50">
+                <CardHeader className="border-b border-border/50 bg-gradient-to-r from-primary/10 to-transparent">
+                  <CardTitle className="text-2xl font-bold text-foreground">{team.name}</CardTitle>
+                  <CardDescription>
+                    <Badge variant="secondary" className="mt-2 bg-primary/10 text-primary hover:bg-primary/20 text-sm font-semibold">
+                      Championnat {team.championship}
+                    </Badge>
+                  </CardDescription>
+                </CardHeader>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
 
-                <div className="flex items-center justify-between py-4 border-b hover:bg-primary/5 hover:px-4 transition-all duration-300 rounded-lg">
-                  <div>
-                    <h3 className="font-semibold">Équipe 1 vs Strasbourg TT</h3>
-                    <p className="text-sm text-muted-foreground">Championnat Régional</p>
-                  </div>
-                  <div className="text-right">
-                    <p className="font-semibold text-primary">27 Avril 2025</p>
-                    <p className="text-sm text-muted-foreground">16h00 - Extérieur</p>
-                  </div>
-                </div>
+      {/* Results Section */}
+      <section className="py-20 bg-background" ref={resultsAnim.ref}>
+        <div className="container mx-auto px-6">
+          <div className={`mb-12 text-center transition-all duration-1000 ${
+            resultsAnim.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}>
+            <h2 className="text-4xl font-bold text-foreground mb-4">Résultats Actuels</h2>
+            <p className="text-lg text-muted-foreground">
+              Les dernières performances de nos équipes
+            </p>
+          </div>
 
-                <div className="flex items-center justify-between py-4 hover:bg-primary/5 hover:px-4 transition-all duration-300 rounded-lg">
-                  <div>
-                    <h3 className="font-semibold">Équipe 3 vs Forbach TT</h3>
-                    <p className="text-sm text-muted-foreground">Championnat Départemental</p>
-                  </div>
-                  <div className="text-right">
-                    <p className="font-semibold text-primary">28 Avril 2025</p>
-                    <p className="text-sm text-muted-foreground">14h30 - Domicile</p>
-                  </div>
+          <div className={`space-y-12 transition-all duration-1000 delay-200 ${
+            resultsAnim.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}>
+            {teams.map((team, teamIndex) => (
+              <div key={teamIndex}>
+                <h3 className="text-2xl font-bold text-foreground mb-6 flex items-center gap-3">
+                  <div className="h-1 w-12 bg-gradient-to-r from-primary to-primary/50 rounded" />
+                  {team.name}
+                </h3>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  {team.results.map((result, resultIndex) => {
+                    const isVictory = team.name.includes("USTH 1") 
+                      ? (resultIndex === 0 && true) || (resultIndex === 1 && true) || (resultIndex === 2 && false)
+                      : team.name.includes("USTH 2")
+                      ? (resultIndex === 0 && true) || (resultIndex === 1 && true) || (resultIndex === 2 && true)
+                      : (resultIndex === 0 && false) || (resultIndex === 1 && true) || (resultIndex === 2 && true);
+                    
+                    return (
+                      <Card key={resultIndex} className={`border-l-4 hover:shadow-lg transition-all duration-300 ${
+                        isVictory ? 'border-l-green-500 bg-green-500/5' : 'border-l-red-500 bg-red-500/5'
+                      }`}>
+                        <CardHeader className="pb-3">
+                          <div className="flex items-center justify-between">
+                            <Badge variant="outline" className="font-semibold">Tour n°{result.tour}</Badge>
+                            <Badge className={isVictory ? 'bg-green-500/20 text-green-700 dark:text-green-300 hover:bg-green-500/30' : 'bg-red-500/20 text-red-700 dark:text-red-300 hover:bg-red-500/30'}>
+                              {isVictory ? 'Victoire' : 'Défaite'}
+                            </Badge>
+                          </div>
+                          <p className="text-sm text-muted-foreground mt-2">{result.date}</p>
+                        </CardHeader>
+                        <CardContent>
+                          <p className="text-base font-semibold text-foreground leading-relaxed">
+                            {result.match}
+                          </p>
+                        </CardContent>
+                      </Card>
+                    );
+                  })}
                 </div>
               </div>
-            </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Calendar Section */}
+      <section className="py-20 bg-gradient-to-b from-secondary/5 to-background" ref={calendarAnim.ref}>
+        <div className="container mx-auto px-6">
+          <div className={`mb-12 text-center transition-all duration-1000 ${
+            calendarAnim.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}>
+            <div className="inline-flex items-center gap-3 mb-4">
+              <Calendar className="h-8 w-8 text-primary" />
+              <h2 className="text-4xl font-bold text-foreground">Calendrier des Rencontres</h2>
+            </div>
+            <p className="text-lg text-muted-foreground">
+              Prochains matchs à venir
+            </p>
+          </div>
+
+          <div className={`grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto transition-all duration-1000 delay-200 ${
+            calendarAnim.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}>
+            {upcomingMatches.map((match, index) => (
+              <Card key={index} className="hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-primary/20 bg-gradient-to-br from-card to-primary/5">
+                <CardHeader className="border-b border-border/50">
+                  <Badge className="w-fit mb-2 bg-primary/90 hover:bg-primary">{match.team}</Badge>
+                  <CardTitle className="text-xl text-foreground">{match.opponent}</CardTitle>
+                  <CardDescription className="text-muted-foreground">{match.competition}</CardDescription>
+                </CardHeader>
+                <CardContent className="pt-6">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      <Calendar className="h-5 w-5 text-primary" />
+                      <p className="font-semibold text-foreground">{match.date}</p>
+                    </div>
+                    <Badge variant="secondary" className="bg-primary/10 text-primary font-bold">
+                      {match.time}
+                    </Badge>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
