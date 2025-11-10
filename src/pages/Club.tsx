@@ -3,6 +3,7 @@ import { History, Target, Users2, Award } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import trainingHall from "@/assets/training-hall.jpg";
 import equipment from "@/assets/equipment.jpg";
+import logo from "@/assets/logo-usth.png";
 
 const Club = () => {
   const historyAnim = useScrollAnimation();
@@ -46,14 +47,12 @@ const Club = () => {
                   de quelques passionnés désireux de promouvoir ce sport accessible et convivial dans la région.
                 </p>
                 <p>
-                  Depuis sa création, le club n'a cessé de grandir, accueillant aujourd'hui plus d'une centaine 
-                  de licenciés de tous âges et tous niveaux. De l'initiation à la compétition de haut niveau, 
+                  Depuis sa création, le club n'a cessé de grandir. De l'initiation à la compétition, 
                   l'USTH TT offre un environnement propice à la progression de chacun.
                 </p>
                 <p>
                   Fort de son expérience et de son encadrement qualifié, le club participe activement aux 
-                  championnats départementaux et régionaux, tout en maintenant un esprit familial et convivial 
-                  qui fait sa renommée.
+                  championnats départementaux, tout en maintenant un esprit familial et convivial qui fait sa renommée.
                 </p>
               </div>
             </div>
@@ -61,9 +60,9 @@ const Club = () => {
             <div className="relative">
               <div className="aspect-square rounded-lg overflow-hidden shadow-2xl">
                 <img 
-                  src={trainingHall} 
-                  alt="Histoire du club" 
-                  className="w-full h-full object-cover"
+                  src={logo} 
+                  alt="Logo USTH Tennis de Table" 
+                  className="w-full h-full object-contain bg-white p-8"
                 />
               </div>
             </div>
