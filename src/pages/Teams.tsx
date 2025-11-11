@@ -1,7 +1,11 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import { Users, Trophy, Calendar } from "lucide-react";
+import { MatchResultCard } from "@/components/MatchResultCard";
+import { MatchFilters } from "@/components/MatchFilters";
+import { useState } from "react";
 
 const players = [
   "Lucas NOGA",
@@ -78,10 +82,30 @@ const upcomingMatches = [
 ];
 
 const Teams = () => {
+  const [selectedTeam, setSelectedTeam] = useState("all");
+  const [showAllResults, setShowAllResults] = useState(false);
+  const [showAllUpcoming, setShowAllUpcoming] = useState(false);
+  
   const playersAnim = useScrollAnimation();
   const teamsAnim = useScrollAnimation();
   const resultsAnim = useScrollAnimation();
   const calendarAnim = useScrollAnimation();
+
+  const teamNames = teams.map(t => t.name);
+  
+  const filteredTeams = selectedTeam === "all" 
+    ? teams 
+    : teams.filter(t => t.name === selectedTeam);
+  
+  const filteredUpcoming = selectedTeam === "all"
+    ? upcomingMatches
+    : upcomingMatches.filter(m => m.team === selectedTeam);
+  
+  const displayedUpcoming = showAllUpcoming 
+    ? filteredUpcoming 
+    : filteredUpcoming.slice(0, 6);
+  
+  const RESULTS_LIMIT = 6;
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-background to-secondary/10">
@@ -176,96 +200,73 @@ const Teams = () => {
             resultsAnim.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}>
             <h2 className="text-4xl font-bold text-foreground mb-4">Résultats Actuels</h2>
-            <p className="text-lg text-muted-foreground">
+            <p className="text-lg text-muted-foreground mb-8">
               Les dernières performances de nos équipes
             </p>
+            
+            <MatchFilters 
+              selectedTeam={selectedTeam}
+              onTeamChange={setSelectedTeam}
+              teams={teamNames}
+            />
           </div>
 
           <div className={`space-y-12 transition-all duration-1000 delay-200 ${
             resultsAnim.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}>
-            {teams.map((team, teamIndex) => (
-              <div key={teamIndex}>
-                <h3 className="text-2xl font-bold text-foreground mb-6 flex items-center gap-3">
-                  <div className="h-1 w-12 bg-gradient-to-r from-primary to-primary/50 rounded" />
-                  {team.name}
-                </h3>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                  {team.results.map((result, resultIndex) => {
-                    const isVictory = team.name.includes("USTH 1") 
-                      ? (resultIndex === 0 && true) || (resultIndex === 1 && true) || (resultIndex === 2 && false)
-                      : team.name.includes("USTH 2")
-                      ? (resultIndex === 0 && true) || (resultIndex === 1 && true) || (resultIndex === 2 && true)
-                      : (resultIndex === 0 && false) || (resultIndex === 1 && true) || (resultIndex === 2 && true);
-                    
-                    return (
-                      <Card key={resultIndex} className="group overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 bg-gradient-to-br from-card via-card to-secondary/5 border-border/50">
-                        <div className={`h-1.5 w-full ${isVictory ? 'bg-gradient-to-r from-green-500 to-green-600' : 'bg-gradient-to-r from-red-500 to-red-600'}`} />
-                        <CardHeader className="pb-4 space-y-3">
-                          <div className="flex items-center justify-between">
-                            <Badge variant="outline" className="font-semibold border-primary/30 text-primary">
-                              Tour n°{result.tour}
-                            </Badge>
-                            <Badge className={`${
-                              isVictory 
-                                ? 'bg-green-500/15 text-green-700 dark:text-green-400 border-green-500/30' 
-                                : 'bg-red-500/15 text-red-700 dark:text-red-400 border-red-500/30'
-                              } border font-semibold px-3 py-1`}>
-                              {isVictory ? '✓ Victoire' : '✗ Défaite'}
-                            </Badge>
-                          </div>
-                          <p className="text-sm text-muted-foreground font-medium flex items-center gap-2">
-                            <Calendar className="h-3.5 w-3.5" />
-                            {result.date}
-                          </p>
-                        </CardHeader>
-                        <CardContent className="pt-0">
-                          <div className="text-base font-semibold text-foreground leading-relaxed">
-                            {(() => {
-                              const matchText = result.match;
-                              const scorePattern = /(\d+)\s*-\s*(\d+)/;
-                              const scoreMatch = matchText.match(scorePattern);
-                              
-                              if (scoreMatch) {
-                                const [fullScore, score1, score2] = scoreMatch;
-                                const isUsthFirst = matchText.indexOf('HAYANGE USTH') < matchText.indexOf(fullScore);
-                                const parts = matchText.split(scorePattern);
-                                
-                                return (
-                                  <div className="space-y-2">
-                                    <div className="text-sm text-muted-foreground">{parts[0]}</div>
-                                    <div className="flex items-center justify-center gap-3 py-3 px-4 bg-secondary/30 rounded-lg">
-                                      <span className={`text-3xl font-bold ${
-                                        isUsthFirst 
-                                          ? (parseInt(score1) > parseInt(score2) ? 'text-green-600 dark:text-green-400' : 'text-red-600 dark:text-red-400')
-                                          : (parseInt(score2) > parseInt(score1) ? 'text-green-600 dark:text-green-400' : 'text-red-600 dark:text-red-400')
-                                      }`}>
-                                        {score1}
-                                      </span>
-                                      <span className="text-2xl font-bold text-muted-foreground">-</span>
-                                      <span className={`text-3xl font-bold ${
-                                        isUsthFirst 
-                                          ? (parseInt(score2) > parseInt(score1) ? 'text-green-600 dark:text-green-400' : 'text-red-600 dark:text-red-400')
-                                          : (parseInt(score1) > parseInt(score2) ? 'text-green-600 dark:text-green-400' : 'text-red-600 dark:text-red-400')
-                                      }`}>
-                                        {score2}
-                                      </span>
-                                    </div>
-                                    <div className="text-sm text-muted-foreground text-right">{parts[3]}</div>
-                                  </div>
-                                );
-                              }
-                              
-                              return <div>{matchText}</div>;
-                            })()}
-                          </div>
-                        </CardContent>
-                      </Card>
-                    );
-                  })}
+            {filteredTeams.map((team, teamIndex) => {
+              const displayedResults = showAllResults 
+                ? team.results 
+                : team.results.slice(0, RESULTS_LIMIT);
+              
+              return (
+                <div key={teamIndex}>
+                  <h3 className="text-2xl font-bold text-foreground mb-6 flex items-center gap-3">
+                    <div className="h-1 w-12 bg-gradient-to-r from-primary to-primary/50 rounded" />
+                    {team.name}
+                  </h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {displayedResults.map((result, resultIndex) => {
+                      const isVictory = team.name.includes("USTH 1") 
+                        ? (resultIndex === 0 && true) || (resultIndex === 1 && true) || (resultIndex === 2 && false)
+                        : team.name.includes("USTH 2")
+                        ? (resultIndex === 0 && true) || (resultIndex === 1 && true) || (resultIndex === 2 && true)
+                        : (resultIndex === 0 && false) || (resultIndex === 1 && true) || (resultIndex === 2 && true);
+                      
+                      return (
+                        <MatchResultCard 
+                          key={resultIndex} 
+                          result={result} 
+                          isVictory={isVictory}
+                        />
+                      );
+                    })}
+                  </div>
+                  {team.results.length > RESULTS_LIMIT && !showAllResults && (
+                    <div className="mt-6 text-center">
+                      <Button 
+                        variant="outline" 
+                        onClick={() => setShowAllResults(true)}
+                        className="hover:bg-primary/10"
+                      >
+                        Voir tous les résultats ({team.results.length})
+                      </Button>
+                    </div>
+                  )}
                 </div>
+              );
+            })}
+            {showAllResults && (
+              <div className="text-center">
+                <Button 
+                  variant="outline" 
+                  onClick={() => setShowAllResults(false)}
+                  className="hover:bg-primary/10"
+                >
+                  Voir moins
+                </Button>
               </div>
-            ))}
+            )}
           </div>
         </div>
       </section>
@@ -285,33 +286,49 @@ const Teams = () => {
             </p>
           </div>
 
-          <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 transition-all duration-1000 delay-200 ${
+          <div className={`transition-all duration-1000 delay-200 ${
             calendarAnim.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}>
-            {upcomingMatches.map((match, index) => (
-              <Card key={index} className="hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-primary/20 bg-gradient-to-br from-card to-primary/5">
-                <CardHeader className="border-b border-border/50">
-                  <div className="flex items-center justify-between mb-2">
-                    <Badge className="bg-primary/90 hover:bg-primary">{match.team}</Badge>
-                    <Badge variant="outline" className="font-semibold">Tour n°{match.tour}</Badge>
-                  </div>
-                  <CardDescription className="text-muted-foreground text-sm">
-                    Championnat {match.championship}
-                  </CardDescription>
-                </CardHeader>
-                <CardContent className="pt-6">
-                  <div className="space-y-3">
-                    <p className="text-sm font-semibold text-foreground leading-relaxed">
-                      {match.match}
-                    </p>
-                    <div className="flex items-center gap-2 pt-2 border-t border-border/50">
-                      <Calendar className="h-4 w-4 text-primary" />
-                      <p className="text-sm font-semibold text-foreground">{match.date}</p>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+              {displayedUpcoming.map((match, index) => (
+                <Card key={index} className="hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-primary/20 bg-gradient-to-br from-card to-primary/5">
+                  <CardHeader className="border-b border-border/50">
+                    <div className="flex items-center justify-between mb-2">
+                      <Badge className="bg-primary/90 hover:bg-primary">{match.team}</Badge>
+                      <Badge variant="outline" className="font-semibold">Tour n°{match.tour}</Badge>
                     </div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
+                    <CardDescription className="text-muted-foreground text-sm">
+                      Championnat {match.championship}
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent className="pt-6">
+                    <div className="space-y-3">
+                      <p className="text-sm font-semibold text-foreground leading-relaxed">
+                        {match.match}
+                      </p>
+                      <div className="flex items-center gap-2 pt-2 border-t border-border/50">
+                        <Calendar className="h-4 w-4 text-primary" />
+                        <p className="text-sm font-semibold text-foreground">{match.date}</p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+            
+            {filteredUpcoming.length > 6 && (
+              <div className="mt-8 text-center">
+                <Button 
+                  variant="outline" 
+                  onClick={() => setShowAllUpcoming(!showAllUpcoming)}
+                  className="hover:bg-primary/10"
+                >
+                  {showAllUpcoming 
+                    ? 'Voir moins' 
+                    : `Voir tous les matchs (${filteredUpcoming.length})`}
+                </Button>
+              </div>
+            )}
           </div>
         </div>
       </section>
