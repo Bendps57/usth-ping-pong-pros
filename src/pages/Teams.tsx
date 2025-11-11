@@ -213,7 +213,37 @@ const Teams = () => {
                         </CardHeader>
                         <CardContent>
                           <p className="text-base font-semibold text-foreground leading-relaxed">
-                            {result.match}
+                            {(() => {
+                              // Parse the match string to highlight scores
+                              const matchText = result.match;
+                              const scorePattern = /(\d+)\s*-\s*(\d+)/;
+                              const scoreMatch = matchText.match(scorePattern);
+                              
+                              if (scoreMatch) {
+                                const [fullScore, score1, score2] = scoreMatch;
+                                const isUsthFirst = matchText.indexOf('HAYANGE USTH') < matchText.indexOf(fullScore);
+                                const usthScore = isUsthFirst ? score1 : score2;
+                                const opponentScore = isUsthFirst ? score2 : score1;
+                                
+                                const parts = matchText.split(scorePattern);
+                                
+                                return (
+                                  <span className="flex flex-wrap items-center gap-2">
+                                    <span>{parts[0]}</span>
+                                    <Badge className={`${isUsthFirst ? 'bg-green-600 hover:bg-green-700' : 'bg-red-600 hover:bg-red-700'} text-white font-bold text-sm px-3 py-1`}>
+                                      {score1}
+                                    </Badge>
+                                    <span className="font-bold">-</span>
+                                    <Badge className={`${isUsthFirst ? 'bg-red-600 hover:bg-red-700' : 'bg-green-600 hover:bg-green-700'} text-white font-bold text-sm px-3 py-1`}>
+                                      {score2}
+                                    </Badge>
+                                    <span>{parts[3]}</span>
+                                  </span>
+                                );
+                              }
+                              
+                              return matchText;
+                            })()}
                           </p>
                         </CardContent>
                       </Card>
