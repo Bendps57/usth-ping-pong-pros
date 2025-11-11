@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Mail, Phone, MapPin, Facebook, Instagram } from "lucide-react";
+import { Mail, Phone, MapPin, Facebook, Instagram, Heart } from "lucide-react";
 import logo from "@/assets/logo-usth.png";
 
 const Footer = () => {
@@ -98,9 +98,21 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t border-primary-foreground/20 mt-8 pt-8 text-center">
+        <div className="border-t border-primary-foreground/20 mt-8 pt-8 text-center space-y-2">
           <p className="text-sm opacity-80">
             © {new Date().getFullYear()} USTH Tennis de Table. Tous droits réservés.
+          </p>
+          <p className="text-sm opacity-80">
+            Créé par{" "}
+            <a 
+              href="https://www.elimyt.com" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 hover:opacity-100 transition-opacity font-medium"
+            >
+              eLimyt
+              <Heart className="h-3 w-3 fill-current" />
+            </a>
           </p>
         </div>
       </div>
