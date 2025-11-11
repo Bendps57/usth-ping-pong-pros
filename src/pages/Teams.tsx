@@ -199,22 +199,29 @@ const Teams = () => {
                       : (resultIndex === 0 && false) || (resultIndex === 1 && true) || (resultIndex === 2 && true);
                     
                     return (
-                      <Card key={resultIndex} className={`border-l-4 hover:shadow-lg transition-all duration-300 ${
-                        isVictory ? 'border-l-green-500 bg-green-500/5' : 'border-l-red-500 bg-red-500/5'
-                      }`}>
-                        <CardHeader className="pb-3">
+                      <Card key={resultIndex} className="group overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 bg-gradient-to-br from-card via-card to-secondary/5 border-border/50">
+                        <div className={`h-1.5 w-full ${isVictory ? 'bg-gradient-to-r from-green-500 to-green-600' : 'bg-gradient-to-r from-red-500 to-red-600'}`} />
+                        <CardHeader className="pb-4 space-y-3">
                           <div className="flex items-center justify-between">
-                            <Badge variant="outline" className="font-semibold">Tour n°{result.tour}</Badge>
-                            <Badge className={isVictory ? 'bg-green-500/20 text-green-700 dark:text-green-300 hover:bg-green-500/30' : 'bg-red-500/20 text-red-700 dark:text-red-300 hover:bg-red-500/30'}>
-                              {isVictory ? 'Victoire' : 'Défaite'}
+                            <Badge variant="outline" className="font-semibold border-primary/30 text-primary">
+                              Tour n°{result.tour}
+                            </Badge>
+                            <Badge className={`${
+                              isVictory 
+                                ? 'bg-green-500/15 text-green-700 dark:text-green-400 border-green-500/30' 
+                                : 'bg-red-500/15 text-red-700 dark:text-red-400 border-red-500/30'
+                              } border font-semibold px-3 py-1`}>
+                              {isVictory ? '✓ Victoire' : '✗ Défaite'}
                             </Badge>
                           </div>
-                          <p className="text-sm text-muted-foreground mt-2">{result.date}</p>
+                          <p className="text-sm text-muted-foreground font-medium flex items-center gap-2">
+                            <Calendar className="h-3.5 w-3.5" />
+                            {result.date}
+                          </p>
                         </CardHeader>
-                        <CardContent>
-                          <p className="text-base font-semibold text-foreground leading-relaxed">
+                        <CardContent className="pt-0">
+                          <div className="text-base font-semibold text-foreground leading-relaxed">
                             {(() => {
-                              // Parse the match string to highlight scores
                               const matchText = result.match;
                               const scorePattern = /(\d+)\s*-\s*(\d+)/;
                               const scoreMatch = matchText.match(scorePattern);
@@ -222,29 +229,36 @@ const Teams = () => {
                               if (scoreMatch) {
                                 const [fullScore, score1, score2] = scoreMatch;
                                 const isUsthFirst = matchText.indexOf('HAYANGE USTH') < matchText.indexOf(fullScore);
-                                const usthScore = isUsthFirst ? score1 : score2;
-                                const opponentScore = isUsthFirst ? score2 : score1;
-                                
                                 const parts = matchText.split(scorePattern);
                                 
                                 return (
-                                  <span className="flex flex-wrap items-center gap-2">
-                                    <span>{parts[0]}</span>
-                                    <Badge className={`${isUsthFirst ? 'bg-green-600 hover:bg-green-700' : 'bg-red-600 hover:bg-red-700'} text-white font-bold text-sm px-3 py-1`}>
-                                      {score1}
-                                    </Badge>
-                                    <span className="font-bold">-</span>
-                                    <Badge className={`${isUsthFirst ? 'bg-red-600 hover:bg-red-700' : 'bg-green-600 hover:bg-green-700'} text-white font-bold text-sm px-3 py-1`}>
-                                      {score2}
-                                    </Badge>
-                                    <span>{parts[3]}</span>
-                                  </span>
+                                  <div className="space-y-2">
+                                    <div className="text-sm text-muted-foreground">{parts[0]}</div>
+                                    <div className="flex items-center justify-center gap-3 py-3 px-4 bg-secondary/30 rounded-lg">
+                                      <span className={`text-3xl font-bold ${
+                                        isUsthFirst 
+                                          ? (parseInt(score1) > parseInt(score2) ? 'text-green-600 dark:text-green-400' : 'text-red-600 dark:text-red-400')
+                                          : (parseInt(score2) > parseInt(score1) ? 'text-green-600 dark:text-green-400' : 'text-red-600 dark:text-red-400')
+                                      }`}>
+                                        {score1}
+                                      </span>
+                                      <span className="text-2xl font-bold text-muted-foreground">-</span>
+                                      <span className={`text-3xl font-bold ${
+                                        isUsthFirst 
+                                          ? (parseInt(score2) > parseInt(score1) ? 'text-green-600 dark:text-green-400' : 'text-red-600 dark:text-red-400')
+                                          : (parseInt(score1) > parseInt(score2) ? 'text-green-600 dark:text-green-400' : 'text-red-600 dark:text-red-400')
+                                      }`}>
+                                        {score2}
+                                      </span>
+                                    </div>
+                                    <div className="text-sm text-muted-foreground text-right">{parts[3]}</div>
+                                  </div>
                                 );
                               }
                               
-                              return matchText;
+                              return <div>{matchText}</div>;
                             })()}
-                          </p>
+                          </div>
                         </CardContent>
                       </Card>
                     );
