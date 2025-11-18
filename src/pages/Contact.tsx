@@ -110,7 +110,7 @@ const Contact = () => {
                       <p className="text-muted-foreground">
                         Gymnase Municipal<br />
                         Place de la République<br />
-                        57100 Thionville
+                        57700 Hayange
                       </p>
                     </div>
                   </div>
@@ -172,7 +172,7 @@ const Contact = () => {
                     <div className="text-center text-muted-foreground">
                       <MapPin className="h-12 w-12 mx-auto mb-2" />
                       <p className="text-sm">Carte Interactive</p>
-                      <p className="text-xs mt-1">Gymnase Municipal, Thionville</p>
+                      <p className="text-xs mt-1">Gymnase Municipal, Hayange</p>
                     </div>
                   </div>
                 </Card>

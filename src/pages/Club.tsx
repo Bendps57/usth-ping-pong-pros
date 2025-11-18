@@ -43,7 +43,7 @@ const Club = () => {
 
               <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
                 <p>
-                  Le club de Tennis de Table de l'USTH (Union Sportive Thionville Hayange) est né de la passion 
+                  Le club de Tennis de Table de l'USTH (Union Sportive du Tournebride Hayange) est né de la passion 
                   de quelques passionnés désireux de promouvoir ce sport accessible et convivial dans la région.
                 </p>
                 <p>

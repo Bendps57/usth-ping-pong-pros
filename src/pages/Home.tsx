@@ -86,7 +86,7 @@ const Home = () => {
           >
             <h2 className="text-4xl font-bold text-primary mb-4">Bienvenue à l'USTH Tennis de Table</h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              Notre club fait partie de l'Union Sportive Thionville Hayange et incarne les valeurs de convivialité, 
+              Notre club fait partie de l'Union Sportive du Tournebride Hayange et incarne les valeurs de convivialité, 
               d'engagement et de progression sportive.
             </p>
           </div>
