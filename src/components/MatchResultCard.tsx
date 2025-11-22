@@ -65,17 +65,17 @@ export const MatchResultCard = ({ result, isVictory }: MatchResultCardProps) => 
             <div className="text-sm text-muted-foreground">{scoreData.teamBefore}</div>
             <div className="flex items-center justify-center gap-3 py-3 px-4 bg-secondary/30 rounded-lg">
               <span className={`text-3xl font-bold ${
-                scoreData.isUsthFirst 
-                  ? (scoreData.score1 > scoreData.score2 ? 'text-green-600 dark:text-green-400' : 'text-red-600 dark:text-red-400')
-                  : (scoreData.score2 > scoreData.score1 ? 'text-green-600 dark:text-green-400' : 'text-red-600 dark:text-red-400')
+                scoreData.score1 > scoreData.score2 
+                  ? 'text-green-600 dark:text-green-400' 
+                  : 'text-red-600 dark:text-red-400'
               }`}>
                 {scoreData.score1}
               </span>
               <span className="text-2xl font-bold text-muted-foreground">-</span>
               <span className={`text-3xl font-bold ${
-                scoreData.isUsthFirst 
-                  ? (scoreData.score2 > scoreData.score1 ? 'text-green-600 dark:text-green-400' : 'text-red-600 dark:text-red-400')
-                  : (scoreData.score1 > scoreData.score2 ? 'text-green-600 dark:text-green-400' : 'text-red-600 dark:text-red-400')
+                scoreData.score2 > scoreData.score1 
+                  ? 'text-green-600 dark:text-green-400' 
+                  : 'text-red-600 dark:text-red-400'
               }`}>
                 {scoreData.score2}
               </span>
