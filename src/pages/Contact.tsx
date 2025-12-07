@@ -108,8 +108,7 @@ const Contact = () => {
                     <div>
                       <h3 className="font-semibold mb-1">Adresse</h3>
                       <p className="text-muted-foreground">
-                        Gymnase Municipal<br />
-                        Place de la République<br />
+                        Complexe Sportif Régine Cavagnoud<br />
                         57700 Hayange
                       </p>
                     </div>
@@ -124,10 +123,10 @@ const Contact = () => {
                     <div>
                       <h3 className="font-semibold mb-1">Email</h3>
                       <a
-                        href="mailto:contact@usth-tt.fr"
+                        href="mailto:rlay376@gmail.com"
                         className="text-primary hover:underline"
                       >
-                        contact@usth-tt.fr
+                        rlay376@gmail.com
                       </a>
                     </div>
                   </div>
@@ -141,10 +140,10 @@ const Contact = () => {
                     <div>
                       <h3 className="font-semibold mb-1">Téléphone</h3>
                       <a
-                        href="tel:+33612345678"
+                        href="tel:+33789026890"
                         className="text-primary hover:underline"
                       >
-                        06 12 34 56 78
+                        07 89 02 68 90
                       </a>
                     </div>
                   </div>
@@ -158,9 +157,10 @@ const Contact = () => {
                     <div>
                       <h3 className="font-semibold mb-2">Horaires d'Ouverture</h3>
                       <div className="text-sm text-muted-foreground space-y-1">
-                        <p><span className="font-medium">Lundi - Vendredi:</span> 18h00 - 22h00</p>
-                        <p><span className="font-medium">Samedi:</span> 14h00 - 18h00</p>
-                        <p><span className="font-medium">Dimanche:</span> Fermé (sauf compétitions)</p>
+                        <p><span className="font-medium">Mardi:</span> 20h00 - 22h30</p>
+                        <p><span className="font-medium">Jeudi:</span> 15h00 - 17h00</p>
+                        <p><span className="font-medium">Vendredi:</span> 20h30 - 22h30</p>
+                        <p><span className="font-medium">Samedi:</span> 15h00 - 17h00</p>
                       </div>
                     </div>
                   </div>
