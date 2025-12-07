@@ -57,7 +57,7 @@ const Articles = () => {
                 className="group"
               >
                 <Card className="overflow-hidden hover:shadow-xl transition-all duration-300 h-full">
-                  <div className="relative aspect-square overflow-hidden bg-secondary/20">
+                  <div className="relative aspect-video overflow-hidden bg-secondary/20">
                     <img 
                       src={article.image} 
                       alt={article.title}
