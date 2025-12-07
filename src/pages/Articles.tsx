@@ -1,47 +1,31 @@
 import { Link } from "react-router-dom";
 import { Card } from "@/components/ui/card";
-import actionPlayer from "@/assets/action-player.jpg";
-import ballPaddle from "@/assets/ball-paddle.jpg";
-import equipment from "@/assets/equipment.jpg";
-import teamSpirit from "@/assets/team-spirit.jpg";
-import trainingHall from "@/assets/training-hall.jpg";
+import actu1 from "@/assets/actu1.jpg";
+import actu2 from "@/assets/actu2.jpg";
+import actu3 from "@/assets/actu3.jpg";
 
-// Sample articles data
+// Articles data
 const articles = [
   {
-    id: "rentree-2025-2026",
-    title: "Rentrée 2025-2026 : Une Saison Prometteuse",
-    date: "mercredi 15 janvier 2025",
-    image: actionPlayer,
-    excerpt: "Découvrez les nouveautés et les objectifs pour cette nouvelle saison sportive..."
+    id: "bilan-coupe-mirabelle",
+    title: "Bilan du 1er Tour de la Coupe Mirabelle",
+    date: "dimanche 7 décembre 2025",
+    image: actu3,
+    excerpt: "Retour sur les rencontres du 05/12/2025 face à Clouange. Un bilan contrasté pour nos équipes..."
   },
   {
-    id: "championnat-regional",
-    title: "Victoire au Championnat Régional",
-    date: "lundi 20 décembre 2024",
-    image: teamSpirit,
-    excerpt: "Notre équipe première s'est illustrée lors du championnat régional..."
+    id: "coupe-mirabelle-annonce",
+    title: "Coup de Projecteur sur la Coupe Mirabelle",
+    date: "mardi 2 décembre 2025",
+    image: actu2,
+    excerpt: "Préparez-vous pour des matchs intenses ! La prochaine journée de la Coupe Mirabelle approche..."
   },
   {
-    id: "nouveau-materiel",
-    title: "Renouvellement du Matériel",
-    date: "jeudi 5 décembre 2024",
-    image: equipment,
-    excerpt: "Le club investit dans du nouveau matériel pour améliorer les conditions d'entraînement..."
-  },
-  {
-    id: "stage-vacances",
-    title: "Stage de Perfectionnement",
-    date: "jeudi 28 novembre 2024",
-    image: ballPaddle,
-    excerpt: "Un stage intensif pendant les vacances pour progresser rapidement..."
-  },
-  {
-    id: "nouveaux-horaires",
-    title: "Nouveaux Horaires d'Entraînement",
-    date: "mardi 12 novembre 2024",
-    image: trainingHall,
-    excerpt: "Consultez les nouveaux créneaux horaires pour la saison en cours..."
+    id: "recrutement-usth",
+    title: "USTH TT Recrute !",
+    date: "lundi 1 décembre 2025",
+    image: actu1,
+    excerpt: "Viens t'essayer au tennis de table avec nous ! Recrutement joueurs compétition et loisir..."
   }
 ];
 

@@ -1,104 +1,72 @@
 import { Link, useParams, Navigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
-import actionPlayer from "@/assets/action-player.jpg";
-import ballPaddle from "@/assets/ball-paddle.jpg";
-import equipment from "@/assets/equipment.jpg";
-import teamSpirit from "@/assets/team-spirit.jpg";
-import trainingHall from "@/assets/training-hall.jpg";
+import actu1 from "@/assets/actu1.jpg";
+import actu2 from "@/assets/actu2.jpg";
+import actu3 from "@/assets/actu3.jpg";
 
-// Sample articles data (same as Articles page)
+// Articles data
 const articlesData: Record<string, {
   title: string;
   date: string;
   image: string;
   content: string;
 }> = {
-  "rentree-2025-2026": {
-    title: "Rentrée 2025-2026 : Une Saison Prometteuse",
-    date: "mercredi 15 janvier 2025",
-    image: actionPlayer,
-    content: `Après une superbe saison passée ensemble, cette rentrée 2025-2026 démarre sur les chapeaux de roues et dépasse une nouvelle fois toutes les attentes avec déjà plus de 100 licenciés !
+  "bilan-coupe-mirabelle": {
+    title: "Bilan du 1er Tour de la Coupe Mirabelle",
+    date: "dimanche 7 décembre 2025",
+    image: actu3,
+    content: `🏓 BILAN DU 1ER TOUR DE LA COUPE MIRABELLE !
 
-Les entraînements sont bien remplis et toujours dans la bonne humeur avec des retrouvailles entre les joueurs et la rencontre de nouvelles recrues motivées.
+Retour sur les rencontres du 05/12/2025 face à Clouange 😭.
 
-Merci à vous pour votre (ré)engagement et bienvenue aux nouveaux, cette nouvelle saison s'annonce pleine de rebonds !
+Un bilan contrasté pour nos équipes du Hayange USTH :
 
-Pour celles et ceux qui ne nous ont pas encore rejoints, les inscriptions sont toujours ouvertes et nous nous ferions un plaisir de vous accueillir !
+🔵 MATCH 1 : L'ÉQUIPE 1 IMPÉRIALE !
+CLOUANGE TT (1) 0️⃣ - 9️⃣ HAYANGE USTH (1)
+Carton plein pour notre équipe première ! Une victoire parfaite et sans appel.
 
-Bonne saison à tous et à très vite à la table 🏓 !`
+Un grand bravo à nos joueurs pour cette démonstration de force ! 🔥🍀
+
+🟢 MATCH 2 : SOIRÉE DIFFICILE POUR LA 2
+CLOUANGE TT (2) 8️⃣ - 1️⃣ HAYANGE USTH (2)
+Notre équipe 2 s'incline lourdement face à une équipe de Clouange très en forme.
+
+Courage pour la suite ! 💪`
   },
-  "championnat-regional": {
-    title: "Victoire au Championnat Régional",
-    date: "lundi 20 décembre 2024",
-    image: teamSpirit,
-    content: `Une belle performance de nos équipes lors du championnat régional !
+  "coupe-mirabelle-annonce": {
+    title: "Coup de Projecteur sur la Coupe Mirabelle",
+    date: "mardi 2 décembre 2025",
+    image: actu2,
+    content: `🏓 COUP DE PROJECTEUR SUR LA COUPE MIRABELLE DE TENNIS DE TABLE ! 🏓
 
-Notre équipe première s'est particulièrement illustrée en remportant plusieurs matchs décisifs. Les jeunes de notre école de tennis de table ont également brillé par leur engagement et leur progression.
+Préparez-vous pour des matchs intenses et des échanges palpitants ! La prochaine journée de la Coupe Mirabelle approche à grands pas et nous vous donnons rendez-vous le 05 Décembre 2025 pour des rencontres explosives !
 
-Cette victoire est le fruit d'un travail d'équipe remarquable et de nombreuses heures d'entraînement. Félicitations à tous les joueurs et aux entraîneurs pour leur implication !
+Nous mettons à l'honneur les équipes qui s'affronteront :
+⚔️ TT Clouange (1) vs Hayange USTH (1)
+⚔️ TT Clouange (2) vs Hayange USTH (2)
 
-La prochaine étape sera le championnat interdépartemental où nous espérons confirmer ces excellents résultats.`
+Venez nombreux encourager vos équipes favorites et vibrer au rythme du tennis de table !`
   },
-  "nouveau-materiel": {
-    title: "Renouvellement du Matériel",
-    date: "jeudi 5 décembre 2024",
-    image: equipment,
-    content: `Le club investit dans du nouveau matériel pour améliorer les conditions d'entraînement de tous nos licenciés.
+  "recrutement-usth": {
+    title: "USTH TT Recrute !",
+    date: "lundi 1 décembre 2025",
+    image: actu1,
+    content: `🏓 USTH TT RECRUTE !
 
-Nous avons fait l'acquisition de :
-- 5 nouvelles tables de compétition homologuées FFTT
-- 20 nouvelles raquettes de différents niveaux
-- Un robot lance-balles pour l'entraînement technique
-- Du matériel pédagogique pour l'école de tennis de table
+VIENS T'ESSAYER AU TENNIS DE TABLE AVEC NOUS !
 
-Cet investissement conséquent témoigne de notre volonté d'offrir les meilleures conditions possibles à nos adhérents, qu'ils soient débutants ou compétiteurs confirmés.
+Le club Hayange USTH TT ouvre ses portes et recrute de nouveaux joueurs !
 
-Le nouveau matériel est d'ores et déjà disponible dans notre salle d'entraînement !`
-  },
-  "stage-vacances": {
-    title: "Stage de Perfectionnement",
-    date: "jeudi 28 novembre 2024",
-    image: ballPaddle,
-    content: `Un stage intensif de perfectionnement sera organisé pendant les vacances scolaires !
+Que tu sois passionné de compétition ou simplement à la recherche d'une activité fun et conviviale, notre club t'accueille à bras ouverts.
 
-Au programme :
-- Entraînement technique et tactique
-- Travail physique et mental
-- Matchs et tournois internes
-- Conseils personnalisés des entraîneurs
+🎯 RECRUTEMENT JOUEURS COMPÉTITION
+Tu veux te challenger et représenter notre club en championnat ? Rejoins nos équipes et vis l'adrénaline des matchs officiels !
 
-Le stage est ouvert aux jeunes de 10 à 17 ans, tous niveaux. C'est l'occasion idéale de progresser rapidement dans une ambiance conviviale.
+🎉 JOUEURS LOISIR / FUN
+Envie de te détendre, de rigoler et de taper la balle entre amis ? Notre section loisir est faite pour toi !
 
-Durée : 5 jours (du lundi au vendredi)
-Horaires : 9h - 17h
-Tarif adhérents : 120€ / Tarif non-adhérents : 150€
-
-Inscriptions ouvertes dès maintenant auprès du secrétariat ou par email. Places limitées !`
-  },
-  "nouveaux-horaires": {
-    title: "Nouveaux Horaires d'Entraînement",
-    date: "mardi 12 novembre 2024",
-    image: trainingHall,
-    content: `Les horaires d'entraînement ont été réorganisés pour mieux répondre aux besoins de tous nos adhérents.
-
-LUNDI :
-- 18h-19h30 : École de tennis de table (débutants)
-- 19h30-21h : Équipe loisir
-
-MERCREDI :
-- 14h-16h : École de tennis de table (tous niveaux)
-- 18h-20h : Entraînement compétition
-
-VENDREDI :
-- 18h-19h30 : École de tennis de table (intermédiaires)
-- 19h30-22h : Entraînement libre / Compétition
-
-SAMEDI :
-- 14h-16h : Entraînement jeunes compétiteurs
-- 16h-18h : Jeu libre (tous niveaux)
-
-N'hésitez pas à contacter le club pour plus d'informations ou pour toute demande particulière concernant les créneaux.`
+N'hésite pas à venir faire un essai gratuit lors de nos créneaux d'entraînement. Contacte-nous pour plus d'informations !`
   }
 };
 
@@ -142,7 +110,7 @@ const ArticleDetail = () => {
           
           <div className="prose prose-lg max-w-none">
             {article.content.split('\n\n').map((paragraph, index) => (
-              <p key={index} className="text-foreground mb-6 leading-relaxed">
+              <p key={index} className="text-foreground mb-6 leading-relaxed whitespace-pre-line">
                 {paragraph}
               </p>
             ))}
