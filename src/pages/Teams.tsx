@@ -30,7 +30,9 @@ const players = [
   "Jeanne GUILLEMOT",
   "Lorrain DIDIER",
   "Adrien OTT",
-  "Benoit WEMMERT"
+  "Benoit WEMMERT",
+  "Gérard JAMROZIK",
+  "David POLI"
 ];
 
 const teams = [
