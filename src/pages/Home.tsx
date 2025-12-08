@@ -7,9 +7,34 @@ import heroImage from "@/assets/hero-table-tennis.jpg";
 import teamImage from "@/assets/team-spirit.jpg";
 import actionPlayer from "@/assets/action-player.jpg";
 import teamPhoto from "@/assets/team-photo.jpg";
-import ballPaddle from "@/assets/ball-paddle.jpg";
-import trainingHall from "@/assets/training-hall.jpg";
+import actu1 from "@/assets/actu1.jpg";
+import actu2 from "@/assets/actu2.jpg";
+import actu3 from "@/assets/actu3.jpg";
 
+// Articles data - synchronized with Articles page
+const articles = [
+  {
+    id: "bilan-coupe-mirabelle",
+    title: "Bilan du 1er Tour de la Coupe Mirabelle",
+    date: "dimanche 7 décembre 2025",
+    image: actu3,
+    excerpt: "Retour sur les rencontres du 05/12/2025 face à Clouange..."
+  },
+  {
+    id: "coupe-mirabelle-annonce",
+    title: "Coup de Projecteur sur la Coupe Mirabelle",
+    date: "mardi 2 décembre 2025",
+    image: actu2,
+    excerpt: "Préparez-vous pour des matchs intenses..."
+  },
+  {
+    id: "recrutement-usth",
+    title: "USTH TT Recrute !",
+    date: "lundi 1 décembre 2025",
+    image: actu1,
+    excerpt: "Viens t'essayer au tennis de table avec nous..."
+  }
+];
 const Home = () => {
   const presentationAnim = useScrollAnimation();
   const teamsAnim = useScrollAnimation();
@@ -212,56 +237,29 @@ const Home = () => {
           </div>
 
           <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-            <Card className="overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group">
-              <div 
-                className="h-48 bg-cover bg-center group-hover:scale-110 transition-transform duration-300"
-                style={{ backgroundImage: `url(${ballPaddle})` }}
-              ></div>
-              <div className="p-6">
-                <div className="flex items-center gap-2 text-sm text-muted-foreground mb-2">
-                  <Calendar className="h-4 w-4" />
-                  <span>15 Mars 2025</span>
-                </div>
-                <h3 className="text-xl font-semibold mb-2">Belle victoire en championnat</h3>
-                <p className="text-muted-foreground text-sm">
-                  Notre équipe 1 s'impose 12-6 face à l'équipe de Nancy...
-                </p>
-              </div>
-            </Card>
-
-            <Card className="overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group">
-              <div 
-                className="h-48 bg-cover bg-center group-hover:scale-110 transition-transform duration-300"
-                style={{ backgroundImage: `url(${trainingHall})` }}
-              ></div>
-              <div className="p-6">
-                <div className="flex items-center gap-2 text-sm text-muted-foreground mb-2">
-                  <Calendar className="h-4 w-4" />
-                  <span>10 Mars 2025</span>
-                </div>
-                <h3 className="text-xl font-semibold mb-2">Portes ouvertes du club</h3>
-                <p className="text-muted-foreground text-sm">
-                  Venez nous rencontrer et tester le tennis de table gratuitement...
-                </p>
-              </div>
-            </Card>
-
-            <Card className="overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group">
-              <div 
-                className="h-48 bg-cover bg-center group-hover:scale-110 transition-transform duration-300"
-                style={{ backgroundImage: `url(${actionPlayer})` }}
-              ></div>
-              <div className="p-6">
-                <div className="flex items-center gap-2 text-sm text-muted-foreground mb-2">
-                  <Calendar className="h-4 w-4" />
-                  <span>5 Mars 2025</span>
-                </div>
-                <h3 className="text-xl font-semibold mb-2">Nouveau partenariat</h3>
-                <p className="text-muted-foreground text-sm">
-                  Le club est fier d'annoncer un nouveau partenariat avec...
-                </p>
-              </div>
-            </Card>
+            {articles.map((article) => (
+              <Link key={article.id} to={`/articles/${article.id}`}>
+                <Card className="overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group h-full">
+                  <div className="relative aspect-video overflow-hidden bg-secondary/20">
+                    <img 
+                      src={article.image} 
+                      alt={article.title}
+                      className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
+                  <div className="p-6">
+                    <div className="flex items-center gap-2 text-sm text-muted-foreground mb-2">
+                      <Calendar className="h-4 w-4" />
+                      <span>{article.date}</span>
+                    </div>
+                    <h3 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">{article.title}</h3>
+                    <p className="text-muted-foreground text-sm">
+                      {article.excerpt}
+                    </p>
+                  </div>
+                </Card>
+              </Link>
+            ))}
           </div>
         </div>
       </section>
