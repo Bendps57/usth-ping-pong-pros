@@ -54,18 +54,18 @@ const Footer = () => {
             <ul className="space-y-3">
               <li className="flex items-start gap-2 text-sm">
                 <MapPin className="h-4 w-4 mt-0.5 flex-shrink-0" />
-                <span className="opacity-90">Gymnase Municipal, Tournebride Hayange</span>
+                <span className="opacity-90">Complexe Sportif Régine Cavagnoud, 57700 Hayange</span>
               </li>
               <li className="flex items-center gap-2 text-sm">
                 <Mail className="h-4 w-4 flex-shrink-0" />
-                <a href="mailto:contact@usth-tt.fr" className="opacity-90 hover:opacity-100 transition-opacity">
-                  contact@usth-tt.fr
+                <a href="mailto:rlacy376@gmail.com" className="opacity-90 hover:opacity-100 transition-opacity">
+                  rlacy376@gmail.com
                 </a>
               </li>
               <li className="flex items-center gap-2 text-sm">
                 <Phone className="h-4 w-4 flex-shrink-0" />
-                <a href="tel:+33612345678" className="opacity-90 hover:opacity-100 transition-opacity">
-                  06 12 34 56 78
+                <a href="tel:+33789026890" className="opacity-90 hover:opacity-100 transition-opacity">
+                  07 89 02 68 90
                 </a>
               </li>
             </ul>
