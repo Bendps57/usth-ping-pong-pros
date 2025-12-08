@@ -1,17 +1,7 @@
-import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Label } from "@/components/ui/label";
 import { Mail, Phone, MapPin, Clock } from "lucide-react";
-import { toast } from "sonner";
 
 const Contact = () => {
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    toast.success("Message envoyé avec succès ! Nous vous répondrons dans les plus brefs délais.");
-  };
-
   return (
     <div className="flex flex-col">
       {/* Header */}
@@ -20,163 +10,95 @@ const Contact = () => {
           <h1 className="text-5xl md:text-6xl font-black mb-4 uppercase">Contactez-nous</h1>
           <div className="w-20 h-1 bg-white mx-auto mb-6"></div>
           <p className="text-xl max-w-2xl mx-auto">
-            Laissez-nous un message ou venez nous rencontrer directement
+            N'hésitez pas à nous contacter par email ou téléphone
           </p>
         </div>
       </section>
 
-      {/* Contact Form & Info */}
+      {/* Contact Info */}
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
-            {/* Contact Form */}
-            <div>
-              <h2 className="text-3xl font-black text-foreground mb-2 uppercase">Contactez-nous</h2>
-              <div className="w-16 h-1 bg-primary mb-6"></div>
-              <Card className="p-8 border-2">
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="space-y-2">
-                    <Label htmlFor="name">Nom complet *</Label>
-                    <Input
-                      id="name"
-                      placeholder="Jean Dupont"
-                      required
-                      className="border-primary/20 focus:border-primary"
-                    />
+          <div className="max-w-2xl mx-auto">
+            <h2 className="text-3xl font-black text-foreground mb-2 uppercase text-center">Nos Coordonnées</h2>
+            <div className="w-16 h-1 bg-primary mx-auto mb-8"></div>
+            
+            <div className="space-y-6">
+              <Card className="p-6">
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
+                    <MapPin className="h-6 w-6 text-primary" />
                   </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="email">Email *</Label>
-                    <Input
-                      id="email"
-                      type="email"
-                      placeholder="jean.dupont@email.com"
-                      required
-                      className="border-primary/20 focus:border-primary"
-                    />
+                  <div>
+                    <h3 className="font-semibold mb-1">Adresse</h3>
+                    <p className="text-muted-foreground">
+                      Complexe Sportif Régine Cavagnoud<br />
+                      57700 Hayange
+                    </p>
                   </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="phone">Téléphone</Label>
-                    <Input
-                      id="phone"
-                      type="tel"
-                      placeholder="06 12 34 56 78"
-                      className="border-primary/20 focus:border-primary"
-                    />
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="subject">Sujet *</Label>
-                    <Input
-                      id="subject"
-                      placeholder="Inscription / Renseignements / Partenariat..."
-                      required
-                      className="border-primary/20 focus:border-primary"
-                    />
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="message">Message *</Label>
-                    <Textarea
-                      id="message"
-                      placeholder="Décrivez votre demande..."
-                      rows={6}
-                      required
-                      className="border-primary/20 focus:border-primary resize-none"
-                    />
-                  </div>
-
-                  <Button type="submit" className="w-full bg-primary hover:bg-primary-dark text-white font-bold uppercase">
-                    Envoyer
-                  </Button>
-                </form>
+                </div>
               </Card>
-            </div>
 
-            {/* Contact Info */}
-            <div>
-              <h2 className="text-3xl font-black text-foreground mb-2 uppercase">Informations</h2>
-              <div className="w-16 h-1 bg-primary mb-6"></div>
-              
-              <div className="space-y-6">
-                <Card className="p-6">
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
-                      <MapPin className="h-6 w-6 text-primary" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold mb-1">Adresse</h3>
-                      <p className="text-muted-foreground">
-                        Complexe Sportif Régine Cavagnoud<br />
-                        57700 Hayange
-                      </p>
+              <Card className="p-6">
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
+                    <Mail className="h-6 w-6 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold mb-1">Email</h3>
+                    <a
+                      href="mailto:rlacy376@gmail.com"
+                      className="text-primary hover:underline"
+                    >
+                      rlacy376@gmail.com
+                    </a>
+                  </div>
+                </div>
+              </Card>
+
+              <Card className="p-6">
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
+                    <Phone className="h-6 w-6 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold mb-1">Téléphone</h3>
+                    <a
+                      href="tel:+33789026890"
+                      className="text-primary hover:underline"
+                    >
+                      07 89 02 68 90
+                    </a>
+                  </div>
+                </div>
+              </Card>
+
+              <Card className="p-6">
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
+                    <Clock className="h-6 w-6 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold mb-2">Horaires d'Ouverture</h3>
+                    <div className="text-sm text-muted-foreground space-y-1">
+                      <p><span className="font-medium">Mardi:</span> 20h00 - 22h30</p>
+                      <p><span className="font-medium">Jeudi:</span> 15h00 - 17h00</p>
+                      <p><span className="font-medium">Vendredi:</span> 20h30 - 22h30</p>
+                      <p><span className="font-medium">Samedi:</span> 15h00 - 17h00</p>
                     </div>
                   </div>
-                </Card>
+                </div>
+              </Card>
 
-                <Card className="p-6">
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
-                      <Mail className="h-6 w-6 text-primary" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold mb-1">Email</h3>
-                      <a
-                        href="mailto:rlacy376@gmail.com"
-                        className="text-primary hover:underline"
-                      >
-                        rlacy376@gmail.com
-                      </a>
-                    </div>
+              {/* Map Placeholder */}
+              <Card className="overflow-hidden">
+                <div className="h-64 bg-muted flex items-center justify-center">
+                  <div className="text-center text-muted-foreground">
+                    <MapPin className="h-12 w-12 mx-auto mb-2" />
+                    <p className="text-sm">Carte Interactive</p>
+                    <p className="text-xs mt-1">Complexe Sportif Régine Cavagnoud, Hayange</p>
                   </div>
-                </Card>
-
-                <Card className="p-6">
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
-                      <Phone className="h-6 w-6 text-primary" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold mb-1">Téléphone</h3>
-                      <a
-                        href="tel:+33789026890"
-                        className="text-primary hover:underline"
-                      >
-                        07 89 02 68 90
-                      </a>
-                    </div>
-                  </div>
-                </Card>
-
-                <Card className="p-6">
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
-                      <Clock className="h-6 w-6 text-primary" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold mb-2">Horaires d'Ouverture</h3>
-                      <div className="text-sm text-muted-foreground space-y-1">
-                        <p><span className="font-medium">Mardi:</span> 20h00 - 22h30</p>
-                        <p><span className="font-medium">Jeudi:</span> 15h00 - 17h00</p>
-                        <p><span className="font-medium">Vendredi:</span> 20h30 - 22h30</p>
-                        <p><span className="font-medium">Samedi:</span> 15h00 - 17h00</p>
-                      </div>
-                    </div>
-                  </div>
-                </Card>
-
-                {/* Map Placeholder */}
-                <Card className="overflow-hidden">
-                  <div className="h-64 bg-muted flex items-center justify-center">
-                    <div className="text-center text-muted-foreground">
-                      <MapPin className="h-12 w-12 mx-auto mb-2" />
-                      <p className="text-sm">Carte Interactive</p>
-                      <p className="text-xs mt-1">Gymnase Municipal, Hayange</p>
-                    </div>
-                  </div>
-                </Card>
-              </div>
+                </div>
+              </Card>
             </div>
           </div>
         </div>
@@ -193,7 +115,7 @@ const Contact = () => {
                 <h3 className="font-semibold text-lg mb-2">Comment s'inscrire au club ?</h3>
                 <p className="text-muted-foreground">
                   Vous pouvez venir directement au gymnase pendant les horaires d'ouverture ou nous 
-                  contacter via ce formulaire. Nous vous fournirons toutes les informations nécessaires.
+                  contacter par email ou téléphone. Nous vous fournirons toutes les informations nécessaires.
                 </p>
               </Card>
 
