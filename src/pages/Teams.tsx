@@ -42,7 +42,9 @@ const teams = [
     results: [
       { tour: 1, date: "28/09/2025", match: "BASSE HAM BHTT(2) 4 - 10 HAYANGE USTH 1", isHome: false },
       { tour: 2, date: "12/10/2025", match: "HAYANGE USTH 1 14 - 0 SIERCK SLPTT 1", isHome: true },
-      { tour: 3, date: "09/11/2025", match: "TERVILLE TT 8 9 - 5 HAYANGE USTH 1", isHome: false }
+      { tour: 3, date: "09/11/2025", match: "TERVILLE TT 8 9 - 5 HAYANGE USTH 1", isHome: false },
+      { tour: 4, date: "16/11/2025", match: "ILLANGE USTT 5 6 - 8 HAYANGE USTH 1", isHome: false },
+      { tour: 5, date: "30/11/2025", match: "HAYANGE USTH 1 11 - 3 AUDUN LE ROMAN 8", isHome: true }
     ]
   },
   {
@@ -51,7 +53,9 @@ const teams = [
     results: [
       { tour: 1, date: "28/09/2025", match: "HAYANGE USTH 2 7 - 3 CLOUANGE T.T 3", isHome: true },
       { tour: 2, date: "12/10/2025", match: "ILLANGE USTT 6 4 - 6 HAYANGE USTH 2", isHome: false },
-      { tour: 3, date: "09/11/2025", match: "HAYANGE USTH 2 9 - 1 BASSE HAM BHTT 3", isHome: true }
+      { tour: 3, date: "09/11/2025", match: "HAYANGE USTH 2 9 - 1 BASSE HAM BHTT 3", isHome: true },
+      { tour: 4, date: "16/11/2025", match: "KNUT-NILV TT 8 0 - 10 HAYANGE USTH 2", isHome: false },
+      { tour: 5, date: "30/11/2025", match: "HAYANGE USTH 2 10 - 0 THIONVILLE TT 10", isHome: true }
     ]
   },
   {
@@ -60,25 +64,21 @@ const teams = [
     results: [
       { tour: 1, date: "28/09/2025", match: "HAYANGE USTH 3 0 - 10 HAGONDANGE E.S 4", isHome: true },
       { tour: 2, date: "12/10/2025", match: "TERVILLE TT 11 4 - 6 HAYANGE USTH 3", isHome: false },
-      { tour: 3, date: "09/11/2025", match: "HAYANGE USTH 3 9 - 1 KNUT-NILV TT 7", isHome: true }
+      { tour: 3, date: "09/11/2025", match: "HAYANGE USTH 3 9 - 1 KNUT-NILV TT 7", isHome: true },
+      { tour: 4, date: "16/11/2025", match: "HAYANGE USTH 3 9 - 1 MAIZIERES 13", isHome: true },
+      { tour: 5, date: "30/11/2025", match: "T.T Amneville 7 8 - 2 HAYANGE USTH 3", isHome: false }
     ]
   }
 ];
 
 const upcomingMatches = [
   // HAYANGE USTH 1
-  { tour: 4, match: "ILLANGE USTT 5 vs HAYANGE USTH 1", date: "16/11/2025", team: "HAYANGE USTH 1", championship: "GE6" },
-  { tour: 5, match: "HAYANGE USTH 1 vs AUDUN LE ROMAN 8", date: "30/11/2025", team: "HAYANGE USTH 1", championship: "GE6" },
   { tour: 6, match: "ROUSSY TT 2 vs HAYANGE USTH 1", date: "14/12/2025", team: "HAYANGE USTH 1", championship: "GE6" },
   { tour: 7, match: "HAYANGE USTH 1 vs MANOM J.S 6", date: "11/01/2026", team: "HAYANGE USTH 1", championship: "GE6" },
   // HAYANGE USTH 2
-  { tour: 4, match: "KNUT-NILV TT 8 vs HAYANGE USTH 2", date: "16/11/2025", team: "HAYANGE USTH 2", championship: "GE7" },
-  { tour: 5, match: "HAYANGE USTH 2 vs THIONVILLE TT 10", date: "30/11/2025", team: "HAYANGE USTH 2", championship: "GE7" },
   { tour: 6, match: "HAYANGE USTH 2 vs TERVILLE TT 9", date: "14/12/2025", team: "HAYANGE USTH 2", championship: "GE7" },
   { tour: 7, match: "PAYS SIERCKOIS 3 vs HAYANGE USTH 2", date: "11/01/2026", team: "HAYANGE USTH 2", championship: "GE7" },
   // HAYANGE USTH 3
-  { tour: 4, match: "HAYANGE USTH 3 vs MAIZIERES 13", date: "16/11/2025", team: "HAYANGE USTH 3", championship: "GE7" },
-  { tour: 5, match: "T.T Amneville 7 vs HAYANGE USTH 3", date: "30/11/2025", team: "HAYANGE USTH 3", championship: "GE7" },
   { tour: 6, match: "HAYANGE USTH 3 vs MAIZIERES 12", date: "14/12/2025", team: "HAYANGE USTH 3", championship: "GE7" },
   { tour: 7, match: "CLOUANGE T.T 4 vs HAYANGE USTH 3", date: "11/01/2026", team: "HAYANGE USTH 3", championship: "GE7" },
 ];
@@ -229,11 +229,15 @@ const Teams = () => {
                   </h3>
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {displayedResults.map((result, resultIndex) => {
-                      const isVictory = team.name.includes("USTH 1") 
-                        ? (resultIndex === 0 && true) || (resultIndex === 1 && true) || (resultIndex === 2 && false)
-                        : team.name.includes("USTH 2")
-                        ? (resultIndex === 0 && true) || (resultIndex === 1 && true) || (resultIndex === 2 && true)
-                        : (resultIndex === 0 && false) || (resultIndex === 1 && true) || (resultIndex === 2 && true);
+                      // Calculate victory based on score parsing
+                      const scorePattern = /(\d+)\s*-\s*(\d+)/;
+                      const scoreMatch = result.match.match(scorePattern);
+                      let isVictory = false;
+                      if (scoreMatch) {
+                        const [, score1, score2] = scoreMatch;
+                        const isUsthFirst = result.match.indexOf(team.name) < result.match.indexOf(scoreMatch[0]);
+                        isVictory = isUsthFirst ? parseInt(score1) > parseInt(score2) : parseInt(score2) > parseInt(score1);
+                      }
                       
                       return (
                         <MatchResultCard 
