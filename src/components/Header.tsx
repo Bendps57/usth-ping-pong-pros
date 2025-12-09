@@ -5,8 +5,9 @@ import { Button } from "@/components/ui/button";
 import logo from "@/assets/logo-usth.png";
 
 const navItems = [
+  { path: "/", label: "ACCUEIL" },
   { path: "/club", label: "LE CLUB" },
-  { path: "/equipes", label: "NOS JOUEURS" },
+  { path: "/equipes", label: "EQUIPES/RESULTATS" },
   { path: "/sponsors", label: "SPONSORS" },
   { path: "/articles", label: "ACTUALITÉS" },
 ];
