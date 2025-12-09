@@ -7,34 +7,11 @@ import heroImage from "@/assets/hero-table-tennis.jpg";
 import teamImage from "@/assets/team-spirit.jpg";
 import actionPlayer from "@/assets/action-player.jpg";
 import teamPhoto from "@/assets/team-photo.jpg";
-import actu1 from "@/assets/actu1.jpg";
-import actu2 from "@/assets/actu2.jpg";
-import actu3 from "@/assets/actu3.jpg";
+import { getLatestArticles } from "@/data/articles";
 
-// Articles data - synchronized with Articles page
-const articles = [
-  {
-    id: "bilan-coupe-mirabelle",
-    title: "Bilan du 1er Tour de la Coupe Mirabelle",
-    date: "dimanche 7 décembre 2025",
-    image: actu3,
-    excerpt: "Retour sur les rencontres du 05/12/2025 face à Clouange..."
-  },
-  {
-    id: "coupe-mirabelle-annonce",
-    title: "Coup de Projecteur sur la Coupe Mirabelle",
-    date: "mardi 2 décembre 2025",
-    image: actu2,
-    excerpt: "Préparez-vous pour des matchs intenses..."
-  },
-  {
-    id: "recrutement-usth",
-    title: "USTH TT Recrute !",
-    date: "lundi 1 décembre 2025",
-    image: actu1,
-    excerpt: "Viens t'essayer au tennis de table avec nous..."
-  }
-];
+// Get the 3 latest articles automatically
+const latestArticles = getLatestArticles(3);
+
 const Home = () => {
   const presentationAnim = useScrollAnimation();
   const teamsAnim = useScrollAnimation();
@@ -237,7 +214,7 @@ const Home = () => {
           </div>
 
           <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-            {articles.map((article) => (
+            {latestArticles.map((article) => (
               <Link key={article.id} to={`/articles/${article.id}`}>
                 <Card className="overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group h-full">
                   <div className="relative aspect-video overflow-hidden bg-secondary/20">
