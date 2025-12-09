@@ -4,6 +4,7 @@ import { ArrowLeft } from "lucide-react";
 import actu1 from "@/assets/actu1.jpg";
 import actu2 from "@/assets/actu2.jpg";
 import actu3 from "@/assets/actu3.jpg";
+import championnatJ6 from "@/assets/championnat-j6.jpg";
 
 // Articles data
 const articlesData: Record<string, {
@@ -12,6 +13,32 @@ const articlesData: Record<string, {
   image: string;
   content: string;
 }> = {
+  "championnat-j6": {
+    title: "Championnat J6 : Dernière Ligne Droite Avant la Trêve !",
+    date: "lundi 9 décembre 2025",
+    image: championnatJ6,
+    content: `🏓 CHAMPIONNAT J6 : DERNIÈRE LIGNE DROITE AVANT LA TRÊVE !
+
+Chers supporters, amis du club et passionnés de la petite balle blanche,
+
+Le compte à rebours est lancé ! Ce Dimanche 14 Décembre 2025, le HAYANGE USTH aborde le 6ème tour du championnat par équipes. Une journée cruciale pour le classement général alors que la mi-saison approche à grands pas. Nos joueurs ont affûté leurs raquettes et comptent sur votre soutien, que ce soit à domicile ou à distance ! 💪
+
+🧐 ZOOM SUR LES RENCONTRES :
+
+L'Équipe Première en déplacement commando
+Nos fers de lance de l'équipe 1 se rendent chez nos voisins de Roussy TT. Un match à l'extérieur n'est jamais simple, mais nos joueurs sont déterminés à ramener la victoire pour consolider leur position. Il faudra être solide mentalement !
+👉 ROUSSY TT 2 🆚 HAYANGE USTH 1
+
+L'Équipe 2 reçoit Terville Tennis de Table
+Un match qui promet de belles étincelles. L'objectif est clair : imposer notre jeu et ne laisser aucune chance à l'adversaire.
+👉 HAYANGE USTH 2 🆚 TERVILLE TT 9
+
+L'Équipe 3 affronte Tennis de Table Maizières-Lès-Metz
+Chaque point va compter et nos joueurs auront besoin de vos encouragements pour faire la différence dans les moments chauds.
+👉 HAYANGE USTH 3 🆚 MAIZIERES 12
+
+On ne lâche rien, on se bat sur chaque balle ! Allez Hayange ! 🍀💚`
+  },
   "bilan-coupe-mirabelle": {
     title: "Bilan du 1er Tour de la Coupe Mirabelle",
     date: "dimanche 7 décembre 2025",

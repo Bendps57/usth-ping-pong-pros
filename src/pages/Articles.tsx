@@ -3,9 +3,17 @@ import { Card } from "@/components/ui/card";
 import actu1 from "@/assets/actu1.jpg";
 import actu2 from "@/assets/actu2.jpg";
 import actu3 from "@/assets/actu3.jpg";
+import championnatJ6 from "@/assets/championnat-j6.jpg";
 
 // Articles data
 const articles = [
+  {
+    id: "championnat-j6",
+    title: "Championnat J6 : Dernière Ligne Droite Avant la Trêve !",
+    date: "lundi 9 décembre 2025",
+    image: championnatJ6,
+    excerpt: "Le compte à rebours est lancé ! Ce Dimanche 14 Décembre 2025, le HAYANGE USTH aborde le 6ème tour du championnat..."
+  },
   {
     id: "bilan-coupe-mirabelle",
     title: "Bilan du 1er Tour de la Coupe Mirabelle",
