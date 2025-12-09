@@ -1,41 +1,6 @@
 import { Link } from "react-router-dom";
 import { Card } from "@/components/ui/card";
-import actu1 from "@/assets/actu1.jpg";
-import actu2 from "@/assets/actu2.jpg";
-import actu3 from "@/assets/actu3.jpg";
-import championnatJ6 from "@/assets/championnat-j6.jpg";
-
-// Articles data
-const articles = [
-  {
-    id: "championnat-j6",
-    title: "Championnat J6 : Dernière Ligne Droite Avant la Trêve !",
-    date: "lundi 9 décembre 2025",
-    image: championnatJ6,
-    excerpt: "Le compte à rebours est lancé ! Ce Dimanche 14 Décembre 2025, le HAYANGE USTH aborde le 6ème tour du championnat..."
-  },
-  {
-    id: "bilan-coupe-mirabelle",
-    title: "Bilan du 1er Tour de la Coupe Mirabelle",
-    date: "dimanche 7 décembre 2025",
-    image: actu3,
-    excerpt: "Retour sur les rencontres du 05/12/2025 face à Clouange. Un bilan contrasté pour nos équipes..."
-  },
-  {
-    id: "coupe-mirabelle-annonce",
-    title: "Coup de Projecteur sur la Coupe Mirabelle",
-    date: "mardi 2 décembre 2025",
-    image: actu2,
-    excerpt: "Préparez-vous pour des matchs intenses ! La prochaine journée de la Coupe Mirabelle approche..."
-  },
-  {
-    id: "recrutement-usth",
-    title: "USTH TT Recrute !",
-    date: "lundi 1 décembre 2025",
-    image: actu1,
-    excerpt: "Viens t'essayer au tennis de table avec nous ! Recrutement joueurs compétition et loisir..."
-  }
-];
+import { articles } from "@/data/articles";
 
 const Articles = () => {
   return (
