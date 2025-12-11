@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, ChevronDown, Facebook, Instagram } from "lucide-react";
+import { Menu, X, ChevronDown, Facebook } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/logo-usth.png";
 
@@ -65,24 +65,14 @@ const Header = () => {
                 CONTACTEZ-NOUS
               </Button>
             </Link>
-            <div className="flex items-center gap-2">
-              <a 
-                href="https://facebook.com" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="w-9 h-9 bg-primary hover:bg-primary/90 rounded flex items-center justify-center transition-colors"
-              >
-                <Facebook className="h-4 w-4 text-primary-foreground" />
-              </a>
-              <a 
-                href="https://instagram.com" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="w-9 h-9 bg-primary hover:bg-primary/90 rounded flex items-center justify-center transition-colors"
-              >
-                <Instagram className="h-4 w-4 text-primary-foreground" />
-              </a>
-            </div>
+            <a 
+              href="https://www.facebook.com/profile.php?id=61584034175057" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="w-9 h-9 bg-primary hover:bg-primary/90 rounded flex items-center justify-center transition-colors"
+            >
+              <Facebook className="h-4 w-4 text-primary-foreground" />
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
