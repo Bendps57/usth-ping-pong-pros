@@ -17,6 +17,51 @@ export interface Article {
 // Add new articles at the TOP of this array (most recent first)
 export const articles: Article[] = [
   {
+    id: "championnat-j6-resultats",
+    title: "Championnat J6 : Un Week-End Victorieux Pour l'USTH !",
+    date: "dimanche 14 décembre 2025",
+    image: championnatJ6,
+    excerpt: "Ce dimanche 14 décembre se jouait le 6ème avant-dernier tour de la phase 1 du championnat. Bilan du week-end : 2 belles victoires et de l'expérience engrangée !",
+    content: `🏓 CHAMPIONNAT J6 : UN WEEK-END VICTORIEUX POUR L'USTH !
+
+Ce dimanche 14 décembre se jouait le 6ème avant-dernier tour de la phase 1 du championnat. Nos trois équipes étaient sur le pont pour défendre les couleurs de Hayange.
+
+
+📊 BILAN DU WEEK-END : 2 belles victoires et de l'expérience engrangée !
+
+Voici le détail des rencontres :
+
+
+🏆 ÉQUIPE 1 : Victoire solide à l'extérieur !
+
+Roussy TT 2 [ 5 - 9 ] Hayange USTH 1
+
+En déplacement, notre équipe fanion a fait le travail avec sérieux. Une rencontre maîtrisée qui permet de ramener des points précieux pour l'objectif de montée en fin de saison. Bravo messieurs pour cette constance !
+
+
+🏆 ÉQUIPE 2 : Intraitables à domicile !
+
+Hayange USTH 2 [ 9 - 1 ] Terville TT 9
+
+Quelle démonstration ! À la salle Régine Cavagnoud, l'équipe 2 n'a laissé aucune chance à ses voisins de Terville. Un score sans appel qui confirme la très bonne dynamique du groupe.
+
+
+💪 ÉQUIPE 3 : L'apprentissage continue
+
+Hayange USTH 3 [ 0 - 10 ] Maizières 12
+
+Un dimanche matin compliqué pour notre équipe 3 qui est tombée sur un os face à une équipe de Maizières très supérieure sur le papier. On ne lâche rien ! C'est dans ce genre de matchs difficiles qu'on progresse le plus. Courage à toute l'équipe, on est ensemble !
+
+
+🙏 MERCI !
+
+Un grand bravo à tous nos joueurs pour leur combativité et leur état d'esprit irréprochable. Merci également aux supporters et bénévoles présents pour encourager les équipes.
+
+On retourne à l'entraînement dès mardi pour préparer le dernier tour de cette phase !
+
+Allez l'USTH ! 🍀💚`
+  },
+  {
     id: "interview-president",
     title: "L'Interview du Président : Gilbert Nadalin",
     date: "mercredi 18 décembre 2025",
