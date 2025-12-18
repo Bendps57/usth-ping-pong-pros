@@ -44,7 +44,8 @@ const teams = [
       { tour: 2, date: "12/10/2025", match: "HAYANGE USTH 1 14 - 0 SIERCK SLPTT 1", isHome: true },
       { tour: 3, date: "09/11/2025", match: "TERVILLE TT 8 9 - 5 HAYANGE USTH 1", isHome: false },
       { tour: 4, date: "16/11/2025", match: "ILLANGE USTT 5 6 - 8 HAYANGE USTH 1", isHome: false },
-      { tour: 5, date: "30/11/2025", match: "HAYANGE USTH 1 11 - 3 AUDUN LE ROMAN 8", isHome: true }
+      { tour: 5, date: "30/11/2025", match: "HAYANGE USTH 1 11 - 3 AUDUN LE ROMAN 8", isHome: true },
+      { tour: 6, date: "14/12/2025", match: "ROUSSY TT 2 5 - 9 HAYANGE USTH 1", isHome: false }
     ]
   },
   {
@@ -55,7 +56,8 @@ const teams = [
       { tour: 2, date: "12/10/2025", match: "ILLANGE USTT 6 4 - 6 HAYANGE USTH 2", isHome: false },
       { tour: 3, date: "09/11/2025", match: "HAYANGE USTH 2 9 - 1 BASSE HAM BHTT 3", isHome: true },
       { tour: 4, date: "16/11/2025", match: "KNUT-NILV TT 8 0 - 10 HAYANGE USTH 2", isHome: false },
-      { tour: 5, date: "30/11/2025", match: "HAYANGE USTH 2 10 - 0 THIONVILLE TT 10", isHome: true }
+      { tour: 5, date: "30/11/2025", match: "HAYANGE USTH 2 10 - 0 THIONVILLE TT 10", isHome: true },
+      { tour: 6, date: "14/12/2025", match: "HAYANGE USTH 2 9 - 1 TERVILLE TT 9", isHome: true }
     ]
   },
   {
@@ -66,20 +68,18 @@ const teams = [
       { tour: 2, date: "12/10/2025", match: "TERVILLE TT 11 4 - 6 HAYANGE USTH 3", isHome: false },
       { tour: 3, date: "09/11/2025", match: "HAYANGE USTH 3 9 - 1 KNUT-NILV TT 7", isHome: true },
       { tour: 4, date: "16/11/2025", match: "HAYANGE USTH 3 9 - 1 MAIZIERES 13", isHome: true },
-      { tour: 5, date: "30/11/2025", match: "T.T Amneville 7 8 - 2 HAYANGE USTH 3", isHome: false }
+      { tour: 5, date: "30/11/2025", match: "T.T Amneville 7 8 - 2 HAYANGE USTH 3", isHome: false },
+      { tour: 6, date: "14/12/2025", match: "HAYANGE USTH 3 0 - 10 MAIZIERES 12", isHome: true }
     ]
   }
 ];
 
 const upcomingMatches = [
   // HAYANGE USTH 1
-  { tour: 6, match: "ROUSSY TT 2 vs HAYANGE USTH 1", date: "14/12/2025", team: "HAYANGE USTH 1", championship: "GE6" },
   { tour: 7, match: "HAYANGE USTH 1 vs MANOM J.S 6", date: "11/01/2026", team: "HAYANGE USTH 1", championship: "GE6" },
   // HAYANGE USTH 2
-  { tour: 6, match: "HAYANGE USTH 2 vs TERVILLE TT 9", date: "14/12/2025", team: "HAYANGE USTH 2", championship: "GE7" },
   { tour: 7, match: "PAYS SIERCKOIS 3 vs HAYANGE USTH 2", date: "11/01/2026", team: "HAYANGE USTH 2", championship: "GE7" },
   // HAYANGE USTH 3
-  { tour: 6, match: "HAYANGE USTH 3 vs MAIZIERES 12", date: "14/12/2025", team: "HAYANGE USTH 3", championship: "GE7" },
   { tour: 7, match: "CLOUANGE T.T 4 vs HAYANGE USTH 3", date: "11/01/2026", team: "HAYANGE USTH 3", championship: "GE7" },
 ];
 
