@@ -2,6 +2,7 @@ import actu1 from "@/assets/actu1.jpg";
 import actu2 from "@/assets/actu2.jpg";
 import actu3 from "@/assets/actu3.jpg";
 import championnatJ6 from "@/assets/championnat-j6.jpg";
+import interviewPresident from "@/assets/interview-president.jpg";
 
 export interface Article {
   id: string;
@@ -15,6 +16,125 @@ export interface Article {
 // Articles data - centralized source of truth
 // Add new articles at the TOP of this array (most recent first)
 export const articles: Article[] = [
+  {
+    id: "interview-president",
+    title: "L'Interview du Président : Gilbert Nadalin",
+    date: "mercredi 18 décembre 2025",
+    image: interviewPresident,
+    excerpt: "Aujourd'hui, nous donnons la parole à celui qui dirige la section Tennis de Table de l'USTH depuis plus de 20 ans. Découvrez sa vision, ses anecdotes et ses ambitions pour le club !",
+    content: `🏓 L'INTERVIEW DU PRÉSIDENT : GILBERT NADALIN
+
+Aujourd'hui, nous donnons la parole à celui qui dirige la section Tennis de Table de l'USTH depuis plus de 20 ans. Découvrez sa vision, ses anecdotes et ses ambitions pour le club !
+
+
+👤 PRÉSENTATION
+
+1. Pouvez-vous vous présenter et nous rappeler depuis quand vous êtes président de l'USTH Tennis de Table ?
+
+« Je me présente Nadalin Gilbert, Président de la section tennis de table de Hayange depuis 2002. »
+
+2. Qu'est-ce qui vous a motivé à vous engager dans ce rôle ?
+
+« Il n'y avait pas de désir particulier à devenir président du club; l'ancien président, trop âgé, cherchait désespérément un remplaçant, sinon la section disparaissait. J'étais pongiste dans le club depuis quelques années déjà avec mon fils et beaucoup de ses amis, raison pour laquelle, j'ai accepté. »
+
+
+🏓 LE CLUB AUJOURD'HUI
+
+3. Comment décririez-vous l'ambiance et l'esprit du club ?
+
+« L'ambiance est très amicale, mais il y a cependant un esprit de compétition pour les adhérents qui participent en championnat départemental. Il y a également un esprit d'entraide et de bienveillance envers les nouveaux venus. C'est primordial ! »
+
+4. Combien de licenciés compte actuellement l'USTH TT ?
+
+« Le nombre de licenciés est de 25. »
+
+5. Qu'est-ce qui différencie notre club des autres clubs de la région ?
+
+« Je ne pense pas qu'il y ait des différences d'un club à l'autre, peut-être les liens qui se sont formés avec le temps. »
+
+6. Quelles sont les équipes engagées en championnat cette saison ?
+
+« 3 équipes engagées en championnat :
+
+Équipe 1 en Grand Est 6 (ancienne division départementale 2)
+
+Équipe 2 en Grand Est 7 (ancienne division départementale 3)
+
+Équipe 3 en Grand Est 7 (ancienne division départementale 3) »
+
+
+🎯 OBJECTIFS & PROJETS
+
+7. Quels sont les grands objectifs sportifs du club cette année ?
+
+« Les objectifs du club cette saison sont la montée des équipes engagées en division supérieure, c'est-à-dire : l'équipe 1 passe en Grand Est 5 et les équipes 2 et 3 passent en Grand Est 6. »
+
+8. Avez-vous des projets en cours pour développer le club ?
+
+« Comme pour les années précédentes, à la demande de l'ACSH (association culturelle de Hayange) en lien avec la municipalité, nous organisons un W.E récréatif pendant les grandes vacances scolaires pour initier des enfants à la pratique du tennis de table et peut-être pourquoi pas, ouvrir des voies. C'est un W.E encadré par moi-même qui permet aux enfants qui ne peuvent pas partir en vacances, de se divertir dans une bonne ambiance. »
+
+9. Comment souhaitez-vous attirer de nouveaux joueurs ?
+
+« J'espère grâce aux réseaux sociaux et le bouche à oreilles que des personnes seront attirées par cette discipline. Il faut préciser que les vendredis soir, il y a la présence d'un entraîneur pour perfectionner les joueurs. Il est disponible tant pour les confirmés que pour les novices qui souhaiteraient tester la pratique du ping pong.
+
+J'accepte que des personnes viennent d'abord taper la balle une à deux fois et si cela leur convient, elles peuvent ensuite prendre une licence qui vaut pour la saison 72€ (+ de 18 ans) et 62€ (- de 18 ans). »
+
+
+🤝 BÉNÉVOLES & COMMUNAUTÉ
+
+10. Quel message pour les bénévoles ?
+
+« Le message que je souhaite adresser à tous les bénévoles qui aident à la bonne marche du club est avant mes sincères remerciements. Sans eux, le travail serait bien plus conséquent. Leurs investissements sont une aide précieuse pour moi-même et pour tout le groupe. Chacun à sa façon, contribue au bon déroulement des séances d'entraînements. »
+
+11. Qu'attendez-vous de la communauté locale ?
+
+« La mairie de Hayange nous aide financièrement et c'est fort appréciable. Nous faisons partie de l'USTH (union sportive du Tournebride Hayange) qui regroupe 8 disciplines et qui œuvrent au sein de la commune. »
+
+
+💚 VALEURS & SOUVENIRS
+
+12. Quelles valeurs souhaitez-vous transmettre ?
+
+« Les valeurs que je souhaite véhiculer avec tous les pongistes sont la bienveillance, le respect, l'entraide, l'esprit d'équipe et de compétition. De plus, n'oubliez pas que la pratique d'un sport est salutaire pour la santé. Notre activité se déroule dans une ambiance sympathique et amicale où des liens forts se tissent. »
+
+13. Un souvenir marquant ?
+
+« Plutôt qu'un moment fort, j'ai le souvenir d'une anecdote lors d'une compétition à Amnéville : un pongiste venait d'acquérir une nouvelle raquette, qui devait selon ses dires, être ultra performante. Seulement dès le premier échange de balle, sa raquette s'est désolidarisée de son manche et il ne tenait plus que le manche en main. Hilarité de tout le monde en voyant la scène et surtout devant l'air complètement médusé et dépité du pongiste. »
+
+
+🚀 L'AVENIR
+
+14. Où voyez-vous l'USTH TT dans 3 ou 5 ans ?
+
+« J'espère que le club sera encore et toujours actif, que de nouvelles recrues viendront nous rejoindre pour apporter un souffle de jeunesse. »
+
+15. Un rêve pour le club ?
+
+« Mon souhait serait que notre activité ouvre la voie à des jeunes pour assurer la relève. En effet, la moyenne d'âge se situe entre 50 et 60 ans. »
+
+16. Un dernier mot pour ceux qui hésitent ?
+
+« Je préciserai aux personnes qui hésitent à intégrer notre club de tennis de table qu'aucune compétence particulière n'est demandée à la base et qu'il n'y a pas de limite d'âge. Je laisse les nouveaux arrivants venir s'entraîner pendant 2 - 3 séances gracieusement pour voir si l'activité leur convient. »
+
+
+« Pour clore cet entretien, je tiens à remercier le comité, une équipe dynamique qui œuvre à mes côtés: Janice (secrétaire), Didier (correspondant), Julien (trésorier). Sans leur aide précieuse, rien ne serait possible. Je remercie également Lucas (entraîneur) et tous les pongistes pour leur assiduité aux entraînements et qui font vivre le tennis de table. Et j'ai le plaisir d'annoncer que de nouvelles recrues vont intégrer le club et gonfler les effectifs.
+
+Enfin, j'adresse toute ma pleine gratitude à Benoît, un de nos joueurs qui est à l'origine de ce site Internet et qui a mené cet entretien brillamment. Un grand merci à lui par sa détermination à faire connaître encore plus notre section tennis de table de Hayange. »
+
+
+📍 RAPPEL DES HORAIRES (Complexe Régine Cavagnoud) :
+
+Mardi : 20h00 - 22h30
+
+Jeudi : 15h00 - 17h30 (Loisirs)
+
+Vendredi : 20h30 - 22h30
+
+Samedi : 15h00 - 17h00
+
+
+Merci Président ! 👏`
+  },
   {
     id: "championnat-j6",
     title: "Championnat J6 : Dernière Ligne Droite Avant la Trêve !",
