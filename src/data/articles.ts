@@ -2,6 +2,7 @@ import actu1 from "@/assets/actu1.jpg";
 import actu2 from "@/assets/actu2.jpg";
 import actu3 from "@/assets/actu3.jpg";
 import championnatJ6 from "@/assets/championnat-j6.jpg";
+import championnatJ6Resultats from "@/assets/championnat-j6-resultats.jpg";
 import interviewPresident from "@/assets/interview-president.jpg";
 
 export interface Article {
@@ -20,7 +21,7 @@ export const articles: Article[] = [
     id: "championnat-j6-resultats",
     title: "Championnat J6 : Un Week-End Victorieux Pour l'USTH !",
     date: "dimanche 14 décembre 2025",
-    image: championnatJ6,
+    image: championnatJ6Resultats,
     excerpt: "Ce dimanche 14 décembre se jouait le 6ème avant-dernier tour de la phase 1 du championnat. Bilan du week-end : 2 belles victoires et de l'expérience engrangée !",
     content: `🏓 CHAMPIONNAT J6 : UN WEEK-END VICTORIEUX POUR L'USTH !
 
