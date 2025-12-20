@@ -2,6 +2,14 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Handshake, TrendingUp, Users, Target, Award, Heart } from "lucide-react";
+import elimytLogo from "@/assets/elimyt-logo.png";
+
+const sponsorsData = [
+  { id: 1, name: "Entreprise 1", logo: null, url: "#" },
+  { id: 2, name: "Entreprise 2", logo: null, url: "#" },
+  { id: 3, name: "Entreprise 3", logo: null, url: "#" },
+  { id: 4, name: "eLimyt", logo: elimytLogo, url: "https://www.elimyt.com" },
+];
 
 const Sponsors = () => {
   return (
@@ -27,13 +35,17 @@ const Sponsors = () => {
 
           <div className="max-w-6xl mx-auto">
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {[1, 2, 3, 4].map((i) => (
-                <Card key={i} className="p-6 hover:shadow-lg transition-all hover:scale-105 cursor-pointer">
-                  <a href="#" target="_blank" rel="noopener noreferrer" className="block">
+              {sponsorsData.map((sponsor) => (
+                <Card key={sponsor.id} className="p-6 hover:shadow-lg transition-all hover:scale-105 cursor-pointer">
+                  <a href={sponsor.url} target="_blank" rel="noopener noreferrer" className="block">
                     <div className="flex items-center justify-center h-32 bg-muted rounded-lg mb-4">
-                      <span className="text-lg font-bold text-muted-foreground">Logo Sponsor {i}</span>
+                      {sponsor.logo ? (
+                        <img src={sponsor.logo} alt={sponsor.name} className="max-h-20 max-w-full object-contain" />
+                      ) : (
+                        <span className="text-lg font-bold text-muted-foreground">Logo Sponsor {sponsor.id}</span>
+                      )}
                     </div>
-                    <h4 className="font-semibold text-center text-lg">Entreprise {i}</h4>
+                    <h4 className="font-semibold text-center text-lg">{sponsor.name}</h4>
                     <p className="text-center text-sm text-muted-foreground mt-2">
                       Partenaire du club
                     </p>
