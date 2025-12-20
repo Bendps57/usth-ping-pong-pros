@@ -6,7 +6,7 @@ import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import heroImage from "@/assets/hero-table-tennis.jpg";
 import teamImage from "@/assets/team-spirit.jpg";
 import actionPlayer from "@/assets/action-player.jpg";
-import teamPhoto from "@/assets/team-photo.jpg";
+import heroNoel from "@/assets/hero-noel.jpg";
 import { getLatestArticles } from "@/data/articles";
 
 // Get the 3 latest articles automatically
@@ -68,8 +68,8 @@ const Home = () => {
             <div className="relative h-[500px] lg:h-[600px] hidden lg:block">
               <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent rounded-2xl"></div>
               <img 
-                src={teamPhoto} 
-                alt="Équipe USTH Tennis de Table" 
+                src={heroNoel} 
+                alt="Équipe USTH Tennis de Table - Joyeuses Fêtes" 
                 className="w-full h-full object-cover rounded-2xl shadow-2xl"
               />
             </div>
