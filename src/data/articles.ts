@@ -4,6 +4,7 @@ import actu3 from "@/assets/actu3.jpg";
 import championnatJ6 from "@/assets/championnat-j6.jpg";
 import championnatJ6Resultats from "@/assets/championnat-j6-resultats.jpg";
 import interviewPresident from "@/assets/interview-president.jpg";
+import noelUsth from "@/assets/noel-usth.jpg";
 
 export interface Article {
   id: string;
@@ -17,6 +18,31 @@ export interface Article {
 // Articles data - centralized source of truth
 // Add new articles at the TOP of this array (most recent first)
 export const articles: Article[] = [
+  {
+    id: "noel-usth-2025",
+    title: "L'Esprit de Noël s'Empare de l'USTH Hayange !",
+    date: "vendredi 20 décembre 2025",
+    image: noelUsth,
+    excerpt: "Après une première partie de saison 2025 intense, il est temps pour nos guerriers du ping de poser les raquettes. Toute l'équipe vous souhaite de très joyeuses fêtes !",
+    content: `🎄 L'ESPRIT DE NOËL S'EMPARE DE L'USTH HAYANGE !
+
+Après une première partie de saison 2025 intense, riche en émotions, en belles victoires (et quelques défaites formatrices !), il est temps pour nos guerriers du ping de poser les raquettes quelques jours.
+
+Au nom de tout le club – notre Président Gilbert Nadalin, le comité directeur, les bénévoles de l'ombre et tous les joueurs – nous tenons à vous souhaiter, à vous, vos familles et vos proches, de TRÈS JOYEUSES FÊTES DE FIN D'ANNÉE ! 🎁
+
+Que cette période soit synonyme de chaleur, de partage, de rires... et de bons repas ! (C'est important pour la "prise de masse" avant la reprise, n'est-ce pas ? 😉).
+
+
+🚀 CAP SUR 2026 !
+
+Profitez bien de cette pause bien méritée pour recharger les batteries à 100%.
+
+Nous vous donnons rendez-vous très vite pour une année 2026 qui s'annonce passionnante ! La deuxième phase du championnat arrive avec de grands objectifs sportifs pour nos équipes. Nous aurons besoin de toute votre énergie au bord des tables !
+
+Prenez soin de vous et... à l'année prochaine !
+
+🎄🏓 Joyeuses Fêtes de la part de toute l'équipe USTH Tennis de Table ! 🏓🎄`
+  },
   {
     id: "championnat-j6-resultats",
     title: "Championnat J6 : Un Week-End Victorieux Pour l'USTH !",
