@@ -7,6 +7,7 @@ import heroImage from "@/assets/hero-table-tennis.jpg";
 import teamImage from "@/assets/team-spirit.jpg";
 import actionPlayer from "@/assets/action-player.jpg";
 import heroNoel from "@/assets/hero-noel.jpg";
+import elimytLogo from "@/assets/elimyt-logo.png";
 import { getLatestArticles } from "@/data/articles";
 
 // Get the 3 latest articles automatically
@@ -271,19 +272,24 @@ const Home = () => {
       <section className="py-16 bg-background">
         <div className="container mx-auto px-4 text-center">
           <h3 className="text-2xl font-bold text-primary mb-8">Nos Partenaires</h3>
-          <div className="flex flex-wrap justify-center items-center gap-12 opacity-60">
-            <div className="w-32 h-16 bg-muted rounded flex items-center justify-center text-xs font-semibold">
+          <div className="flex flex-wrap justify-center items-center gap-12">
+            <div className="w-32 h-16 bg-muted rounded flex items-center justify-center text-xs font-semibold opacity-60">
               Partenaire 1
             </div>
-            <div className="w-32 h-16 bg-muted rounded flex items-center justify-center text-xs font-semibold">
+            <div className="w-32 h-16 bg-muted rounded flex items-center justify-center text-xs font-semibold opacity-60">
               Partenaire 2
             </div>
-            <div className="w-32 h-16 bg-muted rounded flex items-center justify-center text-xs font-semibold">
+            <div className="w-32 h-16 bg-muted rounded flex items-center justify-center text-xs font-semibold opacity-60">
               Partenaire 3
             </div>
-            <div className="w-32 h-16 bg-muted rounded flex items-center justify-center text-xs font-semibold">
-              Partenaire 4
-            </div>
+            <a 
+              href="https://www.elimyt.com" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="w-32 h-16 bg-muted rounded flex items-center justify-center hover:opacity-80 transition-opacity"
+            >
+              <img src={elimytLogo} alt="eLimyt" className="max-h-10 max-w-full object-contain" />
+            </a>
           </div>
           <div className="mt-8">
             <Link to="/sponsors">
