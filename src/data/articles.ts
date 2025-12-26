@@ -5,6 +5,7 @@ import championnatJ6 from "@/assets/championnat-j6.jpg";
 import championnatJ6Resultats from "@/assets/championnat-j6-resultats.jpg";
 import interviewPresident from "@/assets/interview-president.jpg";
 import noelUsth from "@/assets/noel-usth.jpg";
+import coupeMirabelle2Tour from "@/assets/coupe-mirabelle-2tour.jpg";
 
 export interface Article {
   id: string;
@@ -18,6 +19,26 @@ export interface Article {
 // Articles data - centralized source of truth
 // Add new articles at the TOP of this array (most recent first)
 export const articles: Article[] = [
+  {
+    id: "coupe-mirabelle-2tour",
+    title: "Coupe Mirabelle : Un 2ème Tour Riche en Émotions !",
+    date: "jeudi 26 décembre 2025",
+    image: coupeMirabelle2Tour,
+    excerpt: "Nos deux équipes étaient sur le pont pour ce 2ème tour de la Coupe Mirabelle. Victoire au bout du suspense pour l'équipe 1 !",
+    content: `🏆 COUPE MIRABELLE : UN 2ÈME TOUR RICHE EN ÉMOTIONS ! 🏓
+
+Nos deux équipes étaient sur le pont pour ce 2ème tour de la Coupe Mirabelle. Voici les résultats !
+
+👉 MATCH 1 : VICTOIRE AU BOUT DU SUSPENSE !
+Bravo à notre équipe Hayange USTH 1 qui s'impose sur le fil, sur le score très serré de 5 à 4, face à une belle équipe de ESH Tennis de Table ! Une superbe performance collective ! 💪
+
+👉 MATCH 2 : SOIRÉE PLUS DIFFICILE...
+Moins de réussite pour notre équipe Hayange USTH 2 qui s'incline 2 à 7 contre le Konacker Hayange SLTT.
+
+On ne lâche rien, l'expérience rentre et on se concentre sur les prochains défis !
+
+Un grand bravo à tous nos joueurs pour avoir représenté les couleurs du club ! 👏💚🤍`
+  },
   {
     id: "noel-usth-2025",
     title: "L'Esprit de Noël s'Empare de l'USTH Hayange !",
