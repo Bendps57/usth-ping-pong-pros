@@ -14,7 +14,48 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      match_results: {
+        Row: {
+          championship: string
+          created_at: string
+          id: string
+          is_home: boolean
+          match_date: string
+          opponent_score: number
+          opponent_team: string
+          our_score: number
+          team_name: string
+          tour: number
+          updated_at: string
+        }
+        Insert: {
+          championship: string
+          created_at?: string
+          id?: string
+          is_home?: boolean
+          match_date: string
+          opponent_score: number
+          opponent_team: string
+          our_score: number
+          team_name: string
+          tour: number
+          updated_at?: string
+        }
+        Update: {
+          championship?: string
+          created_at?: string
+          id?: string
+          is_home?: boolean
+          match_date?: string
+          opponent_score?: number
+          opponent_team?: string
+          our_score?: number
+          team_name?: string
+          tour?: number
+          updated_at?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
