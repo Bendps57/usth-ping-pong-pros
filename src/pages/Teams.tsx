@@ -2,10 +2,11 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
+import { useMatchResults } from "@/hooks/use-match-results";
 import { Users, Trophy, Calendar } from "lucide-react";
 import { MatchResultCard } from "@/components/MatchResultCard";
 import { MatchFilters } from "@/components/MatchFilters";
-import { useState } from "react";
+import { useState, useMemo } from "react";
 
 const players = [
   "Lucas NOGA",
@@ -35,7 +36,8 @@ const players = [
   "David POLI"
 ];
 
-const teams = [
+// Static data for initial results
+const staticTeams = [
   {
     name: "HAYANGE USTH 1",
     championship: "GE6",
@@ -75,11 +77,8 @@ const teams = [
 ];
 
 const upcomingMatches = [
-  // HAYANGE USTH 1
   { tour: 7, match: "HAYANGE USTH 1 vs MANOM J.S 6", date: "11/01/2026", team: "HAYANGE USTH 1", championship: "GE6" },
-  // HAYANGE USTH 2
   { tour: 7, match: "PAYS SIERCKOIS 3 vs HAYANGE USTH 2", date: "11/01/2026", team: "HAYANGE USTH 2", championship: "GE7" },
-  // HAYANGE USTH 3
   { tour: 7, match: "CLOUANGE T.T 4 vs HAYANGE USTH 3", date: "11/01/2026", team: "HAYANGE USTH 3", championship: "GE7" },
 ];
 
@@ -87,11 +86,27 @@ const Teams = () => {
   const [selectedTeam, setSelectedTeam] = useState("all");
   const [showAllResults, setShowAllResults] = useState(false);
   const [showAllUpcoming, setShowAllUpcoming] = useState(false);
+  const { getResultsByTeam, isLoading } = useMatchResults();
   
   const playersAnim = useScrollAnimation();
   const teamsAnim = useScrollAnimation();
   const resultsAnim = useScrollAnimation();
   const calendarAnim = useScrollAnimation();
+
+  // Combine static and dynamic results
+  const teams = useMemo(() => {
+    return staticTeams.map(team => {
+      const dbResults = getResultsByTeam(team.name);
+      // Combine static results with database results, avoiding duplicates by tour
+      const existingTours = new Set(team.results.map(r => r.tour));
+      const newResults = dbResults.filter(r => !existingTours.has(r.tour));
+      
+      return {
+        ...team,
+        results: [...team.results, ...newResults].sort((a, b) => a.tour - b.tour)
+      };
+    });
+  }, [getResultsByTeam]);
 
   const teamNames = teams.map(t => t.name);
   
@@ -229,14 +244,19 @@ const Teams = () => {
                   </h3>
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {displayedResults.map((result, resultIndex) => {
-                      // Calculate victory based on score parsing
-                      const scorePattern = /(\d+)\s*-\s*(\d+)/;
-                      const scoreMatch = result.match.match(scorePattern);
-                      let isVictory = false;
-                      if (scoreMatch) {
-                        const [, score1, score2] = scoreMatch;
-                        const isUsthFirst = result.match.indexOf(team.name) < result.match.indexOf(scoreMatch[0]);
-                        isVictory = isUsthFirst ? parseInt(score1) > parseInt(score2) : parseInt(score2) > parseInt(score1);
+                      // Calculate victory based on score parsing for static results
+                      // or use isVictory from database results
+                      let isVictory = (result as any).isVictory;
+                      if (isVictory === undefined) {
+                        const scorePattern = /(\d+)\s*-\s*(\d+)/;
+                        const scoreMatch = result.match.match(scorePattern);
+                        if (scoreMatch) {
+                          const [, score1, score2] = scoreMatch;
+                          const isUsthFirst = result.match.indexOf(team.name) < result.match.indexOf(scoreMatch[0]);
+                          isVictory = isUsthFirst ? parseInt(score1) > parseInt(score2) : parseInt(score2) > parseInt(score1);
+                        } else {
+                          isVictory = false;
+                        }
                       }
                       
                       return (
