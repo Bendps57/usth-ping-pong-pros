@@ -6,6 +6,7 @@ import championnatJ6Resultats from "@/assets/championnat-j6-resultats.jpg";
 import interviewPresident from "@/assets/interview-president.jpg";
 import noelUsth from "@/assets/noel-usth.jpg";
 import coupeMirabelle2Tour from "@/assets/coupe-mirabelle-2tour.jpg";
+import doubleMontee2026 from "@/assets/double-montee-2026.jpg";
 
 export interface Article {
   id: string;
@@ -19,6 +20,52 @@ export interface Article {
 // Articles data - centralized source of truth
 // Add new articles at the TOP of this array (most recent first)
 export const articles: Article[] = [
+  {
+    id: "double-montee-reprise-2026",
+    title: "Double Montée et Reprise du Championnat !",
+    date: "jeudi 6 février 2026",
+    image: doubleMontee2026,
+    excerpt: "Quelle fierté pour le CLUB USTH TT ! La phase 1 s'est terminée en beauté et nos équipes attaquent la phase 2 avec de nouveaux défis à relever.",
+    content: `🏆 DOUBLE MONTÉE ET REPRISE DU CHAMPIONNAT ! 🏓
+
+Quelle fierté pour le CLUB USTH TT ! La phase 1 s'est terminée en beauté et nos équipes attaquent la phase 2 avec de nouveaux défis à relever.
+
+Voici le programme de ce week-end de reprise qui s'annonce intense :
+
+
+🥇 ÉQUIPE 1 : DIRECTION LA GE5 !
+
+Après une montée méritée, nos joueurs débutent leur aventure en GE5.
+
+📅 Samedi 7 février
+🆚 Contre Thionville TT
+🏠 À domicile (Venez les encourager !)
+
+
+🥈 ÉQUIPE 2 : CAP SUR LA GE6 !
+
+Eux aussi montent d'un cran ! Le coup d'envoi est imminent.
+
+📅 Vendredi 6 février (ce soir !)
+🆚 Contre Konacker Hayange SLTT
+📍 À l'extérieur (Konacker)
+🕐 Match à 20h00
+
+
+💪 ÉQUIPE 3 : ON LÂCHE RIEN !
+
+L'équipe 3 lance sa phase 2 avec un déplacement important.
+
+📅 Dimanche 8 février
+🆚 Contre Verdun
+📍 À l'extérieur (Verdun)
+🕐 Match à 14h00
+
+
+🎉 Un immense bravo à tous les joueurs pour ces accessions aux divisions supérieures. On compte sur vous pour venir soutenir nos couleurs ce week-end !
+
+Allez l'USTH ! 🍀💚`
+  },
   {
     id: "coupe-mirabelle-2tour",
     title: "Coupe Mirabelle : Un 2ème Tour Riche en Émotions !",
