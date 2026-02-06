@@ -76,10 +76,13 @@ const staticTeams = [
   }
 ];
 
-const upcomingMatches = [
+const upcomingMatchesData = [
   { tour: 7, match: "HAYANGE USTH 1 vs MANOM J.S 6", date: "11/01/2026", team: "HAYANGE USTH 1", championship: "GE6" },
   { tour: 7, match: "PAYS SIERCKOIS 3 vs HAYANGE USTH 2", date: "11/01/2026", team: "HAYANGE USTH 2", championship: "GE7" },
   { tour: 7, match: "CLOUANGE T.T 4 vs HAYANGE USTH 3", date: "11/01/2026", team: "HAYANGE USTH 3", championship: "GE7" },
+  { tour: 8, match: "HAYANGE USTH 1 vs PAYS SIERCKOIS 2", date: "25/01/2026", team: "HAYANGE USTH 1", championship: "GE6" },
+  { tour: 8, match: "HAYANGE USTH 2 vs ILLANGE USTT 6", date: "25/01/2026", team: "HAYANGE USTH 2", championship: "GE7" },
+  { tour: 8, match: "HAYANGE USTH 3 vs HAGONDANGE E.S 4", date: "25/01/2026", team: "HAYANGE USTH 3", championship: "GE7" },
 ];
 
 const Teams = () => {
@@ -107,6 +110,16 @@ const Teams = () => {
       };
     });
   }, [getResultsByTeam]);
+
+  // Filter out upcoming matches that already have results
+  const upcomingMatches = useMemo(() => {
+    return upcomingMatchesData.filter(upcoming => {
+      const teamResults = teams.find(t => t.name === upcoming.team);
+      if (!teamResults) return true;
+      // Check if this tour already has a result for this team
+      return !teamResults.results.some(r => r.tour === upcoming.tour);
+    });
+  }, [teams]);
 
   const teamNames = teams.map(t => t.name);
   
