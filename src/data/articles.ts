@@ -7,6 +7,7 @@ import interviewPresident from "@/assets/interview-president.jpg";
 import noelUsth from "@/assets/noel-usth.jpg";
 import coupeMirabelle2Tour from "@/assets/coupe-mirabelle-2tour.jpg";
 import doubleMontee2026 from "@/assets/double-montee-2026.jpg";
+import retourReseaux from "@/assets/retour-reseaux-sociaux.jpg";
 
 export interface Article {
   id: string;
