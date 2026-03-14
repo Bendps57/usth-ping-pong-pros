@@ -22,6 +22,18 @@ export interface Article {
 // Add new articles at the TOP of this array (most recent first)
 export const articles: Article[] = [
   {
+    id: "retour-reseaux-sociaux",
+    title: "Restez Connectés... Quelque Chose se Prépare !",
+    date: "vendredi 14 mars 2026",
+    image: retourReseaux,
+    excerpt: "Après une petite pause numérique, le CLUB USTH TT revient en force sur vos écrans. Résultats, coulisses et annonces : on vous prépare du lourd pour cette Phase 2 !",
+    content: `👀 RESTEZ CONNECTÉS... QUELQUE CHOSE SE PRÉPARE SUR NOS RÉSEAUX ! 🏓
+
+Après une petite pause numérique, le CLUB USTH TT revient en force sur vos écrans. Résultats, moments de vie du club, annonces de matchs et coulisses : on vous prépare du lourd pour cette deuxième phase ! 🚀
+
+Activez les notifications pour ne rien manquer des prochaines news. Ça repart... TRÈS BIENTÔT ! 🔥`
+  },
+  {
     id: "double-montee-reprise-2026",
     title: "Double Montée et Reprise du Championnat !",
     date: "jeudi 6 février 2026",
