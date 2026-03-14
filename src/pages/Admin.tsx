@@ -24,8 +24,8 @@ interface MatchResult {
 }
 
 const teams = [
-  { name: "HAYANGE USTH 1", championship: "GE6" },
-  { name: "HAYANGE USTH 2", championship: "GE7" },
+  { name: "HAYANGE USTH 1", championship: "GE5" },
+  { name: "HAYANGE USTH 2", championship: "GE6" },
   { name: "HAYANGE USTH 3", championship: "GE7" },
 ];
 
