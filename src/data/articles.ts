@@ -8,6 +8,7 @@ import noelUsth from "@/assets/noel-usth.jpg";
 import coupeMirabelle2Tour from "@/assets/coupe-mirabelle-2tour.jpg";
 import doubleMontee2026 from "@/assets/double-montee-2026.jpg";
 import retourReseaux from "@/assets/retour-reseaux-sociaux.jpg";
+import matchs22Mars from "@/assets/matchs-22mars-2026.jpg";
 
 export interface Article {
   id: string;
@@ -21,6 +22,44 @@ export interface Article {
 // Articles data - centralized source of truth
 // Add new articles at the TOP of this array (most recent first)
 export const articles: Article[] = [
+  {
+    id: "matchs-22mars-2026",
+    title: "Félix Lebrun Impérial & Agenda USTH du 22 Mars !",
+    date: "samedi 22 mars 2026",
+    image: matchs22Mars,
+    excerpt: "Félix Lebrun remporte le WTT Champions de Chongqing ! Côté USTH, nos trois équipes reprennent la compétition ce dimanche 22 mars. Programme et infos ici !",
+    content: `🏓 QUELLE JOURNÉE INCROYABLE POUR LE TENNIS DE TABLE !
+
+🇫🇷 FÉLIX LEBRUN : IMPÉRIAL À CHONGQING !
+
+C'est historique ! Notre pépite nationale, Félix Lebrun, vient de remporter le WTT Champions de Chongqing en dominant la finale 4-1 face à Wen Ruibo. Une fierté immense pour tout le ping français qui brille sur la scène mondiale ! 🏆
+
+
+📅 AGENDA USTH : LE CHAMPIONNAT CONTINUE !
+
+Inspirés par cette victoire, nos joueurs reprennent le chemin de la compétition le dimanche 22 mars. Voici le programme de nos équipes :
+
+
+🏠 ÉQUIPE 1 : DERBY À DOMICILE !
+
+Elle reçoit Terville Tennis de Table pour un derby qui s'annonce chaud !
+📍 Lieu : Salle Omnisports, Hayange
+
+
+🚗 ÉQUIPE 2 : DÉPLACEMENT À STE MARIE AUX CHÊNES
+
+Déplacement à ASP Tennis de Table Sainte Marie aux Chênes.
+📍 Lieu : Complexe Sportif, Ste Marie
+
+
+🚗 ÉQUIPE 3 : DÉPLACEMENT À DAMVILLERS
+
+Déplacement à Les Loups de Damvillers.
+📍 Lieu : Salle Municipale, Damvillers
+
+
+Venez encourager nos équipes à domicile ou suivez nos résultats ici-même ! On compte sur votre soutien pour porter haut les couleurs de HAYANGE USTH TT ! 🍀💚`
+  },
   {
     id: "retour-reseaux-sociaux",
     title: "Restez Connectés... Quelque Chose se Prépare !",
