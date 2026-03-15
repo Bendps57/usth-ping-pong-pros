@@ -8,6 +8,7 @@ import noelUsth from "@/assets/noel-usth.jpg";
 import coupeMirabelle2Tour from "@/assets/coupe-mirabelle-2tour.jpg";
 import doubleMontee2026 from "@/assets/double-montee-2026.jpg";
 import retourReseaux from "@/assets/retour-reseaux-sociaux.jpg";
+import matchs22Mars from "@/assets/matchs-22mars-2026.jpg";
 
 export interface Article {
   id: string;
