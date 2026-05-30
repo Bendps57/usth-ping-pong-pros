@@ -40,7 +40,7 @@ const players = [
 const staticTeams = [
   {
     name: "HAYANGE USTH 1",
-    championship: "GE6",
+    championship: "GE5",
     results: [
       { tour: 1, date: "28/09/2025", match: "BASSE HAM BHTT(2) 4 - 10 HAYANGE USTH 1", isHome: false },
       { tour: 2, date: "12/10/2025", match: "HAYANGE USTH 1 14 - 0 SIERCK SLPTT 1", isHome: true },
@@ -52,7 +52,7 @@ const staticTeams = [
   },
   {
     name: "HAYANGE USTH 2",
-    championship: "GE7",
+    championship: "GE6",
     results: [
       { tour: 1, date: "28/09/2025", match: "HAYANGE USTH 2 7 - 3 CLOUANGE T.T 3", isHome: true },
       { tour: 2, date: "12/10/2025", match: "ILLANGE USTT 6 4 - 6 HAYANGE USTH 2", isHome: false },
