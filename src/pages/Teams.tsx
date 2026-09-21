@@ -128,13 +128,13 @@ const Teams = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-background to-secondary/10">
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-r from-primary/10 via-primary/5 to-background">
+      <section className="relative py-10 bg-gradient-to-r from-primary/10 via-primary/5 to-background">
         <div className="container mx-auto px-6">
           <div className="text-center">
-            <h1 className="text-5xl md:text-6xl font-bold text-foreground mb-6 tracking-tight">
+            <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-3 tracking-tight">
               Nos Joueurs
             </h1>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
               Découvrez notre équipe de passionnés qui représentent l'USTH Tennis de Table
             </p>
           </div>
