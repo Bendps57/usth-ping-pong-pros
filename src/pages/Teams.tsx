@@ -81,7 +81,6 @@ const Teams = () => {
   
   const playersAnim = useScrollAnimation();
   const resultsAnim = useScrollAnimation();
-  const calendarAnim = useScrollAnimation();
 
   // Combine static and dynamic results
   const teams = useMemo(() => {
@@ -343,66 +342,6 @@ const Teams = () => {
         </div>
       </section>
 
-      {/* Calendar Section */}
-        <div className="container mx-auto px-6">
-          <div className={`mb-12 text-center transition-all duration-1000 ${
-            calendarAnim.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-          }`}>
-            <div className="inline-flex items-center gap-3 mb-4">
-              <Calendar className="h-8 w-8 text-primary" />
-              <h2 className="text-4xl font-bold text-foreground">Calendrier des Rencontres</h2>
-            </div>
-            <p className="text-lg text-muted-foreground">
-              Prochains matchs à venir
-            </p>
-          </div>
-
-          <div className={`transition-all duration-1000 delay-200 ${
-            calendarAnim.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-          }`}>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-              {displayedUpcoming.map((match, index) => (
-                <Card key={index} className="hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-primary/20 bg-gradient-to-br from-card to-primary/5">
-                  <CardHeader className="border-b border-border/50">
-                    <div className="flex items-center justify-between mb-2">
-                      <Badge className="bg-primary/90 hover:bg-primary">{match.team}</Badge>
-                      <Badge variant="outline" className="font-semibold">Tour n°{match.tour}</Badge>
-                    </div>
-                    <CardDescription className="text-muted-foreground text-sm">
-                      Championnat {match.championship} · {match.pool}
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent className="pt-6">
-                    <div className="space-y-3">
-                      <p className="text-sm font-semibold text-foreground leading-relaxed">
-                        {match.match}
-                      </p>
-                      <div className="flex items-center gap-2 pt-2 border-t border-border/50">
-                        <Calendar className="h-4 w-4 text-primary" />
-                        <p className="text-sm font-semibold text-foreground">{match.date}</p>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-            
-            {filteredUpcoming.length > 6 && (
-              <div className="mt-8 text-center">
-                <Button 
-                  variant="outline" 
-                  onClick={() => setShowAllUpcoming(!showAllUpcoming)}
-                  className="hover:bg-primary/10"
-                >
-                  {showAllUpcoming 
-                    ? 'Voir moins' 
-                    : `Voir tous les matchs (${filteredUpcoming.length})`}
-                </Button>
-              </div>
-            )}
-          </div>
-        </div>
-      </section>
     </div>
   );
 };
