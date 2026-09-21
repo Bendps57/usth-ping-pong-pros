@@ -42,6 +42,7 @@ const players = [
 type StaticTeam = {
   name: string;
   championship: string;
+  pool: string;
   results: FormattedResult[];
 };
 
@@ -49,24 +50,27 @@ const staticTeams: StaticTeam[] = [
   {
     name: "HAYANGE USTH 1",
     championship: "GE5",
+    pool: "Poule 5",
     results: []
   },
   {
     name: "HAYANGE USTH 2",
     championship: "GE7",
+    pool: "Poule 12",
     results: []
   },
   {
     name: "HAYANGE USTH 3",
     championship: "GE7",
+    pool: "Poule 13",
     results: []
   }
 ];
 
 const upcomingMatchesData = [
-  { tour: 10, match: "HAYANGE USTH 1 vs à définir", date: "À venir", team: "HAYANGE USTH 1", championship: "GE5" },
-  { tour: 10, match: "HAYANGE USTH 2 vs à définir", date: "À venir", team: "HAYANGE USTH 2", championship: "GE7" },
-  { tour: 10, match: "HAYANGE USTH 3 vs à définir", date: "À venir", team: "HAYANGE USTH 3", championship: "GE7" },
+  { tour: 2, match: "HAYANGE USTH 1 vs à définir", date: "À venir", team: "HAYANGE USTH 1", championship: "GE5", pool: "Poule 5" },
+  { tour: 2, match: "HAYANGE USTH 2 vs à définir", date: "À venir", team: "HAYANGE USTH 2", championship: "GE7", pool: "Poule 12" },
+  { tour: 2, match: "HAYANGE USTH 3 vs à définir", date: "À venir", team: "HAYANGE USTH 3", championship: "GE7", pool: "Poule 13" },
 ];
 
 const Teams = () => {
@@ -199,6 +203,9 @@ const Teams = () => {
                     <Badge variant="secondary" className="mt-2 bg-primary/10 text-primary hover:bg-primary/20 text-sm font-semibold">
                       Championnat {team.championship}
                     </Badge>
+                    <Badge variant="outline" className="mt-2 ml-2 text-sm font-semibold">
+                      {team.pool}
+                    </Badge>
                   </CardDescription>
                 </CardHeader>
               </Card>
@@ -326,7 +333,7 @@ const Teams = () => {
                       <Badge variant="outline" className="font-semibold">Tour n°{match.tour}</Badge>
                     </div>
                     <CardDescription className="text-muted-foreground text-sm">
-                      Championnat {match.championship}
+                      Championnat {match.championship} · {match.pool}
                     </CardDescription>
                   </CardHeader>
                   <CardContent className="pt-6">
