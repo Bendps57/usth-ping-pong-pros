@@ -1,4 +1,4 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardHeader } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
@@ -178,7 +178,7 @@ const Teams = () => {
                         <div className="h-1 w-10 bg-gradient-to-r from-primary to-primary/50 rounded" />
                         {team.name}
                       </h3>
-                      <div className="flex flex-wrap items-center gap-2 pl-13">
+                      <div className="flex flex-wrap items-center gap-2 pl-[3.25rem]">
                         <Badge variant="secondary" className="bg-primary/10 text-primary hover:bg-primary/20 text-xs font-semibold">
                           Championnat {team.championship}
                         </Badge>
