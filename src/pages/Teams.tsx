@@ -159,67 +159,73 @@ const Teams = () => {
             />
           </div>
 
-          <div className={`space-y-12 transition-all duration-1000 delay-200 ${
+          <div className={`transition-all duration-1000 delay-200 ${
             resultsAnim.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}>
-            {filteredTeams.map((team, teamIndex) => {
-              const displayedResults = showAllResults 
-                ? team.results 
-                : team.results.slice(0, RESULTS_LIMIT);
-              
-              return (
-                <div key={teamIndex}>
-                  <h3 className="text-2xl font-bold text-foreground mb-6 flex items-center gap-3">
-                    <div className="h-1 w-12 bg-gradient-to-r from-primary to-primary/50 rounded" />
-                    {team.name}
-                  </h3>
-                  {team.results.length === 0 && (
-                    <p className="text-sm text-muted-foreground italic">
-                      Aucun résultat enregistré pour le moment.
-                    </p>
-                  )}
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {displayedResults.map((result, resultIndex) => {
-                      // Calculate victory based on score parsing for static results
-                      // or use isVictory from database results
-                      let isVictory = (result as any).isVictory;
-                      if (isVictory === undefined) {
-                        const scorePattern = /(\d+)\s*-\s*(\d+)/;
-                        const scoreMatch = result.match.match(scorePattern);
-                        if (scoreMatch) {
-                          const [, score1, score2] = scoreMatch;
-                          const isUsthFirst = result.match.indexOf(team.name) < result.match.indexOf(scoreMatch[0]);
-                          isVictory = isUsthFirst ? parseInt(score1) > parseInt(score2) : parseInt(score2) > parseInt(score1);
-                        } else {
-                          isVictory = false;
+            <div className={`grid grid-cols-1 gap-8 items-start ${
+              filteredTeams.length === 1 ? 'lg:grid-cols-1 max-w-2xl mx-auto'
+              : filteredTeams.length === 2 ? 'lg:grid-cols-2'
+              : 'lg:grid-cols-3'
+            }`}>
+              {filteredTeams.map((team, teamIndex) => {
+                const displayedResults = showAllResults 
+                  ? team.results 
+                  : team.results.slice(0, RESULTS_LIMIT);
+                
+                return (
+                  <div key={teamIndex} className="flex flex-col gap-4">
+                    <h3 className="text-xl font-bold text-foreground flex items-center gap-3">
+                      <div className="h-1 w-10 bg-gradient-to-r from-primary to-primary/50 rounded" />
+                      {team.name}
+                    </h3>
+                    {team.results.length === 0 && (
+                      <p className="text-sm text-muted-foreground italic">
+                        Aucun résultat enregistré pour le moment.
+                      </p>
+                    )}
+                    <div className="flex flex-col gap-4">
+                      {displayedResults.map((result, resultIndex) => {
+                        // Calculate victory based on score parsing for static results
+                        // or use isVictory from database results
+                        let isVictory = (result as any).isVictory;
+                        if (isVictory === undefined) {
+                          const scorePattern = /(\d+)\s*-\s*(\d+)/;
+                          const scoreMatch = result.match.match(scorePattern);
+                          if (scoreMatch) {
+                            const [, score1, score2] = scoreMatch;
+                            const isUsthFirst = result.match.indexOf(team.name) < result.match.indexOf(scoreMatch[0]);
+                            isVictory = isUsthFirst ? parseInt(score1) > parseInt(score2) : parseInt(score2) > parseInt(score1);
+                          } else {
+                            isVictory = false;
+                          }
                         }
-                      }
-                      
-                      return (
-                        <MatchResultCard 
-                          key={resultIndex} 
-                          result={result} 
-                          isVictory={isVictory}
-                        />
-                      );
-                    })}
-                  </div>
-                  {team.results.length > RESULTS_LIMIT && !showAllResults && (
-                    <div className="mt-6 text-center">
-                      <Button 
-                        variant="outline" 
-                        onClick={() => setShowAllResults(true)}
-                        className="hover:bg-primary/10"
-                      >
-                        Voir tous les résultats ({team.results.length})
-                      </Button>
+                        
+                        return (
+                          <MatchResultCard 
+                            key={resultIndex} 
+                            result={result} 
+                            isVictory={isVictory}
+                          />
+                        );
+                      })}
                     </div>
-                  )}
-                </div>
-              );
-            })}
+                    {team.results.length > RESULTS_LIMIT && !showAllResults && (
+                      <div className="text-center">
+                        <Button 
+                          variant="outline" 
+                          onClick={() => setShowAllResults(true)}
+                          className="hover:bg-primary/10"
+                        >
+                          Voir tous les résultats ({team.results.length})
+                        </Button>
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
             {showAllResults && (
-              <div className="text-center">
+              <div className="text-center mt-8">
                 <Button 
                   variant="outline" 
                   onClick={() => setShowAllResults(false)}
