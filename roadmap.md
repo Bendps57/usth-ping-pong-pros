@@ -4,4 +4,4 @@
 - [x] Afficher les poules : E1 poule 5, E2 poule 12, E3 poule 13
 - [x] Page Équipes : réordonner les sections → Résultats, puis Équipes, puis Joueurs
 - [x] Réduire le bandeau « Nos Joueurs » et renommer « Résultats Actuels » → « Résultats 2026-2027 »
-- [ ] Afficher chaque équipe et ses résultats en colonne
+- [x] Afficher chaque équipe et ses résultats en colonne
