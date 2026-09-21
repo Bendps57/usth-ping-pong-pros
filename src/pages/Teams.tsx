@@ -128,13 +128,13 @@ const Teams = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-background to-secondary/10">
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-r from-primary/10 via-primary/5 to-background">
+      <section className="relative py-10 bg-gradient-to-r from-primary/10 via-primary/5 to-background">
         <div className="container mx-auto px-6">
           <div className="text-center">
-            <h1 className="text-5xl md:text-6xl font-bold text-foreground mb-6 tracking-tight">
+            <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-3 tracking-tight">
               Nos Joueurs
             </h1>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
               Découvrez notre équipe de passionnés qui représentent l'USTH Tennis de Table
             </p>
           </div>
@@ -142,12 +142,12 @@ const Teams = () => {
       </section>
 
       {/* Results Section */}
-      <section className="py-20 bg-background" ref={resultsAnim.ref}>
+      <section className="py-12 bg-background" ref={resultsAnim.ref}>
         <div className="container mx-auto px-6">
-          <div className={`mb-12 text-center transition-all duration-1000 ${
+          <div className={`mb-10 text-center transition-all duration-1000 ${
             resultsAnim.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}>
-            <h2 className="text-4xl font-bold text-foreground mb-4">Résultats Actuels</h2>
+            <h2 className="text-4xl font-bold text-foreground mb-4">Résultats 2026-2027</h2>
             <p className="text-lg text-muted-foreground mb-8">
               Les dernières performances de nos équipes
             </p>
@@ -159,67 +159,73 @@ const Teams = () => {
             />
           </div>
 
-          <div className={`space-y-12 transition-all duration-1000 delay-200 ${
+          <div className={`transition-all duration-1000 delay-200 ${
             resultsAnim.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}>
-            {filteredTeams.map((team, teamIndex) => {
-              const displayedResults = showAllResults 
-                ? team.results 
-                : team.results.slice(0, RESULTS_LIMIT);
-              
-              return (
-                <div key={teamIndex}>
-                  <h3 className="text-2xl font-bold text-foreground mb-6 flex items-center gap-3">
-                    <div className="h-1 w-12 bg-gradient-to-r from-primary to-primary/50 rounded" />
-                    {team.name}
-                  </h3>
-                  {team.results.length === 0 && (
-                    <p className="text-sm text-muted-foreground italic">
-                      Aucun résultat enregistré pour le moment.
-                    </p>
-                  )}
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {displayedResults.map((result, resultIndex) => {
-                      // Calculate victory based on score parsing for static results
-                      // or use isVictory from database results
-                      let isVictory = (result as any).isVictory;
-                      if (isVictory === undefined) {
-                        const scorePattern = /(\d+)\s*-\s*(\d+)/;
-                        const scoreMatch = result.match.match(scorePattern);
-                        if (scoreMatch) {
-                          const [, score1, score2] = scoreMatch;
-                          const isUsthFirst = result.match.indexOf(team.name) < result.match.indexOf(scoreMatch[0]);
-                          isVictory = isUsthFirst ? parseInt(score1) > parseInt(score2) : parseInt(score2) > parseInt(score1);
-                        } else {
-                          isVictory = false;
+            <div className={`grid grid-cols-1 gap-8 items-start ${
+              filteredTeams.length === 1 ? 'lg:grid-cols-1 max-w-2xl mx-auto'
+              : filteredTeams.length === 2 ? 'lg:grid-cols-2'
+              : 'lg:grid-cols-3'
+            }`}>
+              {filteredTeams.map((team, teamIndex) => {
+                const displayedResults = showAllResults 
+                  ? team.results 
+                  : team.results.slice(0, RESULTS_LIMIT);
+                
+                return (
+                  <div key={teamIndex} className="flex flex-col gap-4">
+                    <h3 className="text-xl font-bold text-foreground flex items-center gap-3">
+                      <div className="h-1 w-10 bg-gradient-to-r from-primary to-primary/50 rounded" />
+                      {team.name}
+                    </h3>
+                    {team.results.length === 0 && (
+                      <p className="text-sm text-muted-foreground italic">
+                        Aucun résultat enregistré pour le moment.
+                      </p>
+                    )}
+                    <div className="flex flex-col gap-4">
+                      {displayedResults.map((result, resultIndex) => {
+                        // Calculate victory based on score parsing for static results
+                        // or use isVictory from database results
+                        let isVictory = (result as any).isVictory;
+                        if (isVictory === undefined) {
+                          const scorePattern = /(\d+)\s*-\s*(\d+)/;
+                          const scoreMatch = result.match.match(scorePattern);
+                          if (scoreMatch) {
+                            const [, score1, score2] = scoreMatch;
+                            const isUsthFirst = result.match.indexOf(team.name) < result.match.indexOf(scoreMatch[0]);
+                            isVictory = isUsthFirst ? parseInt(score1) > parseInt(score2) : parseInt(score2) > parseInt(score1);
+                          } else {
+                            isVictory = false;
+                          }
                         }
-                      }
-                      
-                      return (
-                        <MatchResultCard 
-                          key={resultIndex} 
-                          result={result} 
-                          isVictory={isVictory}
-                        />
-                      );
-                    })}
-                  </div>
-                  {team.results.length > RESULTS_LIMIT && !showAllResults && (
-                    <div className="mt-6 text-center">
-                      <Button 
-                        variant="outline" 
-                        onClick={() => setShowAllResults(true)}
-                        className="hover:bg-primary/10"
-                      >
-                        Voir tous les résultats ({team.results.length})
-                      </Button>
+                        
+                        return (
+                          <MatchResultCard 
+                            key={resultIndex} 
+                            result={result} 
+                            isVictory={isVictory}
+                          />
+                        );
+                      })}
                     </div>
-                  )}
-                </div>
-              );
-            })}
+                    {team.results.length > RESULTS_LIMIT && !showAllResults && (
+                      <div className="text-center">
+                        <Button 
+                          variant="outline" 
+                          onClick={() => setShowAllResults(true)}
+                          className="hover:bg-primary/10"
+                        >
+                          Voir tous les résultats ({team.results.length})
+                        </Button>
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
             {showAllResults && (
-              <div className="text-center">
+              <div className="text-center mt-8">
                 <Button 
                   variant="outline" 
                   onClick={() => setShowAllResults(false)}
