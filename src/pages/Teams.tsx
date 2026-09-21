@@ -1,9 +1,9 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardHeader } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import { useMatchResults, type FormattedResult } from "@/hooks/use-match-results";
-import { Users, Trophy, Calendar } from "lucide-react";
+import { Users, Calendar } from "lucide-react";
 import { MatchResultCard } from "@/components/MatchResultCard";
 import { MatchFilters } from "@/components/MatchFilters";
 import { useState, useMemo } from "react";
@@ -80,9 +80,7 @@ const Teams = () => {
   const { getResultsByTeam, isLoading } = useMatchResults();
   
   const playersAnim = useScrollAnimation();
-  const teamsAnim = useScrollAnimation();
   const resultsAnim = useScrollAnimation();
-  const calendarAnim = useScrollAnimation();
 
   // Combine static and dynamic results
   const teams = useMemo(() => {
@@ -174,10 +172,20 @@ const Teams = () => {
                 
                 return (
                   <div key={teamIndex} className="flex flex-col gap-4">
-                    <h3 className="text-xl font-bold text-foreground flex items-center gap-3">
-                      <div className="h-1 w-10 bg-gradient-to-r from-primary to-primary/50 rounded" />
-                      {team.name}
-                    </h3>
+                    <div className="flex flex-col gap-2">
+                      <h3 className="text-xl font-bold text-foreground flex items-center gap-3">
+                        <div className="h-1 w-10 bg-gradient-to-r from-primary to-primary/50 rounded" />
+                        {team.name}
+                      </h3>
+                      <div className="flex flex-wrap items-center gap-2 pl-[3.25rem]">
+                        <Badge variant="secondary" className="bg-primary/10 text-primary hover:bg-primary/20 text-xs font-semibold">
+                          Championnat {team.championship}
+                        </Badge>
+                        <Badge variant="outline" className="text-xs font-semibold">
+                          {team.pool}
+                        </Badge>
+                      </div>
+                    </div>
                     {team.results.length === 0 && (
                       <p className="text-sm text-muted-foreground italic">
                         Aucun résultat enregistré pour le moment.
@@ -236,47 +244,69 @@ const Teams = () => {
               </div>
             )}
           </div>
-        </div>
-      </section>
 
-      {/* Teams Section */}
-      <section className="py-20 bg-secondary/5" ref={teamsAnim.ref}>
-        <div className="container mx-auto px-6">
-          <div className={`mb-12 text-center transition-all duration-1000 ${
-            teamsAnim.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-          }`}>
-            <div className="inline-flex items-center gap-3 mb-4">
-              <Trophy className="h-8 w-8 text-primary" />
-              <h2 className="text-4xl font-bold text-foreground">Nos Équipes</h2>
+          {/* Upcoming matches — same level as results */}
+          <div className="mt-16 pt-10 border-t border-border/50">
+            <div className="mb-8 flex flex-col items-center text-center">
+              <div className="inline-flex items-center gap-3 mb-2">
+                <Calendar className="h-7 w-7 text-primary" />
+                <h3 className="text-3xl font-bold text-foreground">Calendrier des Rencontres</h3>
+              </div>
+              <p className="text-muted-foreground">
+                Prochains matchs à venir
+              </p>
             </div>
-            <p className="text-lg text-muted-foreground">
-              3 équipes en compétition cette saison
-            </p>
-          </div>
 
-          <div className={`grid grid-cols-1 lg:grid-cols-3 gap-8 transition-all duration-1000 delay-200 ${
-            teamsAnim.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-          }`}>
-            {teams.map((team, index) => (
-              <Card key={index} className="hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-primary/20 bg-gradient-to-br from-card to-card/50">
-                <CardHeader className="border-b border-border/50 bg-gradient-to-r from-primary/10 to-transparent">
-                  <CardTitle className="text-2xl font-bold text-foreground">{team.name}</CardTitle>
-                  <CardDescription>
-                    <Badge variant="secondary" className="mt-2 bg-primary/10 text-primary hover:bg-primary/20 text-sm font-semibold">
-                      Championnat {team.championship}
-                    </Badge>
-                    <Badge variant="outline" className="mt-2 ml-2 text-sm font-semibold">
-                      {team.pool}
-                    </Badge>
-                  </CardDescription>
-                </CardHeader>
-              </Card>
-            ))}
+            {displayedUpcoming.length === 0 && (
+              <p className="text-sm text-muted-foreground italic text-center">
+                Aucun match programmé pour le moment.
+              </p>
+            )}
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {displayedUpcoming.map((match, index) => (
+                <Card key={index} className="hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-primary/20 bg-gradient-to-br from-card to-primary/5">
+                  <CardHeader className="border-b border-border/50">
+                    <div className="flex items-center justify-between mb-2">
+                      <Badge className="bg-primary/90 hover:bg-primary">{match.team}</Badge>
+                      <Badge variant="outline" className="font-semibold">Tour n°{match.tour}</Badge>
+                    </div>
+                    <CardDescription className="text-muted-foreground text-sm">
+                      Championnat {match.championship} · {match.pool}
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent className="pt-6">
+                    <div className="space-y-3">
+                      <p className="text-sm font-semibold text-foreground leading-relaxed">
+                        {match.match}
+                      </p>
+                      <div className="flex items-center gap-2 pt-2 border-t border-border/50">
+                        <Calendar className="h-4 w-4 text-primary" />
+                        <p className="text-sm font-semibold text-foreground">{match.date}</p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+
+            {filteredUpcoming.length > 6 && (
+              <div className="mt-8 text-center">
+                <Button 
+                  variant="outline" 
+                  onClick={() => setShowAllUpcoming(!showAllUpcoming)}
+                  className="hover:bg-primary/10"
+                >
+                  {showAllUpcoming 
+                    ? 'Voir moins' 
+                    : `Voir tous les matchs (${filteredUpcoming.length})`}
+                </Button>
+              </div>
+            )}
           </div>
         </div>
       </section>
 
-      {/* Players Section */}
       <section className="py-20 bg-background" ref={playersAnim.ref}>
         <div className="container mx-auto px-6">
           <div className={`mb-12 text-center transition-all duration-1000 ${
@@ -312,67 +342,6 @@ const Teams = () => {
         </div>
       </section>
 
-      {/* Calendar Section */}
-      <section className="py-20 bg-gradient-to-b from-secondary/5 to-background" ref={calendarAnim.ref}>
-        <div className="container mx-auto px-6">
-          <div className={`mb-12 text-center transition-all duration-1000 ${
-            calendarAnim.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-          }`}>
-            <div className="inline-flex items-center gap-3 mb-4">
-              <Calendar className="h-8 w-8 text-primary" />
-              <h2 className="text-4xl font-bold text-foreground">Calendrier des Rencontres</h2>
-            </div>
-            <p className="text-lg text-muted-foreground">
-              Prochains matchs à venir
-            </p>
-          </div>
-
-          <div className={`transition-all duration-1000 delay-200 ${
-            calendarAnim.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-          }`}>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-              {displayedUpcoming.map((match, index) => (
-                <Card key={index} className="hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-primary/20 bg-gradient-to-br from-card to-primary/5">
-                  <CardHeader className="border-b border-border/50">
-                    <div className="flex items-center justify-between mb-2">
-                      <Badge className="bg-primary/90 hover:bg-primary">{match.team}</Badge>
-                      <Badge variant="outline" className="font-semibold">Tour n°{match.tour}</Badge>
-                    </div>
-                    <CardDescription className="text-muted-foreground text-sm">
-                      Championnat {match.championship} · {match.pool}
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent className="pt-6">
-                    <div className="space-y-3">
-                      <p className="text-sm font-semibold text-foreground leading-relaxed">
-                        {match.match}
-                      </p>
-                      <div className="flex items-center gap-2 pt-2 border-t border-border/50">
-                        <Calendar className="h-4 w-4 text-primary" />
-                        <p className="text-sm font-semibold text-foreground">{match.date}</p>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-            
-            {filteredUpcoming.length > 6 && (
-              <div className="mt-8 text-center">
-                <Button 
-                  variant="outline" 
-                  onClick={() => setShowAllUpcoming(!showAllUpcoming)}
-                  className="hover:bg-primary/10"
-                >
-                  {showAllUpcoming 
-                    ? 'Voir moins' 
-                    : `Voir tous les matchs (${filteredUpcoming.length})`}
-                </Button>
-              </div>
-            )}
-          </div>
-        </div>
-      </section>
     </div>
   );
 };
