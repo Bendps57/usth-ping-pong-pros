@@ -2,7 +2,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
-import { useMatchResults } from "@/hooks/use-match-results";
+import { useMatchResults, type FormattedResult } from "@/hooks/use-match-results";
 import { Users, Trophy, Calendar } from "lucide-react";
 import { MatchResultCard } from "@/components/MatchResultCard";
 import { MatchFilters } from "@/components/MatchFilters";
@@ -38,49 +38,34 @@ const players = [
   "David POLI"
 ];
 
-// Static data for initial results
-const staticTeams = [
+// Les résultats sont désormais saisis depuis l'espace administration
+type StaticTeam = {
+  name: string;
+  championship: string;
+  results: FormattedResult[];
+};
+
+const staticTeams: StaticTeam[] = [
   {
     name: "HAYANGE USTH 1",
     championship: "GE5",
-    results: [
-      { tour: 1, date: "28/09/2025", match: "BASSE HAM BHTT(2) 4 - 10 HAYANGE USTH 1", isHome: false },
-      { tour: 2, date: "12/10/2025", match: "HAYANGE USTH 1 14 - 0 SIERCK SLPTT 1", isHome: true },
-      { tour: 3, date: "09/11/2025", match: "TERVILLE TT 8 9 - 5 HAYANGE USTH 1", isHome: false },
-      { tour: 4, date: "16/11/2025", match: "ILLANGE USTT 5 6 - 8 HAYANGE USTH 1", isHome: false },
-      { tour: 5, date: "30/11/2025", match: "HAYANGE USTH 1 11 - 3 AUDUN LE ROMAN 8", isHome: true },
-      { tour: 6, date: "14/12/2025", match: "ROUSSY TT 2 5 - 9 HAYANGE USTH 1", isHome: false }
-    ]
+    results: []
   },
   {
     name: "HAYANGE USTH 2",
-    championship: "GE6",
-    results: [
-      { tour: 1, date: "28/09/2025", match: "HAYANGE USTH 2 7 - 3 CLOUANGE T.T 3", isHome: true },
-      { tour: 2, date: "12/10/2025", match: "ILLANGE USTT 6 4 - 6 HAYANGE USTH 2", isHome: false },
-      { tour: 3, date: "09/11/2025", match: "HAYANGE USTH 2 9 - 1 BASSE HAM BHTT 3", isHome: true },
-      { tour: 4, date: "16/11/2025", match: "KNUT-NILV TT 8 0 - 10 HAYANGE USTH 2", isHome: false },
-      { tour: 5, date: "30/11/2025", match: "HAYANGE USTH 2 10 - 0 THIONVILLE TT 10", isHome: true },
-      { tour: 6, date: "14/12/2025", match: "HAYANGE USTH 2 9 - 1 TERVILLE TT 9", isHome: true }
-    ]
+    championship: "GE7",
+    results: []
   },
   {
     name: "HAYANGE USTH 3",
     championship: "GE7",
-    results: [
-      { tour: 1, date: "28/09/2025", match: "HAYANGE USTH 3 0 - 10 HAGONDANGE E.S 4", isHome: true },
-      { tour: 2, date: "12/10/2025", match: "TERVILLE TT 11 4 - 6 HAYANGE USTH 3", isHome: false },
-      { tour: 3, date: "09/11/2025", match: "HAYANGE USTH 3 9 - 1 KNUT-NILV TT 7", isHome: true },
-      { tour: 4, date: "16/11/2025", match: "HAYANGE USTH 3 9 - 1 MAIZIERES 13", isHome: true },
-      { tour: 5, date: "30/11/2025", match: "T.T Amneville 7 8 - 2 HAYANGE USTH 3", isHome: false },
-      { tour: 6, date: "14/12/2025", match: "HAYANGE USTH 3 0 - 10 MAIZIERES 12", isHome: true }
-    ]
+    results: []
   }
 ];
 
 const upcomingMatchesData = [
   { tour: 10, match: "HAYANGE USTH 1 vs à définir", date: "À venir", team: "HAYANGE USTH 1", championship: "GE5" },
-  { tour: 10, match: "HAYANGE USTH 2 vs à définir", date: "À venir", team: "HAYANGE USTH 2", championship: "GE6" },
+  { tour: 10, match: "HAYANGE USTH 2 vs à définir", date: "À venir", team: "HAYANGE USTH 2", championship: "GE7" },
   { tour: 10, match: "HAYANGE USTH 3 vs à définir", date: "À venir", team: "HAYANGE USTH 3", championship: "GE7" },
 ];
 
