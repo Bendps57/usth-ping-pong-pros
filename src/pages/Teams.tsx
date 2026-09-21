@@ -142,12 +142,12 @@ const Teams = () => {
       </section>
 
       {/* Results Section */}
-      <section className="py-20 bg-background" ref={resultsAnim.ref}>
+      <section className="py-12 bg-background" ref={resultsAnim.ref}>
         <div className="container mx-auto px-6">
-          <div className={`mb-12 text-center transition-all duration-1000 ${
+          <div className={`mb-10 text-center transition-all duration-1000 ${
             resultsAnim.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}>
-            <h2 className="text-4xl font-bold text-foreground mb-4">Résultats Actuels</h2>
+            <h2 className="text-4xl font-bold text-foreground mb-4">Résultats 2026-2027</h2>
             <p className="text-lg text-muted-foreground mb-8">
               Les dernières performances de nos équipes
             </p>
