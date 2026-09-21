@@ -239,6 +239,11 @@ const Teams = () => {
                     <div className="h-1 w-12 bg-gradient-to-r from-primary to-primary/50 rounded" />
                     {team.name}
                   </h3>
+                  {team.results.length === 0 && (
+                    <p className="text-sm text-muted-foreground italic">
+                      Aucun résultat enregistré pour le moment.
+                    </p>
+                  )}
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {displayedResults.map((result, resultIndex) => {
                       // Calculate victory based on score parsing for static results
