@@ -5,3 +5,5 @@
 - [x] Page Équipes : réordonner les sections → Résultats, puis Équipes, puis Joueurs
 - [x] Réduire le bandeau « Nos Joueurs » et renommer « Résultats Actuels » → « Résultats 2026-2027 »
 - [x] Afficher chaque équipe et ses résultats en colonne
+- [x] Retirer la section « Nos Équipes », afficher championnat + poule sur les résultats
+- [ ] Remonter le calendrier des rencontres au niveau des résultats
