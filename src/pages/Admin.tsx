@@ -24,9 +24,9 @@ interface MatchResult {
 }
 
 const teams = [
-  { name: "HAYANGE USTH 1", championship: "GE5" },
-  { name: "HAYANGE USTH 2", championship: "GE7" },
-  { name: "HAYANGE USTH 3", championship: "GE7" },
+  { name: "HAYANGE USTH 1", championship: "GE5", pool: "Poule 5" },
+  { name: "HAYANGE USTH 2", championship: "GE7", pool: "Poule 12" },
+  { name: "HAYANGE USTH 3", championship: "GE7", pool: "Poule 13" },
 ];
 
 const Admin = () => {
@@ -198,7 +198,7 @@ const Admin = () => {
                     <SelectContent>
                       {teams.map((team) => (
                         <SelectItem key={team.name} value={team.name}>
-                          {team.name} ({team.championship})
+                          {team.name} ({team.championship} · {team.pool})
                         </SelectItem>
                       ))}
                     </SelectContent>

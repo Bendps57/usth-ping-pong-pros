@@ -42,6 +42,7 @@ const players = [
 type StaticTeam = {
   name: string;
   championship: string;
+  pool: string;
   results: FormattedResult[];
 };
 
@@ -49,24 +50,27 @@ const staticTeams: StaticTeam[] = [
   {
     name: "HAYANGE USTH 1",
     championship: "GE5",
+    pool: "Poule 5",
     results: []
   },
   {
     name: "HAYANGE USTH 2",
     championship: "GE7",
+    pool: "Poule 12",
     results: []
   },
   {
     name: "HAYANGE USTH 3",
     championship: "GE7",
+    pool: "Poule 13",
     results: []
   }
 ];
 
 const upcomingMatchesData = [
-  { tour: 10, match: "HAYANGE USTH 1 vs à définir", date: "À venir", team: "HAYANGE USTH 1", championship: "GE5" },
-  { tour: 10, match: "HAYANGE USTH 2 vs à définir", date: "À venir", team: "HAYANGE USTH 2", championship: "GE7" },
-  { tour: 10, match: "HAYANGE USTH 3 vs à définir", date: "À venir", team: "HAYANGE USTH 3", championship: "GE7" },
+  { tour: 2, match: "HAYANGE USTH 1 vs à définir", date: "À venir", team: "HAYANGE USTH 1", championship: "GE5", pool: "Poule 5" },
+  { tour: 2, match: "HAYANGE USTH 2 vs à définir", date: "À venir", team: "HAYANGE USTH 2", championship: "GE7", pool: "Poule 12" },
+  { tour: 2, match: "HAYANGE USTH 3 vs à définir", date: "À venir", team: "HAYANGE USTH 3", championship: "GE7", pool: "Poule 13" },
 ];
 
 const Teams = () => {
@@ -133,76 +137,6 @@ const Teams = () => {
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               Découvrez notre équipe de passionnés qui représentent l'USTH Tennis de Table
             </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Players Section */}
-      <section className="py-20 bg-background" ref={playersAnim.ref}>
-        <div className="container mx-auto px-6">
-          <div className={`mb-12 text-center transition-all duration-1000 ${
-            playersAnim.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-          }`}>
-            <div className="inline-flex items-center gap-3 mb-4">
-              <Users className="h-8 w-8 text-primary" />
-              <h2 className="text-4xl font-bold text-foreground">Nos Licenciés</h2>
-            </div>
-            <p className="text-lg text-muted-foreground">
-              {players.length} joueurs passionnés représentent notre club
-            </p>
-          </div>
-
-          <div className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 transition-all duration-1000 delay-200 ${
-            playersAnim.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-          }`}>
-            {players.map((player, index) => (
-              <Card key={index} className="hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border-border/50 bg-card">
-                <CardContent className="p-6 flex items-center gap-3">
-                  <div className="h-12 w-12 rounded-full bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center flex-shrink-0">
-                    <span className="text-primary-foreground font-bold text-lg">
-                      {player.split(' ')[0].charAt(0)}{player.split(' ')[player.split(' ').length - 1].charAt(0)}
-                    </span>
-                  </div>
-                  <div>
-                    <p className="font-semibold text-foreground text-sm leading-tight">{player}</p>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Teams Section */}
-      <section className="py-20 bg-secondary/5" ref={teamsAnim.ref}>
-        <div className="container mx-auto px-6">
-          <div className={`mb-12 text-center transition-all duration-1000 ${
-            teamsAnim.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-          }`}>
-            <div className="inline-flex items-center gap-3 mb-4">
-              <Trophy className="h-8 w-8 text-primary" />
-              <h2 className="text-4xl font-bold text-foreground">Nos Équipes</h2>
-            </div>
-            <p className="text-lg text-muted-foreground">
-              3 équipes en compétition cette saison
-            </p>
-          </div>
-
-          <div className={`grid grid-cols-1 lg:grid-cols-3 gap-8 transition-all duration-1000 delay-200 ${
-            teamsAnim.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-          }`}>
-            {teams.map((team, index) => (
-              <Card key={index} className="hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-primary/20 bg-gradient-to-br from-card to-card/50">
-                <CardHeader className="border-b border-border/50 bg-gradient-to-r from-primary/10 to-transparent">
-                  <CardTitle className="text-2xl font-bold text-foreground">{team.name}</CardTitle>
-                  <CardDescription>
-                    <Badge variant="secondary" className="mt-2 bg-primary/10 text-primary hover:bg-primary/20 text-sm font-semibold">
-                      Championnat {team.championship}
-                    </Badge>
-                  </CardDescription>
-                </CardHeader>
-              </Card>
-            ))}
           </div>
         </div>
       </section>
@@ -299,6 +233,79 @@ const Teams = () => {
         </div>
       </section>
 
+      {/* Teams Section */}
+      <section className="py-20 bg-secondary/5" ref={teamsAnim.ref}>
+        <div className="container mx-auto px-6">
+          <div className={`mb-12 text-center transition-all duration-1000 ${
+            teamsAnim.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}>
+            <div className="inline-flex items-center gap-3 mb-4">
+              <Trophy className="h-8 w-8 text-primary" />
+              <h2 className="text-4xl font-bold text-foreground">Nos Équipes</h2>
+            </div>
+            <p className="text-lg text-muted-foreground">
+              3 équipes en compétition cette saison
+            </p>
+          </div>
+
+          <div className={`grid grid-cols-1 lg:grid-cols-3 gap-8 transition-all duration-1000 delay-200 ${
+            teamsAnim.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}>
+            {teams.map((team, index) => (
+              <Card key={index} className="hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-primary/20 bg-gradient-to-br from-card to-card/50">
+                <CardHeader className="border-b border-border/50 bg-gradient-to-r from-primary/10 to-transparent">
+                  <CardTitle className="text-2xl font-bold text-foreground">{team.name}</CardTitle>
+                  <CardDescription>
+                    <Badge variant="secondary" className="mt-2 bg-primary/10 text-primary hover:bg-primary/20 text-sm font-semibold">
+                      Championnat {team.championship}
+                    </Badge>
+                    <Badge variant="outline" className="mt-2 ml-2 text-sm font-semibold">
+                      {team.pool}
+                    </Badge>
+                  </CardDescription>
+                </CardHeader>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Players Section */}
+      <section className="py-20 bg-background" ref={playersAnim.ref}>
+        <div className="container mx-auto px-6">
+          <div className={`mb-12 text-center transition-all duration-1000 ${
+            playersAnim.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}>
+            <div className="inline-flex items-center gap-3 mb-4">
+              <Users className="h-8 w-8 text-primary" />
+              <h2 className="text-4xl font-bold text-foreground">Nos Licenciés</h2>
+            </div>
+            <p className="text-lg text-muted-foreground">
+              {players.length} joueurs passionnés représentent notre club
+            </p>
+          </div>
+
+          <div className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 transition-all duration-1000 delay-200 ${
+            playersAnim.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}>
+            {players.map((player, index) => (
+              <Card key={index} className="hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border-border/50 bg-card">
+                <CardContent className="p-6 flex items-center gap-3">
+                  <div className="h-12 w-12 rounded-full bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center flex-shrink-0">
+                    <span className="text-primary-foreground font-bold text-lg">
+                      {player.split(' ')[0].charAt(0)}{player.split(' ')[player.split(' ').length - 1].charAt(0)}
+                    </span>
+                  </div>
+                  <div>
+                    <p className="font-semibold text-foreground text-sm leading-tight">{player}</p>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Calendar Section */}
       <section className="py-20 bg-gradient-to-b from-secondary/5 to-background" ref={calendarAnim.ref}>
         <div className="container mx-auto px-6">
@@ -326,7 +333,7 @@ const Teams = () => {
                       <Badge variant="outline" className="font-semibold">Tour n°{match.tour}</Badge>
                     </div>
                     <CardDescription className="text-muted-foreground text-sm">
-                      Championnat {match.championship}
+                      Championnat {match.championship} · {match.pool}
                     </CardDescription>
                   </CardHeader>
                   <CardContent className="pt-6">
