@@ -80,16 +80,16 @@ const Contact = () => {
               <Card className="p-6">
                 <h3 className="font-semibold text-lg mb-2">Comment s'inscrire au club ?</h3>
                 <p className="text-muted-foreground">
-                  Vous pouvez venir directement au gymnase pendant les horaires d'ouverture.
-                  Nous vous fournirons toutes les informations nécessaires.
+                  Venez directement au gymnase pendant les horaires d'ouverture : un membre du bureau
+                  vous accueillera et vous fournira toutes les informations nécessaires pour rejoindre le club.
                 </p>
               </Card>
 
               <Card className="p-6">
                 <h3 className="font-semibold text-lg mb-2">Quel est le tarif de la licence ?</h3>
                 <p className="text-muted-foreground">
-                  Les tarifs varient selon l'âge et le type de pratique (loisir/compétition). Contactez-nous 
-                  pour obtenir une grille tarifaire détaillée.
+                  Le tarif est de 75 € pour une saison complète. Contactez-nous au gymnase pour
+                  toute question concernant l'inscription.
                 </p>
               </Card>
 
