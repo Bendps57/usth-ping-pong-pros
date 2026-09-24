@@ -101,13 +101,6 @@ const Contact = () => {
                 </p>
               </Card>
 
-              <Card className="p-6">
-                <h3 className="font-semibold text-lg mb-2">Y a-t-il des cours pour débutants ?</h3>
-                <p className="text-muted-foreground">
-                  Oui, nous proposons des créneaux d'initiation encadrés par nos entraîneurs diplômés. 
-                  Tous les niveaux sont les bienvenus !
-                </p>
-              </Card>
             </div>
           </div>
         </div>
