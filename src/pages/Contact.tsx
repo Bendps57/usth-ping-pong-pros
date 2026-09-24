@@ -50,7 +50,6 @@ const Contact = () => {
                       <p><span className="font-medium">Mardi:</span> 20h00 - 22h30</p>
                       <p><span className="font-medium">Jeudi:</span> 15h00 - 17h00</p>
                       <p><span className="font-medium">Vendredi:</span> 20h30 - 22h30</p>
-                      <p><span className="font-medium">Samedi:</span> 15h00 - 17h00</p>
                     </div>
                   </div>
                 </div>
