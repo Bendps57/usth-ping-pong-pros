@@ -1,5 +1,5 @@
 import { Card } from "@/components/ui/card";
-import { Mail, Phone, MapPin, Clock } from "lucide-react";
+import { MapPin, Clock } from "lucide-react";
 
 const Contact = () => {
   return (
@@ -10,7 +10,7 @@ const Contact = () => {
           <h1 className="text-5xl md:text-6xl font-black mb-4 uppercase">Contactez-nous</h1>
           <div className="w-20 h-1 bg-white mx-auto mb-6"></div>
           <p className="text-xl max-w-2xl mx-auto">
-            N'hésitez pas à nous contacter par email ou téléphone
+            Retrouvez notre adresse et nos horaires d'ouverture
           </p>
         </div>
       </section>
@@ -38,39 +38,6 @@ const Contact = () => {
                 </div>
               </Card>
 
-              <Card className="p-6">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
-                    <Mail className="h-6 w-6 text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold mb-1">Email</h3>
-                    <a
-                      href="mailto:rlacy376@gmail.com"
-                      className="text-primary hover:underline"
-                    >
-                      rlacy376@gmail.com
-                    </a>
-                  </div>
-                </div>
-              </Card>
-
-              <Card className="p-6">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
-                    <Phone className="h-6 w-6 text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold mb-1">Téléphone</h3>
-                    <a
-                      href="tel:+33789026890"
-                      className="text-primary hover:underline"
-                    >
-                      07 89 02 68 90
-                    </a>
-                  </div>
-                </div>
-              </Card>
 
               <Card className="p-6">
                 <div className="flex items-start gap-4">
@@ -83,7 +50,6 @@ const Contact = () => {
                       <p><span className="font-medium">Mardi:</span> 20h00 - 22h30</p>
                       <p><span className="font-medium">Jeudi:</span> 15h00 - 17h00</p>
                       <p><span className="font-medium">Vendredi:</span> 20h30 - 22h30</p>
-                      <p><span className="font-medium">Samedi:</span> 15h00 - 17h00</p>
                     </div>
                   </div>
                 </div>
@@ -114,16 +80,16 @@ const Contact = () => {
               <Card className="p-6">
                 <h3 className="font-semibold text-lg mb-2">Comment s'inscrire au club ?</h3>
                 <p className="text-muted-foreground">
-                  Vous pouvez venir directement au gymnase pendant les horaires d'ouverture ou nous 
-                  contacter par email ou téléphone. Nous vous fournirons toutes les informations nécessaires.
+                  Venez directement au gymnase pendant les horaires d'ouverture : un membre du bureau
+                  vous accueillera et vous fournira toutes les informations nécessaires pour rejoindre le club.
                 </p>
               </Card>
 
               <Card className="p-6">
                 <h3 className="font-semibold text-lg mb-2">Quel est le tarif de la licence ?</h3>
                 <p className="text-muted-foreground">
-                  Les tarifs varient selon l'âge et le type de pratique (loisir/compétition). Contactez-nous 
-                  pour obtenir une grille tarifaire détaillée.
+                  Le tarif est de 75 € pour une saison complète. Contactez-nous au gymnase pour
+                  toute question concernant l'inscription.
                 </p>
               </Card>
 
@@ -135,13 +101,6 @@ const Contact = () => {
                 </p>
               </Card>
 
-              <Card className="p-6">
-                <h3 className="font-semibold text-lg mb-2">Y a-t-il des cours pour débutants ?</h3>
-                <p className="text-muted-foreground">
-                  Oui, nous proposons des créneaux d'initiation encadrés par nos entraîneurs diplômés. 
-                  Tous les niveaux sont les bienvenus !
-                </p>
-              </Card>
             </div>
           </div>
         </div>
