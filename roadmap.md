@@ -7,3 +7,6 @@
 - [x] Afficher chaque équipe et ses résultats en colonne
 - [x] Retirer la section « Nos Équipes », afficher championnat + poule sur les résultats
 - [x] Remonter le calendrier des rencontres au niveau des résultats
+- [x] Retirer email et téléphone des contacts (page Contact + pied de page)
+- [x] Retirer le samedi des horaires d'ouverture
+- [x] FAQ : inscription sans email/téléphone, tarif licence 75 €/saison, retirer cours débutants
