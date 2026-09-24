@@ -1,5 +1,5 @@
 import { Card } from "@/components/ui/card";
-import { Mail, Phone, MapPin, Clock } from "lucide-react";
+import { MapPin, Clock } from "lucide-react";
 
 const Contact = () => {
   return (
@@ -10,7 +10,7 @@ const Contact = () => {
           <h1 className="text-5xl md:text-6xl font-black mb-4 uppercase">Contactez-nous</h1>
           <div className="w-20 h-1 bg-white mx-auto mb-6"></div>
           <p className="text-xl max-w-2xl mx-auto">
-            N'hésitez pas à nous contacter par email ou téléphone
+            Retrouvez notre adresse et nos horaires d'ouverture
           </p>
         </div>
       </section>
@@ -38,39 +38,6 @@ const Contact = () => {
                 </div>
               </Card>
 
-              <Card className="p-6">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
-                    <Mail className="h-6 w-6 text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold mb-1">Email</h3>
-                    <a
-                      href="mailto:rlacy376@gmail.com"
-                      className="text-primary hover:underline"
-                    >
-                      rlacy376@gmail.com
-                    </a>
-                  </div>
-                </div>
-              </Card>
-
-              <Card className="p-6">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
-                    <Phone className="h-6 w-6 text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold mb-1">Téléphone</h3>
-                    <a
-                      href="tel:+33789026890"
-                      className="text-primary hover:underline"
-                    >
-                      07 89 02 68 90
-                    </a>
-                  </div>
-                </div>
-              </Card>
 
               <Card className="p-6">
                 <div className="flex items-start gap-4">
@@ -114,8 +81,8 @@ const Contact = () => {
               <Card className="p-6">
                 <h3 className="font-semibold text-lg mb-2">Comment s'inscrire au club ?</h3>
                 <p className="text-muted-foreground">
-                  Vous pouvez venir directement au gymnase pendant les horaires d'ouverture ou nous 
-                  contacter par email ou téléphone. Nous vous fournirons toutes les informations nécessaires.
+                  Vous pouvez venir directement au gymnase pendant les horaires d'ouverture.
+                  Nous vous fournirons toutes les informations nécessaires.
                 </p>
               </Card>
 
