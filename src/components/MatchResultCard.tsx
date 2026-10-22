@@ -12,9 +12,10 @@ interface MatchResult {
 interface MatchResultCardProps {
   result: MatchResult;
   isVictory: boolean;
+  isDraw?: boolean;
 }
 
-export const MatchResultCard = ({ result, isVictory }: MatchResultCardProps) => {
+export const MatchResultCard = ({ result, isVictory, isDraw }: MatchResultCardProps) => {
   const parseMatchScore = (matchText: string) => {
     const scorePattern = /(\d+)\s*-\s*(\d+)/;
     const scoreMatch = matchText.match(scorePattern);
