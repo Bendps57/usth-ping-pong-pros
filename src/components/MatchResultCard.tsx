@@ -70,7 +70,9 @@ export const MatchResultCard = ({ result, isVictory, isDraw }: MatchResultCardPr
             <div className="text-sm text-muted-foreground">{scoreData.teamBefore}</div>
             <div className="flex items-center justify-center gap-3 py-3 px-4 bg-secondary/30 rounded-lg">
               <span className={`text-3xl font-bold ${
-                scoreData.score1 > scoreData.score2 
+                scoreData.score1 === scoreData.score2 
+                  ? 'text-muted-foreground' 
+                  : scoreData.score1 > scoreData.score2 
                   ? 'text-green-600 dark:text-green-400' 
                   : 'text-red-600 dark:text-red-400'
               }`}>
@@ -78,7 +80,9 @@ export const MatchResultCard = ({ result, isVictory, isDraw }: MatchResultCardPr
               </span>
               <span className="text-2xl font-bold text-muted-foreground">-</span>
               <span className={`text-3xl font-bold ${
-                scoreData.score2 > scoreData.score1 
+                scoreData.score2 === scoreData.score1 
+                  ? 'text-muted-foreground' 
+                  : scoreData.score2 > scoreData.score1 
                   ? 'text-green-600 dark:text-green-400' 
                   : 'text-red-600 dark:text-red-400'
               }`}>
