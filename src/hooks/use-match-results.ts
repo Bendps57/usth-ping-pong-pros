@@ -19,6 +19,7 @@ export interface FormattedResult {
   match: string;
   isHome: boolean;
   isVictory: boolean;
+  isDraw: boolean;
 }
 
 export interface TeamWithResults {
@@ -34,6 +35,7 @@ const formatDate = (dateStr: string) => {
 
 const formatMatchResult = (result: DatabaseMatchResult): FormattedResult => {
   const isVictory = result.our_score > result.opponent_score;
+  const isDraw = result.our_score === result.opponent_score;
   
   // Format match string based on home/away
   let matchString: string;
@@ -48,7 +50,8 @@ const formatMatchResult = (result: DatabaseMatchResult): FormattedResult => {
     date: formatDate(result.match_date),
     match: matchString,
     isHome: result.is_home,
-    isVictory
+    isVictory,
+    isDraw
   };
 };
 

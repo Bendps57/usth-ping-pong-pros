@@ -68,9 +68,9 @@ const staticTeams: StaticTeam[] = [
 ];
 
 const upcomingMatchesData = [
-  { tour: 2, match: "HAYANGE USTH 1 vs à définir", date: "À venir", team: "HAYANGE USTH 1", championship: "GE5", pool: "Poule 5" },
-  { tour: 2, match: "HAYANGE USTH 2 vs à définir", date: "À venir", team: "HAYANGE USTH 2", championship: "GE7", pool: "Poule 12" },
-  { tour: 2, match: "HAYANGE USTH 3 vs à définir", date: "À venir", team: "HAYANGE USTH 3", championship: "GE7", pool: "Poule 13" },
+  { tour: 4, match: "HAYANGE USTH 1 vs à définir", date: "À venir", team: "HAYANGE USTH 1", championship: "GE5", pool: "Poule 5" },
+  { tour: 4, match: "HAYANGE USTH 2 vs à définir", date: "À venir", team: "HAYANGE USTH 2", championship: "GE7", pool: "Poule 12" },
+  { tour: 4, match: "HAYANGE USTH 3 vs à définir", date: "À venir", team: "HAYANGE USTH 3", championship: "GE7", pool: "Poule 13" },
 ];
 
 const Teams = () => {
@@ -207,12 +207,14 @@ const Teams = () => {
                             isVictory = false;
                           }
                         }
+                        const isDraw = (result as any).isDraw === true;
                         
                         return (
                           <MatchResultCard 
                             key={resultIndex} 
                             result={result} 
                             isVictory={isVictory}
+                            isDraw={isDraw}
                           />
                         );
                       })}
