@@ -207,12 +207,14 @@ const Teams = () => {
                             isVictory = false;
                           }
                         }
+                        const isDraw = (result as any).isDraw === true;
                         
                         return (
                           <MatchResultCard 
                             key={resultIndex} 
                             result={result} 
                             isVictory={isVictory}
+                            isDraw={isDraw}
                           />
                         );
                       })}

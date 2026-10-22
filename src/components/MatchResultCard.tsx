@@ -41,18 +41,22 @@ export const MatchResultCard = ({ result, isVictory, isDraw }: MatchResultCardPr
 
   return (
     <Card className="group overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 bg-gradient-to-br from-card via-card to-secondary/5 border-border/50">
-      <div className={`h-1.5 w-full ${isVictory ? 'bg-gradient-to-r from-green-500 to-green-600' : 'bg-gradient-to-r from-red-500 to-red-600'}`} />
+      <div className={`h-1.5 w-full ${
+        isDraw ? 'bg-gradient-to-r from-yellow-500 to-yellow-600'
+        : isVictory ? 'bg-gradient-to-r from-green-500 to-green-600' : 'bg-gradient-to-r from-red-500 to-red-600'}`} />
       <CardHeader className="pb-4 space-y-3">
         <div className="flex items-center justify-between">
           <Badge variant="outline" className="font-semibold border-primary/30 text-primary">
             Tour n°{result.tour}
           </Badge>
           <Badge className={`${
-            isVictory 
+            isDraw
+              ? 'bg-yellow-500/15 text-yellow-700 dark:text-yellow-400 border-yellow-500/30'
+              : isVictory 
               ? 'bg-green-500/15 text-green-700 dark:text-green-400 border-green-500/30' 
               : 'bg-red-500/15 text-red-700 dark:text-red-400 border-red-500/30'
             } border font-semibold px-3 py-1`}>
-            {isVictory ? '✓ Victoire' : '✗ Défaite'}
+            {isDraw ? '= Nul' : isVictory ? '✓ Victoire' : '✗ Défaite'}
           </Badge>
         </div>
         <p className="text-sm text-muted-foreground font-medium flex items-center gap-2">
