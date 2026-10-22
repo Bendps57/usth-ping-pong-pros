@@ -19,6 +19,7 @@ export interface FormattedResult {
   match: string;
   isHome: boolean;
   isVictory: boolean;
+  isDraw: boolean;
 }
 
 export interface TeamWithResults {
